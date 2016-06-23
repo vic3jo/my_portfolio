@@ -1,1 +1,23 @@
 /*style.css*/
+
+/*header h1,
+header h2{
+	color:#2B2B2B;
+
+}
+*/
+body{
+	background-color: #F6F6F6;
+	margin-top: 100px;
+}
+
+
+hr{
+	border-color: #DE1B1B;
+	border-width: 3px;
+}
+
+footer{
+	background-color: #2B2B2B;
+	color:#F6F6F6;
+}
