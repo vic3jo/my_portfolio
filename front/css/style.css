@@ -7,10 +7,13 @@ header h2{
 }
 */
 body{
-	background-color: #F6F6F6;
+	/*background-color: #F6F6F6;*/
 	margin-top: 100px;
 }
 
+.navbar h1{
+	font-weight: bold;
+}
 
 hr{
 	border-color: #DE1B1B;
@@ -20,4 +23,45 @@ hr{
 footer{
 	background-color: #2B2B2B;
 	color:#F6F6F6;
+	min-height: 100px;
 }
+
+.jumbotron{
+
+	background-color: #2B2B2B;
+	margin-top: -27px;
+}
+
+
+.jumbotron h1{
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.jumbotron h2{
+
+	color: #E9E581;
+}
+
+
+.navbar-default
+{
+	background-color: #F6F6F6;
+	border-bottom: 6px solid #DE1B1B;
+}
+
+/*.yellow .thumbnail
+{
+	background-color:#E9E581;
+}*/
+
+.page-header
+{
+	border-bottom: 3px solid #DE1B1B;
+}
+
+.page-header h1
+{
+	font-weight: bold;
+}
+
