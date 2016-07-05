@@ -1,5 +1,7 @@
-import Section from './general/Section'
 import React from 'react';
+import Section from './general/Section'
+import ListGroup from './general/ListGroup'
+import ListGroupItem from './general/ListGroupItem'
 
 class Education extends Section{
 
@@ -15,16 +17,42 @@ class Education extends Section{
 		return 'education';
 	}
 	
+	getEducationHistory()
+	{
+		return [
+			{
+				id:1,
+				career: "MS. Computer Science",
+				institution: "Rochester Institute of Technology",
+				startYear: 2014,
+				endYear: 2016
+			},
+
+			{
+				id:2,
+				career: "BS. Telecommunications Engineering",
+				institution: "Pontificia Universidad Catolica Madre y Maestra (PUCMM)",
+				startYear: 2006,
+				endYear: 2011
+			},
+
+		];
+
+	}
 
 	renderContent()
 	{
+		const items = this.getEducationHistory()
+						.map( (x) => <ListGroupItem 
+										key={x.id} 
+										title={x.career + " - " + x.institution} 
+										badge={x.startYear + "-" + x.endYear} />
+						);
+						
 		return (
-			<ul className="list-group">
-			  <li className="list-group-item">MS. Computer Science - Rochester Institute of Technology <span className="badge">2014-2016</span></li>
-			  <li className="list-group-item">BS. Telecommunications Engineering - Pontificia Universidad Catolica Madre y Maestra (PUCMM)
-			  	<span className="badge">2006-2011</span>
-			  </li>
-			</ul>
+			<ListGroup>
+				{items}
+			</ListGroup>
 		)
 	}
 }
