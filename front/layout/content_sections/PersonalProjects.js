@@ -1,18 +1,18 @@
 import React from 'react';
 import Section from './general/Section'
 
-class AcademicProjects extends Section{
+class PersonalProjects extends Section{
 
 	getTitle(){
-		return 'Academic Projects';
+		return 'Personal Projects';
 	}
 	
 	getGlyphIcon(){
-		return 'glyphicon-blackboard';
+		return 'glyphicon-sunglasses';
 	}
 
 	getId(){
-		return 'academic-projects';
+		return 'personal-projects';
 	}
 
 	renderContent()
@@ -26,7 +26,7 @@ class AcademicProjects extends Section{
 					        <h4>Course: Intelligent and Secure Systems (Fall 2015)</h4>
 					        
 					        <div className="well">
-					        	<p>This project consisted of creating Anomaly-based and Misuse-based Intrusion Detection systems using Decision Trees and Multi-Layer Perceptron Neural Network.</p>
+					        	<p>This project consisted of ...</p>
 					        </div>
 					        <p>
 					        	Language: Python. Libraries: PyBrain, Numpy.
@@ -42,4 +42,4 @@ class AcademicProjects extends Section{
 	}
 }
 
-export default AcademicProjects;
+export default PersonalProjects;

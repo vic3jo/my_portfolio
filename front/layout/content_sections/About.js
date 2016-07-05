@@ -1,28 +1,27 @@
 import React from 'react';
+import Section from './general/Section'
+
+class About extends Section{
 
 
-class About extends React.Component{
+	getTitle(){
+		return 'About me';
+	}
 
-	render()
+	getGlyphIcon(){
+		return 'glyphicon-user';
+	}
+
+	getId(){
+		return 'about';
+	}
+
+	renderContent()
 	{
 		return (
-			<section id="about">
-				<div className="row">
-					
-						<div className="page-header">
-						  <h1 className="cursive-style">
-						  	<span className="glyphicon glyphicon-user"></span> About me
-						  </h1>
-						  <small>Learning is awesome!</small>
-						</div>
-						<div className="content">
-							<p>
-								I am a web developer who is pationate about the Machine Learning topic.
-							</p>
-						</div>
-					
-				</div>
-			</section>
+			<p>
+				I am a web developer who is pationate about the Machine Learning topic.
+			</p>
 		)
 	}
 }
