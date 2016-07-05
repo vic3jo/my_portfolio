@@ -16,11 +16,11 @@ class Jumbotron extends React.Component{
 				     <div className="col-md-9">
 				     		<h1 className="cursive-style">
 				     			<span className="glyphicon glyphicon-glass"></span>
-				     			It is me, Victor
+				     			It is me, Victor Trejo.
 				     		</h1>
 					  		<h2>
 					  			<p>
-					  				Software and mobile developer.
+					  				Web and mobile software developer.
 					  			</p>
 					  			<p>
 					  				Computer Science MS alumnus at RIT.	
