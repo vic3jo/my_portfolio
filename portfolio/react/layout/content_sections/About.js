@@ -1,5 +1,6 @@
 import React from 'react';
-import Section from './general/Section'
+import Section from './general/Section';
+import {connect} from 'react-redux';
 
 class About extends Section{
 
@@ -18,12 +19,16 @@ class About extends Section{
 
 	renderContent()
 	{
+
 		return (
-			<p>
-				I am a web developer who is pationate about the Machine Learning topic.
-			</p>
+			<p>{this.props.about.description}</p>
 		)
 	}
 }
 
-export default About;
+function mapStateToProps(state) {
+  return { about: state.about };
+}
+
+
+export default connect(mapStateToProps)(About);

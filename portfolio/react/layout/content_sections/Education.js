@@ -1,9 +1,19 @@
 import React from 'react';
 import Section from './general/Section'
 import ListGroup from './general/ListGroup'
-import ListGroupItem from './general/ListGroupItem'
+import ListGroupItem from './general/ListGroupItem';
+import {connect} from 'react-redux';
 
 class Education extends Section{
+	constructor()
+	{
+		super();
+		this.state = {
+			education:{
+				history:[]
+			}
+		};
+	}
 
 	getTitle(){
 		return 'Education';
@@ -16,33 +26,11 @@ class Education extends Section{
 	getId(){
 		return 'education';
 	}
-	
-	getEducationHistory()
-	{
-		return [
-			{
-				id:1,
-				career: "MS. Computer Science",
-				institution: "Rochester Institute of Technology",
-				startYear: 2014,
-				endYear: 2016
-			},
 
-			{
-				id:2,
-				career: "BS. Telecommunications Engineering",
-				institution: "Pontificia Universidad Catolica Madre y Maestra (PUCMM)",
-				startYear: 2006,
-				endYear: 2011
-			},
-
-		];
-
-	}
 
 	renderContent()
 	{
-		const items = this.getEducationHistory()
+		const items = this.props.education.history
 						.map( (x) => <ListGroupItem 
 										key={x.id} 
 										title={x.career + " - " + x.institution} 
@@ -57,4 +45,11 @@ class Education extends Section{
 	}
 }
 
-export default Education;
+
+
+function mapStateToProps(state) {
+  return { education: state.education }
+}
+
+
+export default connect(mapStateToProps)(Education)

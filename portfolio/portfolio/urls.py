@@ -11,4 +11,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='home'),
+    url(r'^education-history/$', views.educationHistory),
+    url(r'^academic-projects/$', views.academicProjects),
+    url(r'^personal-projects/$', views.personalProjects),
+    url(r'^about/$', views.about),
 )
