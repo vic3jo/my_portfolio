@@ -23807,6 +23807,14 @@
 
 	var _Section3 = _interopRequireDefault(_Section2);
 
+	var _PanelGroup = __webpack_require__(238);
+
+	var _PanelGroup2 = _interopRequireDefault(_PanelGroup);
+
+	var _Panel = __webpack_require__(239);
+
+	var _Panel2 = _interopRequireDefault(_Panel);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23845,8 +23853,26 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement('span', { className: 'glyphicon glyphicon-file' }),
-					'see full Resume'
+					_react2.default.createElement(
+						_PanelGroup2.default,
+						{ id: 'experience-list' },
+						_react2.default.createElement(
+							_Panel2.default,
+							{ id: 'one', parentId: 'experience-list', title: 'Experience At My company.com', expanded: true },
+							_react2.default.createElement(
+								'p',
+								null,
+								'I did great things here'
+							)
+						),
+						_react2.default.createElement(_Panel2.default, { id: 'two', parentId: 'experience-list', title: 'Experience At My otherCompany.com', expanded: false })
+					),
+					_react2.default.createElement(
+						'span',
+						{ className: 'glyphicon glyphicon-file' },
+						' '
+					),
+					' see full Resume'
 				);
 			}
 		}]);
@@ -23981,7 +24007,7 @@
 						{ className: "container" },
 						_react2.default.createElement(
 							"div",
-							{ className: "col-md-offset-2 col-md-8" },
+							{ className: "coder col-md-offset-4 col-md-4" },
 							"By Victor Trejo"
 						)
 					)
@@ -24491,7 +24517,7 @@
 	var LOAD_EDUCATION_HISTORY_DATA = exports.LOAD_EDUCATION_HISTORY_DATA = 'http://localhost:8000/api/education-history/';
 	var LOAD_ACADEMIC_PROJECTS_DATA = exports.LOAD_ACADEMIC_PROJECTS_DATA = 'http://localhost:8000/api/academic-projects/';
 	var LOAD_PERSONAL_PROJECTS_DATA = exports.LOAD_PERSONAL_PROJECTS_DATA = 'http://localhost:8000/api/personal-projects/';
-	var LOAD_ABOUT_DATA = exports.LOAD_ABOUT_DATA = 'http://localhost:8000/about/';
+	var LOAD_ABOUT_DATA = exports.LOAD_ABOUT_DATA = 'http://localhost:8000/api/section-content/about/';
 	var LOAD_SKILLS_DATA = exports.LOAD_SKILLS_DATA = 'http://localhost:8000/api/skills/';
 
 /***/ },
@@ -25705,6 +25731,154 @@
 	  };
 	};
 
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PanelGroup = function (_React$Component) {
+		_inherits(PanelGroup, _React$Component);
+
+		function PanelGroup() {
+			_classCallCheck(this, PanelGroup);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(PanelGroup).apply(this, arguments));
+		}
+
+		_createClass(PanelGroup, [{
+			key: "render",
+			value: function render() {
+				var id = this.props.id;
+				return _react2.default.createElement(
+					"div",
+					{
+						className: "panel-group",
+						id: id,
+						role: "tablist",
+						"aria-multiselectable": "true" },
+					this.props.children
+				);
+			}
+		}]);
+
+		return PanelGroup;
+	}(_react2.default.Component);
+
+	exports.default = PanelGroup;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Panel = function (_React$Component) {
+		_inherits(Panel, _React$Component);
+
+		function Panel() {
+			_classCallCheck(this, Panel);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Panel).apply(this, arguments));
+		}
+
+		_createClass(Panel, [{
+			key: "render",
+			value: function render() {
+				var id = this.props.id;
+				var parentId = "#" + this.props.parentId;
+				var headingId = "heading-" + id;
+				var collapseId = "collapse-" + id;
+				var expanded = this.props.expanded;
+				var collapseClass = "panel-collapse collapse";
+
+				if (expanded) {
+					collapseClass = collapseClass + " in";
+				}
+
+				return _react2.default.createElement(
+					"div",
+					{ className: "panel panel-default" },
+					_react2.default.createElement(
+						"div",
+						{
+							className: "panel-heading",
+							role: "tab",
+							id: headingId },
+						_react2.default.createElement(
+							"h4",
+							{ className: "panel-title" },
+							_react2.default.createElement(
+								"a",
+								{
+									role: "button",
+									"data-toggle": "collapse",
+									"data-parent": parentId,
+									href: collapseId,
+									"aria-expanded": expanded,
+									"aria-controls": collapseId },
+								this.props.title
+							)
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{
+							id: collapseId,
+							className: collapseClass,
+							role: "tabpanel",
+							"aria-labelledby": headingId },
+						_react2.default.createElement(
+							"div",
+							{ className: "panel-body" },
+							this.props.children
+						)
+					)
+				);
+			}
+		}]);
+
+		return Panel;
+	}(_react2.default.Component);
+
+	exports.default = Panel;
 
 /***/ }
 /******/ ]);

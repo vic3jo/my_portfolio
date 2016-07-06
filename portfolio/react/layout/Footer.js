@@ -8,7 +8,7 @@ class Footer extends React.Component{
 		return (
 			<footer>
 				<div className="container">
-					<div className="col-md-offset-2 col-md-8">
+					<div className="coder col-md-offset-4 col-md-4">
 							By Victor Trejo
 					</div>
 				

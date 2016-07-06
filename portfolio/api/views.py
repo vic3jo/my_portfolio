@@ -41,9 +41,14 @@ class PersonalProjectsViewSet(viewsets.ModelViewSet):
 	serializer_class = PersonalProjectsSerializer
 
 
+LABEL_FIELD = 'label'
 class SectionContentViewSet(viewsets.ModelViewSet):
 	"""API endpoint for listing section content."""
-	queryset = SectionContent.objects.all()
+	lookup_field = LABEL_FIELD
+	lookup_url_kwarg = LABEL_FIELD
+	queryset = SectionContent.objects.order_by(
+		LABEL_FIELD
+	)
 	serializer_class = SectionContentSerializer
 
 
