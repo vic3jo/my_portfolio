@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
-# Create your views here.
-
-
+from rest_framework import viewsets
+from .models import EducationHistoryEntry
+from .models import AcademicProjects, Skill
+from .models import PersonalProjects, SectionContent
+from .serializers import EducationHistoryEntrySerializer
+from .serializers import AcademicProjectsSerializer
+from .serializers import PersonalProjectsSerializer
+from .serializers import SectionContentSerializer
+from .serializers import SkillSerializer
 
 
 
@@ -17,55 +23,35 @@ def index(request):
 
 
 
-def educationHistory(request):
-	data = [
-		{
-			'id':2,
-			'career': "BS. Telecommunications Engineering",
-			'institution': "Pontificia Universidad Catolica Madre y Maestra (PUCMM)",
-			'startYear': 2006,
-			'endYear': 2011
-		},
-		{
-			'id':1,
-			'career': "MS. Computer Science",
-			'institution': "Rochester Institute of Technology",
-			'startYear': 2014,
-			'endYear': 2016
-		}
-	];
-
-	return JsonResponse(data, safe=False)
+class EducationHistoryEntryViewSet(viewsets.ModelViewSet):
+	"""API endpoint for listing the education history."""
+	queryset = EducationHistoryEntry.objects.all()
+	serializer_class = EducationHistoryEntrySerializer
 
 
-def academicProjects(request):
-	data = [
-		{
-			'id':1,
-			'title': "Anomaly-based and Misuse-based Intrusion Detection systems",
-			'course': "Intelligent and Secure Systems",
-			'description': "This project consisted of creating Anomaly-based and Misuse-based Intrusion Detection systems using Decision Trees and Multi-Layer Perceptron Neural Network.",
-			'languages': "Python",
-			'libraries':"PyBrain, Numpy"
-		}
-	];
-	return JsonResponse(data, safe=False)
+class AcademicProjectsViewSet(viewsets.ModelViewSet):
+	"""API endpoint for listing academic projects."""
+	queryset = AcademicProjects.objects.all()
+	serializer_class = AcademicProjectsSerializer
 
 
+class PersonalProjectsViewSet(viewsets.ModelViewSet):
+	"""API endpoint for listing personal projects."""
+	queryset = PersonalProjects.objects.all()
+	serializer_class = PersonalProjectsSerializer
 
 
-def personalProjects(request):
-	data = [
-		{
-			'id':1,
-			'title': "Anomaly-based and Misuse-based Intrusion Detection systems",
-			'course': "Intelligent and Secure Systems",
-			'description': "This project consisted of creating Anomaly-based and Misuse-based Intrusion Detection systems using Decision Trees and Multi-Layer Perceptron Neural Network.",
-			'languages': "Python",
-			'libraries':"PyBrain, Numpy"
-		}
-	];
-	return JsonResponse(data, safe=False)
+class SectionContentViewSet(viewsets.ModelViewSet):
+	"""API endpoint for listing section content."""
+	queryset = SectionContent.objects.all()
+	serializer_class = SectionContentSerializer
+
+
+class SkillViewSet(viewsets.ModelViewSet):
+	"""API endpoint for listing skills."""
+	queryset = Skill.objects.all()
+	serializer_class = SkillSerializer
+
 
 
 def about(request):

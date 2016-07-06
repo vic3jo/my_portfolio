@@ -64,12 +64,29 @@ const loadAboutData = (store) => {
 };
 
 
+const loadSkillsData = (store) => {
+	axios.get(URLS.LOAD_SKILLS_DATA).then((response)=>{
+		store.dispatch({
+			type: ActionTypes.LOAD_SKILLS_DATA,
+			payload: response.data
+		});
+	}).catch((response) => {
+	    store.dispatch({
+			type: ActionTypes.ERROR_LOADING_DATA,
+			payload: response
+		});
+	});
+};
+
+
+
 
 const loadData = (store) => {
 	loadAboutData(store);
 	loadEducationData(store);
 	loadAcademicProjectsData(store);
 	loadPersonalProjectsData(store);
+	loadSkillsData(store);
 };
 
 export default loadData;

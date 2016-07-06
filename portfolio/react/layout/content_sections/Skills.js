@@ -1,5 +1,6 @@
 import React from 'react';
-import Section from './general/Section'
+import Section from './general/Section';
+import {connect} from 'react-redux';
 
 class Skills extends Section{
 
@@ -18,13 +19,20 @@ class Skills extends Section{
 
 	renderContent()
 	{
+		const items = this.props.skills.list
+						.map( (x) => <li className="btn-success skill" key={x.id}>{x.label}</li>
+						);
 		return (
-			<ul>
-				<li>Skill 1</li>
-				<li>Skill 2</li>
+			<ul className="list-unstyled list-inline">
+				{items}
 			</ul>
 		)
 	}
 }
 
-export default Skills;
+function mapStateToProps(state) {
+  return { skills: state.skills };
+}
+
+
+export default connect(mapStateToProps)(Skills);

@@ -53,12 +53,27 @@ const aboutReducer = (
 }
 
 
+const skillsReducer = (
+	state = Default.SKILLS,
+	action
+) => {
+
+	if (action.type === ActionTypes.LOAD_SKILLS_DATA)
+	{
+		return {list: action.payload};	
+	}
+	return state;
+}
+
+
+
 
 const Reducers = combineReducers({
 	about: aboutReducer,
 	education: educationReducer,
 	academicProjects: academicProjectsReducer,
-	personalProjects: personalProjectsReducer
+	personalProjects: personalProjectsReducer,
+	skills: skillsReducer
 })
 
 export default Reducers;
