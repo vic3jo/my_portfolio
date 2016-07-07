@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
 from rest_framework import viewsets
+from rest_framework import authentication, permissions
 from .models import EducationHistoryEntry
 from .models import AcademicProjects, Skill
 from .models import PersonalProjects, SectionContent
@@ -12,37 +13,51 @@ from .serializers import SectionContentSerializer
 from .serializers import SkillSerializer
 
 
+class DefaultsSettings(object):
+	"""Default settings for view authentication, permissions."""
+	
+	# authentication_classes = (
+	# 	# authentication.BasicAuthentication,
+	# 	authentication.TokenAuthentication,
+	# )
+	
+	# permission_classes = (
+	# 	permissions.IsAuthenticated,
+	# )
 
 
-def index(request):
-    return render(
-    	request,
-    	'index.html',
-    	{}
-    )
-
-
-
-class EducationHistoryEntryViewSet(viewsets.ModelViewSet):
+class EducationHistoryEntryViewSet(
+	DefaultsSettings,
+	viewsets.ModelViewSet
+):
 	"""API endpoint for listing the education history."""
 	queryset = EducationHistoryEntry.objects.all()
 	serializer_class = EducationHistoryEntrySerializer
 
 
-class AcademicProjectsViewSet(viewsets.ModelViewSet):
+class AcademicProjectsViewSet(
+	DefaultsSettings,
+	viewsets.ModelViewSet
+):
 	"""API endpoint for listing academic projects."""
 	queryset = AcademicProjects.objects.all()
 	serializer_class = AcademicProjectsSerializer
 
 
-class PersonalProjectsViewSet(viewsets.ModelViewSet):
+class PersonalProjectsViewSet(
+	DefaultsSettings,
+	viewsets.ModelViewSet
+):
 	"""API endpoint for listing personal projects."""
 	queryset = PersonalProjects.objects.all()
 	serializer_class = PersonalProjectsSerializer
 
 
 LABEL_FIELD = 'label'
-class SectionContentViewSet(viewsets.ModelViewSet):
+class SectionContentViewSet(
+	DefaultsSettings,
+	viewsets.ModelViewSet
+):
 	"""API endpoint for listing section content."""
 	lookup_field = LABEL_FIELD
 	lookup_url_kwarg = LABEL_FIELD
@@ -52,15 +67,18 @@ class SectionContentViewSet(viewsets.ModelViewSet):
 	serializer_class = SectionContentSerializer
 
 
-class SkillViewSet(viewsets.ModelViewSet):
+class SkillViewSet(
+	DefaultsSettings,
+	viewsets.ModelViewSet
+):
 	"""API endpoint for listing skills."""
 	queryset = Skill.objects.all()
 	serializer_class = SkillSerializer
 
 
-
-def about(request):
-	data = {
-		'description':"I am a web developer who is pationate about the Machine Learning topic."
-	};
-	return JsonResponse(data)
+def index(request):
+    return render(
+    	request,
+    	'index.html',
+    	{}
+    )

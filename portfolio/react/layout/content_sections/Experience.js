@@ -25,6 +25,8 @@ class Experience extends Section{
 						<p>I did great things here</p>
 					</Panel>
 					<Panel id="two" parentId="experience-list" title="Experience At My otherCompany.com" expanded={false} />
+
+					<Panel id="three" parentId="experience-list" title="Experience At an awesomeCompany.com" expanded={false} />
 				</PanelGroup>
 				<span className="glyphicon glyphicon-file"> </span> see full Resume
 			</div>

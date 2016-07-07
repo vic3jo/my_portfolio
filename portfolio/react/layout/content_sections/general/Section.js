@@ -22,8 +22,8 @@ class Section extends React.Component{
 				<div className="row">
 						<div className="page-header">
 						  <h1 className="cursive-style">
-						  	<span className={glyphicon}> </span>
-						  	{title}
+						  	<span className={glyphicon}></span> 
+						  	<span className="section-title">{title}</span>
 						  </h1>
 						</div>
 						<div className="content">

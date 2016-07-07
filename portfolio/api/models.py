@@ -58,14 +58,23 @@ class AcademicProjects(models.Model):
 		blank = True,
 		default = ''
 	)
+
+	repositoryUrl = models.URLField(
+		max_length = 1000,
+		default = ''
+	)
+
+
+	
 	
 	def __str__(self):
-		return "{}-{}/({}-{}): {}".format(
+		return "{}-{}/({}-{}): {} at {}".format(
 			title,
 			course,
 			languages,
 			libraries,
-			description
+			description,
+			repositoryUrl
 		)
 
 
@@ -80,13 +89,13 @@ class PersonalProjects(models.Model):
 	description = models.TextField(
 		max_length = 500,
 		blank = True,
-		default =''
+		default = ''
 	)
 	
 	languages = models.CharField(
 		max_length = 100,
 		blank = True,
-		default =''
+		default = ''
 	)
 
 	libraries = models.CharField(
@@ -95,12 +104,18 @@ class PersonalProjects(models.Model):
 		default = ''
 	)
 	
+	repositoryUrl = models.URLField(
+		max_length = 1000,
+		default = ''
+	)
+
 	def __str__(self):
-		return "{}/({}-{}): {}".format(
+		return "{}/({}-{}): {} at {}".format(
 			title,
 			languages,
 			libraries,
-			description
+			description,
+			repositoryUrl
 		)
 
 

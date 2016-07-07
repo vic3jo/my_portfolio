@@ -23,7 +23,8 @@ class AcademicProjectsSerializer(serializers.ModelSerializer):
 			'course',
 			'languages',
 			'libraries',
-			'description'
+			'description',
+			'repositoryUrl'
 		)
 
 
@@ -35,7 +36,8 @@ class PersonalProjectsSerializer(serializers.ModelSerializer):
 			'title',
 			'languages',
 			'libraries',
-			'description'
+			'description',
+			'repositoryUrl'
 		)
 
 			

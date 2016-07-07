@@ -20,10 +20,10 @@ class Skills extends Section{
 	renderContent()
 	{
 		const items = this.props.skills.list
-						.map( (x) => <li className="btn-success skill" key={x.id}>{x.label}</li>
+						.map( (x) => <li className="btn btn-success skill" key={x.id}>{x.label}</li>
 						);
 		return (
-			<ul className="list-unstyled list-inline">
+			<ul className="list-unstyled list-inline skills-list">
 				{items}
 			</ul>
 		)

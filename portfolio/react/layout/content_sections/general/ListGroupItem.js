@@ -9,10 +9,10 @@ class ListGroupItem extends React.Component{
 		const badge = this.props.badge;
 		return (
 			<li className="list-group-item">
-				{title}
 				<span className="badge">
 					{badge}
 				</span>
+				{title}
 			</li>
 		)
 	}

@@ -24,10 +24,11 @@ class PersonalProjects extends Section{
 		let projects = this.props.projects.map((x)=> <Project
 			key={x.id} 
 			title={x.title}
-			course={x.course}
+			course ={""}
 			description={x.description}
 			languages={x.languages}
 			libraries={x.libraries}
+			repositoryUrl={x.repositoryUrl}
 		/>);
 		
 		return (

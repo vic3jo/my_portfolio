@@ -27,6 +27,7 @@ class AcademicProjects extends Section{
 			description={x.description}
 			languages={x.languages}
 			libraries={x.libraries}
+			repositoryUrl={x.repositoryUrl}
 		/>);
 		
 		return (
