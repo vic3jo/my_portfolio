@@ -60,21 +60,21 @@
 
 	var _redux = __webpack_require__(183);
 
-	var _reduxThunk = __webpack_require__(214);
+	var _reduxThunk = __webpack_require__(215);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reduxLogger = __webpack_require__(215);
+	var _reduxLogger = __webpack_require__(216);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
 	var _reactRedux = __webpack_require__(176);
 
-	var _Reducers = __webpack_require__(216);
+	var _Reducers = __webpack_require__(217);
 
 	var _Reducers2 = _interopRequireDefault(_Reducers);
 
-	var _Actions = __webpack_require__(219);
+	var _Actions = __webpack_require__(220);
 
 	var _Actions2 = _interopRequireDefault(_Actions);
 
@@ -21039,7 +21039,7 @@
 
 	var _Content2 = _interopRequireDefault(_Content);
 
-	var _Footer = __webpack_require__(213);
+	var _Footer = __webpack_require__(214);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -21334,7 +21334,7 @@
 
 	var _Experience2 = _interopRequireDefault(_Experience);
 
-	var _Skills = __webpack_require__(212);
+	var _Skills = __webpack_require__(213);
 
 	var _Skills2 = _interopRequireDefault(_Skills);
 
@@ -23789,7 +23789,7 @@
 
 	var _reactRedux = __webpack_require__(176);
 
-	var _Utilities = __webpack_require__(240);
+	var _Utilities = __webpack_require__(212);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24027,6 +24027,24 @@
 
 /***/ },
 /* 212 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	var formattedDate = exports.formattedDate = function formattedDate(string) {
+		var date = new Date(string);
+		return months[date.getMonth()] + " " + date.getFullYear();
+	};
+
+/***/ },
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24099,7 +24117,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Skills);
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24156,7 +24174,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24184,7 +24202,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24417,7 +24435,7 @@
 	module.exports = createLogger;
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24428,11 +24446,11 @@
 
 	var _redux = __webpack_require__(183);
 
-	var _Default = __webpack_require__(217);
+	var _Default = __webpack_require__(218);
 
 	var Default = _interopRequireWildcard(_Default);
 
-	var _ActionTypes = __webpack_require__(218);
+	var _ActionTypes = __webpack_require__(219);
 
 	var ActionTypes = _interopRequireWildcard(_ActionTypes);
 
@@ -24516,7 +24534,7 @@
 	exports.default = Reducers;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24532,7 +24550,7 @@
 	var SKILLS = exports.SKILLS = { list: [] };
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24549,7 +24567,7 @@
 	var ERROR_LOADING_DATA = exports.ERROR_LOADING_DATA = 'ERROR_LOADING_DATA';
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24558,15 +24576,15 @@
 		value: true
 	});
 
-	var _ActionTypes = __webpack_require__(218);
+	var _ActionTypes = __webpack_require__(219);
 
 	var ActionTypes = _interopRequireWildcard(_ActionTypes);
 
-	var _URLS = __webpack_require__(220);
+	var _URLS = __webpack_require__(221);
 
 	var URLS = _interopRequireWildcard(_URLS);
 
-	var _axios = __webpack_require__(221);
+	var _axios = __webpack_require__(222);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -24627,7 +24645,7 @@
 	exports.default = loadData;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24643,25 +24661,25 @@
 	var LOAD_SKILLS_DATA = exports.LOAD_SKILLS_DATA = '/api/skills/';
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(222);
+	module.exports = __webpack_require__(223);
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(223);
-	var utils = __webpack_require__(224);
-	var dispatchRequest = __webpack_require__(226);
-	var InterceptorManager = __webpack_require__(235);
-	var isAbsoluteURL = __webpack_require__(236);
-	var combineURLs = __webpack_require__(237);
-	var bind = __webpack_require__(238);
-	var transformData = __webpack_require__(230);
+	var defaults = __webpack_require__(224);
+	var utils = __webpack_require__(225);
+	var dispatchRequest = __webpack_require__(227);
+	var InterceptorManager = __webpack_require__(236);
+	var isAbsoluteURL = __webpack_require__(237);
+	var combineURLs = __webpack_require__(238);
+	var bind = __webpack_require__(239);
+	var transformData = __webpack_require__(231);
 
 	function Axios(defaultConfig) {
 	  this.defaults = utils.merge({}, defaultConfig);
@@ -24750,7 +24768,7 @@
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(239);
+	axios.spread = __webpack_require__(240);
 
 	// Provide aliases for supported request methods
 	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
@@ -24778,13 +24796,13 @@
 
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
-	var normalizeHeaderName = __webpack_require__(225);
+	var utils = __webpack_require__(225);
+	var normalizeHeaderName = __webpack_require__(226);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -24856,7 +24874,7 @@
 
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25139,12 +25157,12 @@
 
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -25157,7 +25175,7 @@
 
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -25179,10 +25197,10 @@
 	        adapter = config.adapter;
 	      } else if (typeof XMLHttpRequest !== 'undefined') {
 	        // For browsers use XHR adapter
-	        adapter = __webpack_require__(227);
+	        adapter = __webpack_require__(228);
 	      } else if (typeof process !== 'undefined') {
 	        // For node use HTTP adapter
-	        adapter = __webpack_require__(227);
+	        adapter = __webpack_require__(228);
 	      }
 
 	      if (typeof adapter === 'function') {
@@ -25198,18 +25216,18 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(224);
-	var buildURL = __webpack_require__(228);
-	var parseHeaders = __webpack_require__(229);
-	var transformData = __webpack_require__(230);
-	var isURLSameOrigin = __webpack_require__(231);
-	var btoa = (typeof window !== 'undefined' && window.btoa) || __webpack_require__(232);
-	var settle = __webpack_require__(233);
+	var utils = __webpack_require__(225);
+	var buildURL = __webpack_require__(229);
+	var parseHeaders = __webpack_require__(230);
+	var transformData = __webpack_require__(231);
+	var isURLSameOrigin = __webpack_require__(232);
+	var btoa = (typeof window !== 'undefined' && window.btoa) || __webpack_require__(233);
+	var settle = __webpack_require__(234);
 
 	module.exports = function xhrAdapter(resolve, reject, config) {
 	  var requestData = config.data;
@@ -25306,7 +25324,7 @@
 	  // This is only done if running in a standard browser environment.
 	  // Specifically not if we're in a web worker, or react-native.
 	  if (utils.isStandardBrowserEnv()) {
-	    var cookies = __webpack_require__(234);
+	    var cookies = __webpack_require__(235);
 
 	    // Add xsrf header
 	    var xsrfValue = config.withCredentials || isURLSameOrigin(config.url) ?
@@ -25367,12 +25385,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -25441,12 +25459,12 @@
 
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	/**
 	 * Parse headers into an object
@@ -25484,12 +25502,12 @@
 
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	/**
 	 * Transform the data for a request or a response
@@ -25510,12 +25528,12 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -25584,7 +25602,7 @@
 
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25626,7 +25644,7 @@
 
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25650,12 +25668,12 @@
 
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -25709,12 +25727,12 @@
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(224);
+	var utils = __webpack_require__(225);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -25767,7 +25785,7 @@
 
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25787,7 +25805,7 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25805,7 +25823,7 @@
 
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25822,7 +25840,7 @@
 
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25853,24 +25871,6 @@
 	  };
 	};
 
-
-/***/ },
-/* 240 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-
-	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-	var formattedDate = exports.formattedDate = function formattedDate(string) {
-		var date = new Date(string);
-		return months[date.getMonth()] + " " + date.getFullYear();
-	};
 
 /***/ }
 /******/ ]);

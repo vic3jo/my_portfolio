@@ -13,19 +13,20 @@ from .serializers import AcademicProjectsSerializer
 from .serializers import PersonalProjectsSerializer
 from .serializers import SectionContentSerializer
 from .serializers import SkillSerializer
+from django.contrib.auth.models import User
+
 
 
 class DefaultsSettings(object):
 	"""Default settings for view authentication, permissions."""
 	
-	# authentication_classes = (
-	# 	# authentication.BasicAuthentication,
-	# 	authentication.TokenAuthentication,
-	# )
+	authentication_classes = (
+		authentication.SessionAuthentication,
+	)
 	
-	# permission_classes = (
-	# 	permissions.IsAuthenticated,
-	# )
+	permission_classes = (
+		permissions.IsAuthenticatedOrReadOnly,
+	)
 
 
 class EducationHistoryEntryViewSet(
@@ -88,8 +89,8 @@ class SkillViewSet(
 
 
 def index(request):
-    return render(
-    	request,
-    	'index.html',
-    	{}
-    )
+	return render(
+		request,
+		'index.html',
+		{}
+	)
