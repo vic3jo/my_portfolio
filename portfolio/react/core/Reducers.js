@@ -13,6 +13,16 @@ const educationReducer = (state = Default.EDUCATION, action) =>{
 }
 
 
+const experienceReducer = (state = Default.EXPERIENCE, action) =>{ 
+	if (action.type === ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA)
+	{
+		return {history: action.payload};	
+	}
+
+	return state;	
+}
+
+
 const academicProjectsReducer = (
 	state = Default.ACADEMIC_PROJECTS,
 	action
@@ -73,7 +83,8 @@ const Reducers = combineReducers({
 	education: educationReducer,
 	academicProjects: academicProjectsReducer,
 	personalProjects: personalProjectsReducer,
-	skills: skillsReducer
+	skills: skillsReducer,
+	experience: experienceReducer
 })
 
 export default Reducers;

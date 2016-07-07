@@ -8,6 +8,12 @@ router.register(
 	views.EducationHistoryEntryViewSet
 )
 
+
+router.register(
+	r'experience-history',
+	views.ExperienceHistoryEntryViewSet
+)
+
 router.register(
 	r'academic-projects',
 	views.AcademicProjectsViewSet
@@ -28,4 +34,7 @@ router.register(
 	r'skills',
 	views.SkillViewSet
 )
+
+
+
 

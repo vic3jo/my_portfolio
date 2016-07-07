@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import EducationHistoryEntry, AcademicProjects
-from .models import PersonalProjects, SectionContent, Skill
+from .models import PersonalProjects, SectionContent
+from .models import ExperienceHistoryEntry, Skill
 
 class EducationHistoryEntrySerializer(serializers.ModelSerializer):
 	class Meta:
@@ -11,6 +12,18 @@ class EducationHistoryEntrySerializer(serializers.ModelSerializer):
 			'institution',
 			'startYear',
 			'endYear'
+		)
+
+class ExperienceHistoryEntrySerializer(serializers.ModelSerializer):
+	class Meta:
+		model = ExperienceHistoryEntry
+		fields = (
+			'id',
+			'position',
+			'company',
+			'startDate',
+			'endDate',
+			'description'
 		)
 
 

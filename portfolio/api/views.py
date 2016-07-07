@@ -4,9 +4,11 @@ from django.http import JsonResponse
 from rest_framework import viewsets
 from rest_framework import authentication, permissions
 from .models import EducationHistoryEntry
+from .models import ExperienceHistoryEntry
 from .models import AcademicProjects, Skill
 from .models import PersonalProjects, SectionContent
 from .serializers import EducationHistoryEntrySerializer
+from .serializers import ExperienceHistoryEntrySerializer
 from .serializers import AcademicProjectsSerializer
 from .serializers import PersonalProjectsSerializer
 from .serializers import SectionContentSerializer
@@ -33,6 +35,15 @@ class EducationHistoryEntryViewSet(
 	"""API endpoint for listing the education history."""
 	queryset = EducationHistoryEntry.objects.all()
 	serializer_class = EducationHistoryEntrySerializer
+
+
+class ExperienceHistoryEntryViewSet(
+	DefaultsSettings,
+	viewsets.ModelViewSet
+):
+	"""API endpoint for listing the experience history."""
+	queryset = ExperienceHistoryEntry.objects.all()
+	serializer_class = ExperienceHistoryEntrySerializer
 
 
 class AcademicProjectsViewSet(

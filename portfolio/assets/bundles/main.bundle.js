@@ -23787,6 +23787,10 @@
 
 	var _Panel2 = _interopRequireDefault(_Panel);
 
+	var _reactRedux = __webpack_require__(176);
+
+	var _Utilities = __webpack_require__(240);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23807,6 +23811,27 @@
 		_createClass(Experience, [{
 			key: 'render',
 			value: function render() {
+				var history = this.props.experience.history;
+				console.log(history);
+				var historyPanels = history.map(function (x) {
+					return _react2.default.createElement(
+						_Panel2.default,
+						{
+							id: x.id,
+							key: x.id,
+							parentId: 'experience-list',
+							title: x.position + " - " + x.company,
+							badgeText: (0, _Utilities.formattedDate)(x.startDate) + " - " + (0, _Utilities.formattedDate)(x.endDate),
+							expanded: true },
+						_react2.default.createElement(
+							'p',
+							null,
+							x.description
+						)
+					);
+				});
+				console.log(historyPanels);
+
 				return _react2.default.createElement(
 					_Section2.default,
 					{
@@ -23819,24 +23844,14 @@
 						_react2.default.createElement(
 							_PanelGroup2.default,
 							{ id: 'experience-list' },
-							_react2.default.createElement(
-								_Panel2.default,
-								{ id: 'one', parentId: 'experience-list', title: 'Experience At My company.com', expanded: true },
-								_react2.default.createElement(
-									'p',
-									null,
-									'I did great things here'
-								)
-							),
-							_react2.default.createElement(_Panel2.default, { id: 'two', parentId: 'experience-list', title: 'Experience At My otherCompany.com', expanded: false }),
-							_react2.default.createElement(_Panel2.default, { id: 'three', parentId: 'experience-list', title: 'Experience At an awesomeCompany.com', expanded: false })
+							historyPanels
 						),
 						_react2.default.createElement(
 							'span',
 							{ className: 'glyphicon glyphicon-file' },
-							' '
+							' '
 						),
-						' see full Resume'
+						'See full Resume'
 					)
 				);
 			}
@@ -23845,7 +23860,11 @@
 		return Experience;
 	}(_react2.default.Component);
 
-	exports.default = Experience;
+	function mapStateToProps(state) {
+		return { experience: state.experience };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Experience);
 
 /***/ },
 /* 210 */
@@ -23943,9 +23962,15 @@
 				var collapseId = "collapse-" + id;
 				var expanded = this.props.expanded;
 				var collapseClass = "panel-collapse collapse";
+				var badgeText = this.props.badgeText;
+				var badgeClass = "badge";
 
 				if (expanded) {
 					collapseClass = collapseClass + " in";
+				}
+
+				if (!badgeText) {
+					badgeClass = badgeClass + " hide";
 				}
 
 				return _react2.default.createElement(
@@ -23957,6 +23982,11 @@
 							className: "panel-heading",
 							role: "tab",
 							id: headingId },
+						_react2.default.createElement(
+							"span",
+							{ className: "badge danger" },
+							badgeText
+						),
 						_react2.default.createElement(
 							"h4",
 							{ className: "panel-title" },
@@ -24419,6 +24449,17 @@
 		return state;
 	};
 
+	var experienceReducer = function experienceReducer() {
+		var state = arguments.length <= 0 || arguments[0] === undefined ? Default.EXPERIENCE : arguments[0];
+		var action = arguments[1];
+
+		if (action.type === ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA) {
+			return { history: action.payload };
+		}
+
+		return state;
+	};
+
 	var academicProjectsReducer = function academicProjectsReducer() {
 		var state = arguments.length <= 0 || arguments[0] === undefined ? Default.ACADEMIC_PROJECTS : arguments[0];
 		var action = arguments[1];
@@ -24468,7 +24509,8 @@
 		education: educationReducer,
 		academicProjects: academicProjectsReducer,
 		personalProjects: personalProjectsReducer,
-		skills: skillsReducer
+		skills: skillsReducer,
+		experience: experienceReducer
 	});
 
 	exports.default = Reducers;
@@ -24483,6 +24525,7 @@
 	  value: true
 	});
 	var EDUCATION = exports.EDUCATION = { history: [] };
+	var EXPERIENCE = exports.EXPERIENCE = { history: [] };
 	var ACADEMIC_PROJECTS = exports.ACADEMIC_PROJECTS = { projects: [] };
 	var PERSONAL_PROJECTS = exports.PERSONAL_PROJECTS = { projects: [] };
 	var ABOUT = exports.ABOUT = { description: '' };
@@ -24498,6 +24541,7 @@
 	  value: true
 	});
 	var LOAD_EDUCATION_HISTORY_DATA = exports.LOAD_EDUCATION_HISTORY_DATA = "LOAD_EDUCATION_HISTORY_DATA";
+	var LOAD_EXPERIENCE_HISTORY_DATA = exports.LOAD_EXPERIENCE_HISTORY_DATA = "LOAD_EXPERIENCE_HISTORY_DATA";
 	var LOAD_ACADEMIC_PROJECTS_DATA = exports.LOAD_ACADEMIC_PROJECTS_DATA = "LOAD_ACADEMIC_PROJECTS_DATA";
 	var LOAD_PERSONAL_PROJECTS_DATA = exports.LOAD_PERSONAL_PROJECTS_DATA = "LOAD_PERSONAL_PROJECTS_DATA";
 	var LOAD_ABOUT_DATA = exports.LOAD_ABOUT_DATA = "LOAD_ABOUT_DATA";
@@ -24551,6 +24595,10 @@
 		loadAndNotify(store, URLS.LOAD_EDUCATION_HISTORY_DATA, ActionTypes.LOAD_EDUCATION_HISTORY_DATA);
 	};
 
+	var loadExperienceData = function loadExperienceData(store) {
+		loadAndNotify(store, URLS.LOAD_EXPERIENCE_HISTORY_DATA, ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA);
+	};
+
 	var loadAcademicProjectsData = function loadAcademicProjectsData(store) {
 		loadAndNotify(store, URLS.LOAD_ACADEMIC_PROJECTS_DATA, ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA);
 	};
@@ -24573,6 +24621,7 @@
 		loadAcademicProjectsData(store);
 		loadPersonalProjectsData(store);
 		loadSkillsData(store);
+		loadExperienceData(store);
 	};
 
 	exports.default = loadData;
@@ -24587,6 +24636,7 @@
 	  value: true
 	});
 	var LOAD_EDUCATION_HISTORY_DATA = exports.LOAD_EDUCATION_HISTORY_DATA = '/api/education-history/';
+	var LOAD_EXPERIENCE_HISTORY_DATA = exports.LOAD_EXPERIENCE_HISTORY_DATA = '/api/experience-history/';
 	var LOAD_ACADEMIC_PROJECTS_DATA = exports.LOAD_ACADEMIC_PROJECTS_DATA = 'api/academic-projects/';
 	var LOAD_PERSONAL_PROJECTS_DATA = exports.LOAD_PERSONAL_PROJECTS_DATA = '/api/personal-projects/';
 	var LOAD_ABOUT_DATA = exports.LOAD_ABOUT_DATA = '/api/section-content/about/';
@@ -25803,6 +25853,24 @@
 	  };
 	};
 
+
+/***/ },
+/* 240 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	var formattedDate = exports.formattedDate = function formattedDate(string) {
+		var date = new Date(string);
+		return months[date.getMonth()] + " " + date.getFullYear();
+	};
 
 /***/ }
 /******/ ]);

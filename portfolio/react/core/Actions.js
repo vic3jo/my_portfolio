@@ -32,6 +32,14 @@ const loadEducationData = (store) => {
 };
 
 
+const loadExperienceData = (store) => {
+	loadAndNotify(
+		store,
+		URLS.LOAD_EXPERIENCE_HISTORY_DATA,
+		ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA
+	);	
+};
+
 const loadAcademicProjectsData = (store) => {
 	loadAndNotify(
 		store,
@@ -76,6 +84,7 @@ const loadData = (store) => {
 	loadAcademicProjectsData(store);
 	loadPersonalProjectsData(store);
 	loadSkillsData(store);
+	loadExperienceData(store);
 };
 
 export default loadData;

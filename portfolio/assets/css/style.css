@@ -150,6 +150,12 @@ small, h2
 }
 
 
+.panel-default>.panel-heading .badge
+{
+	float:right;
+	background-color: #d9230f;
+}
+
 /*@media (min-width: 1000px) {
    .collapse {
        display: none !important;

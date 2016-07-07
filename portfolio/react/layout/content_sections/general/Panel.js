@@ -9,10 +9,17 @@ class Panel extends React.Component{
 		let collapseId = "collapse-" + id;
 		let expanded = this.props.expanded;
 		let collapseClass = "panel-collapse collapse";
+		let badgeText = this.props.badgeText;
+		let badgeClass = "badge";
 
 		if (expanded)
 		{
 			collapseClass = collapseClass + " in";
+		}
+
+		if (!badgeText)
+		{
+			badgeClass = badgeClass + " hide";
 		}
 
 		return (
@@ -21,6 +28,9 @@ class Panel extends React.Component{
 				    		className="panel-heading"
 				    		role="tab"
 				    		id={headingId}>
+				    		  <span className="badge danger">
+						      	{badgeText}
+						      </span>
 						      <h4 className="panel-title">
 						        <a 
 						        	role="button"
@@ -32,6 +42,7 @@ class Panel extends React.Component{
 						          {this.props.title}
 						        </a>
 						      </h4>
+
 				    </div>
 				   
 				    <div 
