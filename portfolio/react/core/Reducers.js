@@ -6,7 +6,7 @@ import * as ActionTypes from './ActionTypes';
 const educationReducer = (state = Default.EDUCATION, action) =>{ 
 	if (action.type === ActionTypes.LOAD_EDUCATION_HISTORY_DATA)
 	{
-		return {history: action.payload};	
+		return {...state, history: action.payload};	
 	}
 
 	return state;	
@@ -16,7 +16,7 @@ const educationReducer = (state = Default.EDUCATION, action) =>{
 const experienceReducer = (state = Default.EXPERIENCE, action) =>{ 
 	if (action.type === ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA)
 	{
-		return {history: action.payload};	
+		return {...state, history: action.payload};	
 	}
 
 	return state;	
@@ -30,7 +30,7 @@ const academicProjectsReducer = (
 
 	if (action.type === ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA)
 	{
-		return {projects: action.payload};	
+		return {...state, projects: action.payload};	
 	}
 	return state;
 }
@@ -44,7 +44,7 @@ const personalProjectsReducer = (
 
 	if (action.type === ActionTypes.LOAD_PERSONAL_PROJECTS_DATA)
 	{
-		return {projects: action.payload};	
+		return {...state, projects: action.payload};	
 	}
 	return state;
 }
@@ -57,7 +57,7 @@ const aboutReducer = (
 
 	if (action.type === ActionTypes.LOAD_ABOUT_DATA)
 	{
-		return {description: action.payload.description};	
+		return {...state, description: action.payload.description};	
 	}
 	return state;
 }
@@ -70,7 +70,7 @@ const skillsReducer = (
 
 	if (action.type === ActionTypes.LOAD_SKILLS_DATA)
 	{
-		return {list: action.payload};	
+		return {...state, list: action.payload};	
 	}
 	return state;
 }

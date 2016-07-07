@@ -24444,6 +24444,8 @@
 		value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _redux = __webpack_require__(183);
 
 	var _Default = __webpack_require__(218);
@@ -24461,7 +24463,7 @@
 		var action = arguments[1];
 
 		if (action.type === ActionTypes.LOAD_EDUCATION_HISTORY_DATA) {
-			return { history: action.payload };
+			return _extends({}, state, { history: action.payload });
 		}
 
 		return state;
@@ -24472,7 +24474,7 @@
 		var action = arguments[1];
 
 		if (action.type === ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA) {
-			return { history: action.payload };
+			return _extends({}, state, { history: action.payload });
 		}
 
 		return state;
@@ -24484,7 +24486,7 @@
 
 
 		if (action.type === ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA) {
-			return { projects: action.payload };
+			return _extends({}, state, { projects: action.payload });
 		}
 		return state;
 	};
@@ -24495,7 +24497,7 @@
 
 
 		if (action.type === ActionTypes.LOAD_PERSONAL_PROJECTS_DATA) {
-			return { projects: action.payload };
+			return _extends({}, state, { projects: action.payload });
 		}
 		return state;
 	};
@@ -24506,7 +24508,7 @@
 
 
 		if (action.type === ActionTypes.LOAD_ABOUT_DATA) {
-			return { description: action.payload.description };
+			return _extends({}, state, { description: action.payload.description });
 		}
 		return state;
 	};
@@ -24517,7 +24519,7 @@
 
 
 		if (action.type === ActionTypes.LOAD_SKILLS_DATA) {
-			return { list: action.payload };
+			return _extends({}, state, { list: action.payload });
 		}
 		return state;
 	};
