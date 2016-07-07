@@ -144,3 +144,14 @@ small, h2
 .content ul.skills-list {
     line-height: 42px;
 }
+
+.navbar-toggle {
+    margin-top: 20px;
+}
+
+
+/*@media (min-width: 1000px) {
+   .collapse {
+       display: none !important;
+   }
+}*/

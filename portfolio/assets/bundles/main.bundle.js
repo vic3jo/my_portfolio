@@ -21125,6 +21125,13 @@
 							"div",
 							{ className: "navbar-header col-offset-md-1" },
 							_react2.default.createElement(
+								"button",
+								{ type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": "#myNavbar" },
+								_react2.default.createElement("span", { className: "icon-bar" }),
+								_react2.default.createElement("span", { className: "icon-bar" }),
+								_react2.default.createElement("span", { className: "icon-bar" })
+							),
+							_react2.default.createElement(
 								"h1",
 								{ className: "cursive-style" },
 								_react2.default.createElement(
@@ -21136,63 +21143,67 @@
 							)
 						),
 						_react2.default.createElement(
-							"nav",
-							null,
+							"div",
+							{ className: "collapse navbar-collapse", id: "myNavbar" },
 							_react2.default.createElement(
-								"ul",
-								{ className: "nav navbar-nav navbar-right" },
+								"nav",
+								null,
 								_react2.default.createElement(
-									"li",
-									{ className: "nav" },
+									"ul",
+									{ className: "nav navbar-nav navbar-right" },
 									_react2.default.createElement(
-										"a",
-										{ href: "#about" },
-										"About"
-									)
-								),
-								_react2.default.createElement(
-									"li",
-									{ className: "nav active" },
+										"li",
+										{ className: "nav" },
+										_react2.default.createElement(
+											"a",
+											{ href: "#about" },
+											"About"
+										)
+									),
 									_react2.default.createElement(
-										"a",
-										{ href: "#academic-projects" },
-										"Academic projects"
-									)
-								),
-								_react2.default.createElement(
-									"li",
-									{ className: "nav" },
+										"li",
+										{ className: "nav" },
+										_react2.default.createElement(
+											"a",
+											{ href: "#academic-projects" },
+											"Academic projects"
+										)
+									),
 									_react2.default.createElement(
-										"a",
-										{ href: "#personal-projects" },
-										"Personal projects"
-									)
-								),
-								_react2.default.createElement(
-									"li",
-									{ className: "nav" },
+										"li",
+										{ className: "nav" },
+										_react2.default.createElement(
+											"a",
+											{ href: "#personal-projects" },
+											"Personal projects"
+										)
+									),
 									_react2.default.createElement(
-										"a",
-										{ href: "#education" },
-										"Education"
-									)
-								),
-								_react2.default.createElement(
-									"li",
-									{ className: "nav" },
+										"li",
+										{ className: "nav" },
+										_react2.default.createElement(
+											"a",
+											{ href: "#education" },
+											"Education"
+										)
+									),
 									_react2.default.createElement(
-										"a",
-										{ href: "#experience" },
-										"Experience"
-									)
-								),
-								_react2.default.createElement(
-									"li",
-									{ className: "nav" },
+										"li",
+										{ className: "nav" },
+										_react2.default.createElement(
+											"a",
+											{ href: "#experience" },
+											"Experience"
+										)
+									),
 									_react2.default.createElement(
-										"a",
-										{ href: "#skills" },
-										"Skills"
+										"li",
+										{ className: "nav" },
+										_react2.default.createElement(
+											"a",
+											{ href: "#skills" },
+											"Skills"
+										)
 									)
 								)
 							)
