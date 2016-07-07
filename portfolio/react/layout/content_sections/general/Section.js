@@ -2,20 +2,13 @@ import React from 'react';
 
 
 class Section extends React.Component{
-	renderContent(){ return '';}
-	getTitle(){ return '';}
-	getId(){ return '';}
-	getGlyphIcon(){ return '';}
-
-	
 	
 	render()
 	{
 		
-		const id = this.getId();
-		const title = this.getTitle();
-		const content = this.renderContent();
-		const glyphicon = "glyphicon " + this.getGlyphIcon();
+		const id = this.props.id;
+		const title = this.props.title;
+		const glyphicon = "glyphicon " + this.props.glyphicon;
 
 		return (
 			<section id={id}>
@@ -27,7 +20,7 @@ class Section extends React.Component{
 						  </h1>
 						</div>
 						<div className="content">
-							{content}
+							{this.props.children}
 						</div>
 				</div>
 			</section>

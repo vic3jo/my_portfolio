@@ -2,26 +2,18 @@ import React from 'react';
 import Section from './general/Section';
 import {connect} from 'react-redux';
 
-class About extends Section{
+class About extends React.Component{
 
-
-	getTitle(){
-		return 'About me';
-	}
-
-	getGlyphIcon(){
-		return 'glyphicon-user';
-	}
-
-	getId(){
-		return 'about';
-	}
-
-	renderContent()
+	render()
 	{
 
 		return (
-			<p>{this.props.about.description}</p>
+			<Section 
+					id="about" 
+			 glyphicon="glyphicon-user"
+			 title="About me">
+				<p>{this.props.about.description}</p>
+			</Section>
 		)
 	}
 }

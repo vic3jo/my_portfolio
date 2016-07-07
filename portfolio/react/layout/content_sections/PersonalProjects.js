@@ -5,21 +5,9 @@ import Project from './general/Project';
 import {connect} from 'react-redux';
 
 
-class PersonalProjects extends Section{
+class PersonalProjects extends React.Component{
 
-	getTitle(){
-		return 'Personal Projects';
-	}
-	
-	getGlyphIcon(){
-		return 'glyphicon-sunglasses';
-	}
-
-	getId(){
-		return 'personal-projects';
-	}
-
-	renderContent()
+	render()
 	{
 		let projects = this.props.projects.map((x)=> <Project
 			key={x.id} 
@@ -28,13 +16,18 @@ class PersonalProjects extends Section{
 			description={x.description}
 			languages={x.languages}
 			libraries={x.libraries}
-			repositoryUrl={x.repositoryUrl}
-		/>);
+			repositoryUrl={x.repositoryUrl}/>
+		);
 		
 		return (
-			<ProjectList>
-					{projects}
-			</ProjectList>
+			<Section 
+					id="personal-projects" 
+			 glyphicon="glyphicon-sunglasses"
+			 title="Personal Projects">
+				<ProjectList>
+						{projects}
+				</ProjectList>
+			</Section>
 		)
 	}
 }

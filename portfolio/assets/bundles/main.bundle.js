@@ -21393,9 +21393,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Section2 = __webpack_require__(175);
+	var _Section = __webpack_require__(175);
 
-	var _Section3 = _interopRequireDefault(_Section2);
+	var _Section2 = _interopRequireDefault(_Section);
 
 	var _reactRedux = __webpack_require__(176);
 
@@ -21407,8 +21407,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var About = function (_Section) {
-		_inherits(About, _Section);
+	var About = function (_React$Component) {
+		_inherits(About, _React$Component);
 
 		function About() {
 			_classCallCheck(this, About);
@@ -21417,34 +21417,26 @@
 		}
 
 		_createClass(About, [{
-			key: 'getTitle',
-			value: function getTitle() {
-				return 'About me';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return 'glyphicon-user';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return 'about';
-			}
-		}, {
-			key: 'renderContent',
-			value: function renderContent() {
+			key: 'render',
+			value: function render() {
 
 				return _react2.default.createElement(
-					'p',
-					null,
-					this.props.about.description
+					_Section2.default,
+					{
+						id: 'about',
+						glyphicon: 'glyphicon-user',
+						title: 'About me' },
+					_react2.default.createElement(
+						'p',
+						null,
+						this.props.about.description
+					)
 				);
 			}
 		}]);
 
 		return About;
-	}(_Section3.default);
+	}(_react2.default.Component);
 
 	function mapStateToProps(state) {
 		return { about: state.about };
@@ -21456,7 +21448,7 @@
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -21486,58 +21478,37 @@
 		}
 
 		_createClass(Section, [{
-			key: 'renderContent',
-			value: function renderContent() {
-				return '';
-			}
-		}, {
-			key: 'getTitle',
-			value: function getTitle() {
-				return '';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return '';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return '';
-			}
-		}, {
-			key: 'render',
+			key: "render",
 			value: function render() {
 
-				var id = this.getId();
-				var title = this.getTitle();
-				var content = this.renderContent();
-				var glyphicon = "glyphicon " + this.getGlyphIcon();
+				var id = this.props.id;
+				var title = this.props.title;
+				var glyphicon = "glyphicon " + this.props.glyphicon;
 
 				return _react2.default.createElement(
-					'section',
+					"section",
 					{ id: id },
 					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
+						"div",
+						{ className: "row" },
 						_react2.default.createElement(
-							'div',
-							{ className: 'page-header' },
+							"div",
+							{ className: "page-header" },
 							_react2.default.createElement(
-								'h1',
-								{ className: 'cursive-style' },
-								_react2.default.createElement('span', { className: glyphicon }),
+								"h1",
+								{ className: "cursive-style" },
+								_react2.default.createElement("span", { className: glyphicon }),
 								_react2.default.createElement(
-									'span',
-									{ className: 'section-title' },
+									"span",
+									{ className: "section-title" },
 									title
 								)
 							)
 						),
 						_react2.default.createElement(
-							'div',
-							{ className: 'content' },
-							content
+							"div",
+							{ className: "content" },
+							this.props.children
 						)
 					)
 				);
@@ -23275,9 +23246,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Section2 = __webpack_require__(175);
+	var _Section = __webpack_require__(175);
 
-	var _Section3 = _interopRequireDefault(_Section2);
+	var _Section2 = _interopRequireDefault(_Section);
 
 	var _ProjectList = __webpack_require__(203);
 
@@ -23297,8 +23268,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var AcademicProjects = function (_Section) {
-		_inherits(AcademicProjects, _Section);
+	var AcademicProjects = function (_React$Component) {
+		_inherits(AcademicProjects, _React$Component);
 
 		function AcademicProjects() {
 			_classCallCheck(this, AcademicProjects);
@@ -23307,23 +23278,8 @@
 		}
 
 		_createClass(AcademicProjects, [{
-			key: 'getTitle',
-			value: function getTitle() {
-				return 'Academic Projects';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return 'glyphicon-blackboard';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return 'academic-projects';
-			}
-		}, {
-			key: 'renderContent',
-			value: function renderContent() {
+			key: 'render',
+			value: function render() {
 				var projects = this.props.projects.map(function (x) {
 					return _react2.default.createElement(_Project2.default, {
 						key: x.id,
@@ -23332,20 +23288,26 @@
 						description: x.description,
 						languages: x.languages,
 						libraries: x.libraries,
-						repositoryUrl: x.repositoryUrl
-					});
+						repositoryUrl: x.repositoryUrl });
 				});
 
 				return _react2.default.createElement(
-					_ProjectList2.default,
-					null,
-					projects
+					_Section2.default,
+					{
+						id: 'academic-projects',
+						glyphicon: 'glyphicon-blackboard',
+						title: 'Academic Projects' },
+					_react2.default.createElement(
+						_ProjectList2.default,
+						null,
+						projects
+					)
 				);
 			}
 		}]);
 
 		return AcademicProjects;
-	}(_Section3.default);
+	}(_react2.default.Component);
 
 	function mapStateToProps(state) {
 		return { projects: state.academicProjects.projects };
@@ -23535,9 +23497,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Section2 = __webpack_require__(175);
+	var _Section = __webpack_require__(175);
 
-	var _Section3 = _interopRequireDefault(_Section2);
+	var _Section2 = _interopRequireDefault(_Section);
 
 	var _ProjectList = __webpack_require__(203);
 
@@ -23557,8 +23519,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PersonalProjects = function (_Section) {
-		_inherits(PersonalProjects, _Section);
+	var PersonalProjects = function (_React$Component) {
+		_inherits(PersonalProjects, _React$Component);
 
 		function PersonalProjects() {
 			_classCallCheck(this, PersonalProjects);
@@ -23567,23 +23529,8 @@
 		}
 
 		_createClass(PersonalProjects, [{
-			key: 'getTitle',
-			value: function getTitle() {
-				return 'Personal Projects';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return 'glyphicon-sunglasses';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return 'personal-projects';
-			}
-		}, {
-			key: 'renderContent',
-			value: function renderContent() {
+			key: 'render',
+			value: function render() {
 				var projects = this.props.projects.map(function (x) {
 					return _react2.default.createElement(_Project2.default, {
 						key: x.id,
@@ -23592,20 +23539,26 @@
 						description: x.description,
 						languages: x.languages,
 						libraries: x.libraries,
-						repositoryUrl: x.repositoryUrl
-					});
+						repositoryUrl: x.repositoryUrl });
 				});
 
 				return _react2.default.createElement(
-					_ProjectList2.default,
-					null,
-					projects
+					_Section2.default,
+					{
+						id: 'personal-projects',
+						glyphicon: 'glyphicon-sunglasses',
+						title: 'Personal Projects' },
+					_react2.default.createElement(
+						_ProjectList2.default,
+						null,
+						projects
+					)
 				);
 			}
 		}]);
 
 		return PersonalProjects;
-	}(_Section3.default);
+	}(_react2.default.Component);
 
 	function mapStateToProps(state) {
 		return { projects: state.personalProjects.projects };
@@ -23629,9 +23582,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Section2 = __webpack_require__(175);
+	var _Section = __webpack_require__(175);
 
-	var _Section3 = _interopRequireDefault(_Section2);
+	var _Section2 = _interopRequireDefault(_Section);
 
 	var _ListGroup = __webpack_require__(207);
 
@@ -23651,8 +23604,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Education = function (_Section) {
-		_inherits(Education, _Section);
+	var Education = function (_React$Component) {
+		_inherits(Education, _React$Component);
 
 		function Education() {
 			_classCallCheck(this, Education);
@@ -23668,23 +23621,8 @@
 		}
 
 		_createClass(Education, [{
-			key: 'getTitle',
-			value: function getTitle() {
-				return 'Education';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return 'glyphicon-education';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return 'education';
-			}
-		}, {
-			key: 'renderContent',
-			value: function renderContent() {
+			key: 'render',
+			value: function render() {
 				var items = this.props.education.history.map(function (x) {
 					return _react2.default.createElement(_ListGroupItem2.default, {
 						key: x.id,
@@ -23693,15 +23631,22 @@
 				});
 
 				return _react2.default.createElement(
-					_ListGroup2.default,
-					null,
-					items
+					_Section2.default,
+					{
+						id: 'education',
+						glyphicon: 'glyphicon-education',
+						title: 'Education' },
+					_react2.default.createElement(
+						_ListGroup2.default,
+						null,
+						items
+					)
 				);
 			}
 		}]);
 
 		return Education;
-	}(_Section3.default);
+	}(_react2.default.Component);
 
 	function mapStateToProps(state) {
 		return { education: state.education };
@@ -23831,9 +23776,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Section2 = __webpack_require__(175);
+	var _Section = __webpack_require__(175);
 
-	var _Section3 = _interopRequireDefault(_Section2);
+	var _Section2 = _interopRequireDefault(_Section);
 
 	var _PanelGroup = __webpack_require__(210);
 
@@ -23851,8 +23796,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Experience = function (_Section) {
-		_inherits(Experience, _Section);
+	var Experience = function (_React$Component) {
+		_inherits(Experience, _React$Component);
 
 		function Experience() {
 			_classCallCheck(this, Experience);
@@ -23861,53 +23806,45 @@
 		}
 
 		_createClass(Experience, [{
-			key: 'getTitle',
-			value: function getTitle() {
-				return 'Experience';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return 'glyphicon-road';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return 'experience';
-			}
-		}, {
-			key: 'renderContent',
-			value: function renderContent() {
+			key: 'render',
+			value: function render() {
 				return _react2.default.createElement(
-					'div',
-					null,
+					_Section2.default,
+					{
+						id: 'experience',
+						glyphicon: 'glyphicon-road',
+						title: 'Experience' },
 					_react2.default.createElement(
-						_PanelGroup2.default,
-						{ id: 'experience-list' },
+						'div',
+						null,
 						_react2.default.createElement(
-							_Panel2.default,
-							{ id: 'one', parentId: 'experience-list', title: 'Experience At My company.com', expanded: true },
+							_PanelGroup2.default,
+							{ id: 'experience-list' },
 							_react2.default.createElement(
-								'p',
-								null,
-								'I did great things here'
-							)
+								_Panel2.default,
+								{ id: 'one', parentId: 'experience-list', title: 'Experience At My company.com', expanded: true },
+								_react2.default.createElement(
+									'p',
+									null,
+									'I did great things here'
+								)
+							),
+							_react2.default.createElement(_Panel2.default, { id: 'two', parentId: 'experience-list', title: 'Experience At My otherCompany.com', expanded: false }),
+							_react2.default.createElement(_Panel2.default, { id: 'three', parentId: 'experience-list', title: 'Experience At an awesomeCompany.com', expanded: false })
 						),
-						_react2.default.createElement(_Panel2.default, { id: 'two', parentId: 'experience-list', title: 'Experience At My otherCompany.com', expanded: false }),
-						_react2.default.createElement(_Panel2.default, { id: 'three', parentId: 'experience-list', title: 'Experience At an awesomeCompany.com', expanded: false })
-					),
-					_react2.default.createElement(
-						'span',
-						{ className: 'glyphicon glyphicon-file' },
-						' '
-					),
-					' see full Resume'
+						_react2.default.createElement(
+							'span',
+							{ className: 'glyphicon glyphicon-file' },
+							' '
+						),
+						' see full Resume'
+					)
 				);
 			}
 		}]);
 
 		return Experience;
-	}(_Section3.default);
+	}(_react2.default.Component);
 
 	exports.default = Experience;
 
@@ -24075,9 +24012,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Section2 = __webpack_require__(175);
+	var _Section = __webpack_require__(175);
 
-	var _Section3 = _interopRequireDefault(_Section2);
+	var _Section2 = _interopRequireDefault(_Section);
 
 	var _reactRedux = __webpack_require__(176);
 
@@ -24089,8 +24026,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Skills = function (_Section) {
-		_inherits(Skills, _Section);
+	var Skills = function (_React$Component) {
+		_inherits(Skills, _React$Component);
 
 		function Skills() {
 			_classCallCheck(this, Skills);
@@ -24099,23 +24036,8 @@
 		}
 
 		_createClass(Skills, [{
-			key: 'getTitle',
-			value: function getTitle() {
-				return 'Skills';
-			}
-		}, {
-			key: 'getGlyphIcon',
-			value: function getGlyphIcon() {
-				return 'glyphicon-plus-sign';
-			}
-		}, {
-			key: 'getId',
-			value: function getId() {
-				return 'skills';
-			}
-		}, {
-			key: 'renderContent',
-			value: function renderContent() {
+			key: 'render',
+			value: function render() {
 				var items = this.props.skills.list.map(function (x) {
 					return _react2.default.createElement(
 						'li',
@@ -24124,15 +24046,22 @@
 					);
 				});
 				return _react2.default.createElement(
-					'ul',
-					{ className: 'list-unstyled list-inline skills-list' },
-					items
+					_Section2.default,
+					{
+						id: 'skills',
+						glyphicon: 'glyphicon-plus-sign',
+						title: 'Skills' },
+					_react2.default.createElement(
+						'ul',
+						{ className: 'list-unstyled list-inline skills-list' },
+						items
+					)
 				);
 			}
 		}]);
 
 		return Skills;
-	}(_Section3.default);
+	}(_react2.default.Component);
 
 	function mapStateToProps(state) {
 		return { skills: state.skills };

@@ -4,7 +4,7 @@ import ListGroup from './general/ListGroup'
 import ListGroupItem from './general/ListGroupItem';
 import {connect} from 'react-redux';
 
-class Education extends Section{
+class Education extends React.Component{
 	constructor()
 	{
 		super();
@@ -15,20 +15,8 @@ class Education extends Section{
 		};
 	}
 
-	getTitle(){
-		return 'Education';
-	}
 
-	getGlyphIcon(){
-		return 'glyphicon-education';
-	}
-
-	getId(){
-		return 'education';
-	}
-
-
-	renderContent()
+	render()
 	{
 		const items = this.props.education.history
 						.map( (x) => <ListGroupItem 
@@ -38,9 +26,14 @@ class Education extends Section{
 						);
 						
 		return (
-			<ListGroup>
-				{items}
-			</ListGroup>
+			<Section 
+					id="education" 
+			 glyphicon="glyphicon-education"
+			 title="Education">
+				<ListGroup>
+					{items}
+				</ListGroup>
+			</Section>
 		)
 	}
 }

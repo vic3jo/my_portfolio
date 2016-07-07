@@ -18,9 +18,7 @@ class Header extends React.Component{
 						<h1 className="cursive-style">
 							<span className="glyphicon glyphicon-folder-open">&nbsp;</span>My Portfolio
 						</h1>
-
 						
-
 					</div>
 					<div className="collapse navbar-collapse" id="myNavbar">
 						<nav>
