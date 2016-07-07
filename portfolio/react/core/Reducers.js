@@ -47,7 +47,7 @@ const aboutReducer = (
 
 	if (action.type === ActionTypes.LOAD_ABOUT_DATA)
 	{
-		return {description: action.payload};	
+		return {description: action.payload.description};	
 	}
 	return state;
 }

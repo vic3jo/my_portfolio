@@ -2,80 +2,69 @@ import * as ActionTypes from './ActionTypes';
 import * as URLS from './URLS';
 import axios from 'axios';
 
+const loadAndNotify = (
+	store,
+	url,
+	successActionType,
+	errorActionType = ActionTypes.ERROR_LOADING_DATA
+) => {
 
-const loadEducationData = (store) => {
-	axios.get(URLS.LOAD_EDUCATION_HISTORY_DATA).then((response)=>{
+	axios.get(url).then((response)=>{
 		store.dispatch({
-			type: ActionTypes.LOAD_EDUCATION_HISTORY_DATA,
+			type: successActionType,
 			payload: response.data
 		});
 	}).catch((response) => {
 	    store.dispatch({
-			type: ActionTypes.ERROR_LOADING_DATA,
+			type: errorActionType,
 			payload: response
 		});
 	});
-	
+}
+
+
+const loadEducationData = (store) => {
+	loadAndNotify(
+		store,
+		URLS.LOAD_EDUCATION_HISTORY_DATA,
+		ActionTypes.LOAD_EDUCATION_HISTORY_DATA
+	);	
 };
 
 
 const loadAcademicProjectsData = (store) => {
-	axios.get(URLS.LOAD_ACADEMIC_PROJECTS_DATA).then((response)=>{
-		store.dispatch({
-			type: ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA,
-			payload: response.data
-		});
-	}).catch((response) => {
-	    store.dispatch({
-			type: ActionTypes.ERROR_LOADING_DATA,
-			payload: response
-		});
-	});
+	loadAndNotify(
+		store,
+		URLS.LOAD_ACADEMIC_PROJECTS_DATA,
+		ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA
+	);
 };
 
 
 const loadPersonalProjectsData = (store) => {
-	axios.get(URLS.LOAD_PERSONAL_PROJECTS_DATA).then((response)=>{
-		store.dispatch({
-			type: ActionTypes.LOAD_PERSONAL_PROJECTS_DATA,
-			payload: response.data
-		});
-	}).catch((response) => {
-	    store.dispatch({
-			type: ActionTypes.ERROR_LOADING_DATA,
-			payload: response
-		});
-	});
+	loadAndNotify(
+		store,
+		URLS.LOAD_PERSONAL_PROJECTS_DATA,
+		ActionTypes.LOAD_PERSONAL_PROJECTS_DATA
+	);
 };
 
 
 const loadAboutData = (store) => {
-	axios.get(URLS.LOAD_ABOUT_DATA).then((response)=>{
-		store.dispatch({
-			type: ActionTypes.LOAD_ABOUT_DATA,
-			payload: response.data.description
-		});
-	}).catch((response) => {
-	    store.dispatch({
-			type: ActionTypes.ERROR_LOADING_DATA,
-			payload: response
-		});
-	});
+	loadAndNotify(
+		store,
+		URLS.LOAD_ABOUT_DATA,
+		ActionTypes.LOAD_ABOUT_DATA
+	);
 };
 
 
 const loadSkillsData = (store) => {
-	axios.get(URLS.LOAD_SKILLS_DATA).then((response)=>{
-		store.dispatch({
-			type: ActionTypes.LOAD_SKILLS_DATA,
-			payload: response.data
-		});
-	}).catch((response) => {
-	    store.dispatch({
-			type: ActionTypes.ERROR_LOADING_DATA,
-			payload: response
-		});
-	});
+	loadAndNotify(
+		store,
+		URLS.LOAD_SKILLS_DATA,
+		ActionTypes.LOAD_SKILLS_DATA
+	);
 };
 
 

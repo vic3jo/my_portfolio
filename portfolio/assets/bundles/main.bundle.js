@@ -21254,6 +21254,10 @@
 		_createClass(Jumbotron, [{
 			key: "render",
 			value: function render() {
+				var title = "It is me, Victor Trejo.";
+				var imageUrl = "/static/images/gatsby.jpg";
+				var description = "Web and mobile software developer and Computer Science MS alumnus at RIT.";
+
 				return _react2.default.createElement(
 					"div",
 					{ className: "jumbotron" },
@@ -21263,7 +21267,7 @@
 						_react2.default.createElement(
 							"div",
 							{ className: "thumbnail col-xs-3" },
-							_react2.default.createElement("img", { src: "/static/images/gatsby.jpg", alt: "..." })
+							_react2.default.createElement("img", { src: imageUrl })
 						),
 						_react2.default.createElement(
 							"div",
@@ -21272,7 +21276,7 @@
 								"h1",
 								{ className: "cursive-style" },
 								_react2.default.createElement("span", { className: "glyphicon glyphicon-glass" }),
-								"It is me, Victor Trejo."
+								title
 							),
 							_react2.default.createElement(
 								"h2",
@@ -21280,12 +21284,7 @@
 								_react2.default.createElement(
 									"p",
 									null,
-									"Web and mobile software developer."
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Computer Science MS alumnus at RIT."
+									description
 								)
 							)
 						)
@@ -24448,7 +24447,7 @@
 
 
 		if (action.type === ActionTypes.LOAD_ABOUT_DATA) {
-			return { description: action.payload };
+			return { description: action.payload.description };
 		}
 		return state;
 	};
@@ -24531,74 +24530,41 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-	var loadEducationData = function loadEducationData(store) {
-		_axios2.default.get(URLS.LOAD_EDUCATION_HISTORY_DATA).then(function (response) {
+	var loadAndNotify = function loadAndNotify(store, url, successActionType) {
+		var errorActionType = arguments.length <= 3 || arguments[3] === undefined ? ActionTypes.ERROR_LOADING_DATA : arguments[3];
+
+
+		_axios2.default.get(url).then(function (response) {
 			store.dispatch({
-				type: ActionTypes.LOAD_EDUCATION_HISTORY_DATA,
+				type: successActionType,
 				payload: response.data
 			});
 		}).catch(function (response) {
 			store.dispatch({
-				type: ActionTypes.ERROR_LOADING_DATA,
+				type: errorActionType,
 				payload: response
 			});
 		});
+	};
+
+	var loadEducationData = function loadEducationData(store) {
+		loadAndNotify(store, URLS.LOAD_EDUCATION_HISTORY_DATA, ActionTypes.LOAD_EDUCATION_HISTORY_DATA);
 	};
 
 	var loadAcademicProjectsData = function loadAcademicProjectsData(store) {
-		_axios2.default.get(URLS.LOAD_ACADEMIC_PROJECTS_DATA).then(function (response) {
-			store.dispatch({
-				type: ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA,
-				payload: response.data
-			});
-		}).catch(function (response) {
-			store.dispatch({
-				type: ActionTypes.ERROR_LOADING_DATA,
-				payload: response
-			});
-		});
+		loadAndNotify(store, URLS.LOAD_ACADEMIC_PROJECTS_DATA, ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA);
 	};
 
 	var loadPersonalProjectsData = function loadPersonalProjectsData(store) {
-		_axios2.default.get(URLS.LOAD_PERSONAL_PROJECTS_DATA).then(function (response) {
-			store.dispatch({
-				type: ActionTypes.LOAD_PERSONAL_PROJECTS_DATA,
-				payload: response.data
-			});
-		}).catch(function (response) {
-			store.dispatch({
-				type: ActionTypes.ERROR_LOADING_DATA,
-				payload: response
-			});
-		});
+		loadAndNotify(store, URLS.LOAD_PERSONAL_PROJECTS_DATA, ActionTypes.LOAD_PERSONAL_PROJECTS_DATA);
 	};
 
 	var loadAboutData = function loadAboutData(store) {
-		_axios2.default.get(URLS.LOAD_ABOUT_DATA).then(function (response) {
-			store.dispatch({
-				type: ActionTypes.LOAD_ABOUT_DATA,
-				payload: response.data.description
-			});
-		}).catch(function (response) {
-			store.dispatch({
-				type: ActionTypes.ERROR_LOADING_DATA,
-				payload: response
-			});
-		});
+		loadAndNotify(store, URLS.LOAD_ABOUT_DATA, ActionTypes.LOAD_ABOUT_DATA);
 	};
 
 	var loadSkillsData = function loadSkillsData(store) {
-		_axios2.default.get(URLS.LOAD_SKILLS_DATA).then(function (response) {
-			store.dispatch({
-				type: ActionTypes.LOAD_SKILLS_DATA,
-				payload: response.data
-			});
-		}).catch(function (response) {
-			store.dispatch({
-				type: ActionTypes.ERROR_LOADING_DATA,
-				payload: response
-			});
-		});
+		loadAndNotify(store, URLS.LOAD_SKILLS_DATA, ActionTypes.LOAD_SKILLS_DATA);
 	};
 
 	var loadData = function loadData(store) {
