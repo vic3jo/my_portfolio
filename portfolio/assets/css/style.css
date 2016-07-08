@@ -22,6 +22,11 @@ body{
 	font-weight: bold;
 }
 
+
+.navbar .glyphicon{
+    margin-right: 3px;
+}
+
 .navbar h2
 {
 	font-style: italic;

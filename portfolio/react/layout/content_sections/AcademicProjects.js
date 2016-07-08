@@ -21,7 +21,7 @@ class AcademicProjects extends React.Component{
 		return (
 			<Section 
 					id="academic-projects" 
-			 glyphicon="glyphicon-blackboard"
+			 iconType="blackboard"
 			 title="Academic Projects">
 				<ProjectList>
 						{projects}

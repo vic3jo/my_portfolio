@@ -1,4 +1,8 @@
 import React from 'react';
+import Navigator from './content_sections/general/Navigator';
+import NavigatorLink from './content_sections/general/NavigatorLink';
+import Glyphicon from './content_sections/general/Glyphicon';
+
 
 
 class Header extends React.Component
@@ -16,34 +20,38 @@ class Header extends React.Component
 					    </button>
 
 						<h1 className="cursive-style">
-							<span className="glyphicon glyphicon-folder-open">&nbsp;</span>My Portfolio
+							<Glyphicon iconType="folder-open" /> My Portfolio
 						</h1>
 						
 					</div>
 					<div className="collapse navbar-collapse" id="myNavbar">
-						<nav>
-							 <ul className="nav navbar-nav navbar-right">
-						            
-						            <li className="nav">
-						            	<a href="#about">About</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#experience">Experience</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#skills">Skills</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#education">Education</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#academic-projects">Academic projects</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#personal-projects">Personal projects</a>
-						            </li>  
-	      					</ul>	
-						</nav>
+						<Navigator>
+							<NavigatorLink href="#about">
+								<Glyphicon iconType="user" /> About
+							</NavigatorLink>
+
+							<NavigatorLink href="#experience">
+								<Glyphicon iconType="road" /> Experience
+							</NavigatorLink>
+
+							<NavigatorLink href="#skills">
+								<Glyphicon iconType="plus-sign" /> Skills
+							</NavigatorLink>
+
+							<NavigatorLink href="#education">
+								<Glyphicon iconType="education" /> Education
+							</NavigatorLink>
+
+							<NavigatorLink href="#academic-projects">
+								<Glyphicon iconType="blackboard" /> 
+								Academic projects
+							</NavigatorLink>
+
+							<NavigatorLink href="#personal-projects">
+								<Glyphicon iconType="sunglasses" /> 
+								Personal projects
+							</NavigatorLink>
+						</Navigator>
 					</div>
 				</div>
 			</header>

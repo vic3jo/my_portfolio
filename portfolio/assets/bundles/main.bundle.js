@@ -21083,7 +21083,7 @@
 /* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -21094,6 +21094,18 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Navigator = __webpack_require__(242);
+
+	var _Navigator2 = _interopRequireDefault(_Navigator);
+
+	var _NavigatorLink = __webpack_require__(243);
+
+	var _NavigatorLink2 = _interopRequireDefault(_NavigatorLink);
+
+	var _Glyphicon = __webpack_require__(175);
+
+	var _Glyphicon2 = _interopRequireDefault(_Glyphicon);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21113,98 +21125,72 @@
 		}
 
 		_createClass(Header, [{
-			key: "render",
+			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					"header",
-					{ className: "container" },
+					'header',
+					{ className: 'container' },
 					_react2.default.createElement(
-						"div",
-						{ className: "navbar navbar-default navbar-fixed-top" },
+						'div',
+						{ className: 'navbar navbar-default navbar-fixed-top' },
 						_react2.default.createElement(
-							"div",
-							{ className: "navbar-header col-offset-md-1" },
+							'div',
+							{ className: 'navbar-header col-offset-md-1' },
 							_react2.default.createElement(
-								"button",
-								{ type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": "#myNavbar" },
-								_react2.default.createElement("span", { className: "icon-bar" }),
-								_react2.default.createElement("span", { className: "icon-bar" }),
-								_react2.default.createElement("span", { className: "icon-bar" })
+								'button',
+								{ type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#myNavbar' },
+								_react2.default.createElement('span', { className: 'icon-bar' }),
+								_react2.default.createElement('span', { className: 'icon-bar' }),
+								_react2.default.createElement('span', { className: 'icon-bar' })
 							),
 							_react2.default.createElement(
-								"h1",
-								{ className: "cursive-style" },
-								_react2.default.createElement(
-									"span",
-									{ className: "glyphicon glyphicon-folder-open" },
-									" "
-								),
-								"My Portfolio"
+								'h1',
+								{ className: 'cursive-style' },
+								_react2.default.createElement(_Glyphicon2.default, { iconType: 'folder-open' }),
+								' My Portfolio'
 							)
 						),
 						_react2.default.createElement(
-							"div",
-							{ className: "collapse navbar-collapse", id: "myNavbar" },
+							'div',
+							{ className: 'collapse navbar-collapse', id: 'myNavbar' },
 							_react2.default.createElement(
-								"nav",
+								_Navigator2.default,
 								null,
 								_react2.default.createElement(
-									"ul",
-									{ className: "nav navbar-nav navbar-right" },
-									_react2.default.createElement(
-										"li",
-										{ className: "nav" },
-										_react2.default.createElement(
-											"a",
-											{ href: "#about" },
-											"About"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										{ className: "nav" },
-										_react2.default.createElement(
-											"a",
-											{ href: "#experience" },
-											"Experience"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										{ className: "nav" },
-										_react2.default.createElement(
-											"a",
-											{ href: "#skills" },
-											"Skills"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										{ className: "nav" },
-										_react2.default.createElement(
-											"a",
-											{ href: "#education" },
-											"Education"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										{ className: "nav" },
-										_react2.default.createElement(
-											"a",
-											{ href: "#academic-projects" },
-											"Academic projects"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										{ className: "nav" },
-										_react2.default.createElement(
-											"a",
-											{ href: "#personal-projects" },
-											"Personal projects"
-										)
-									)
+									_NavigatorLink2.default,
+									{ href: '#about' },
+									_react2.default.createElement(_Glyphicon2.default, { iconType: 'user' }),
+									' About'
+								),
+								_react2.default.createElement(
+									_NavigatorLink2.default,
+									{ href: '#experience' },
+									_react2.default.createElement(_Glyphicon2.default, { iconType: 'road' }),
+									' Experience'
+								),
+								_react2.default.createElement(
+									_NavigatorLink2.default,
+									{ href: '#skills' },
+									_react2.default.createElement(_Glyphicon2.default, { iconType: 'plus-sign' }),
+									' Skills'
+								),
+								_react2.default.createElement(
+									_NavigatorLink2.default,
+									{ href: '#education' },
+									_react2.default.createElement(_Glyphicon2.default, { iconType: 'education' }),
+									' Education'
+								),
+								_react2.default.createElement(
+									_NavigatorLink2.default,
+									{ href: '#academic-projects' },
+									_react2.default.createElement(_Glyphicon2.default, { iconType: 'blackboard' }),
+									'Academic projects'
+								),
+								_react2.default.createElement(
+									_NavigatorLink2.default,
+									{ href: '#personal-projects' },
+									_react2.default.createElement(_Glyphicon2.default, { iconType: 'sunglasses' }),
+									'Personal projects'
 								)
 							)
 						)
@@ -21512,15 +21498,15 @@
 
 	var _AcademicProjects2 = _interopRequireDefault(_AcademicProjects);
 
-	var _PersonalProjects = __webpack_require__(208);
+	var _PersonalProjects = __webpack_require__(209);
 
 	var _PersonalProjects2 = _interopRequireDefault(_PersonalProjects);
 
-	var _Education = __webpack_require__(209);
+	var _Education = __webpack_require__(210);
 
 	var _Education2 = _interopRequireDefault(_Education);
 
-	var _Experience = __webpack_require__(210);
+	var _Experience = __webpack_require__(211);
 
 	var _Experience2 = _interopRequireDefault(_Experience);
 
@@ -23488,7 +23474,7 @@
 					_Section2.default,
 					{
 						id: 'academic-projects',
-						glyphicon: 'glyphicon-blackboard',
+						iconType: 'blackboard',
 						title: 'Academic Projects' },
 					_react2.default.createElement(
 						_ProjectList2.default,
@@ -23573,7 +23559,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Utilities = __webpack_require__(213);
+	var _Utilities = __webpack_require__(208);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23675,6 +23661,32 @@
 
 /***/ },
 /* 208 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	var formattedDate = exports.formattedDate = function formattedDate(string) {
+		var date = new Date(string);
+		return months[date.getMonth()] + " " + date.getFullYear();
+	};
+
+	var shortenIfLengthLarger = exports.shortenIfLengthLarger = function shortenIfLengthLarger(text, length) {
+		if (text.length > length) {
+			return text.slice(0, length) + "...";
+		} else {
+			return text;
+		}
+	};
+
+/***/ },
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23758,7 +23770,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PersonalProjects);
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23839,7 +23851,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Education);
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23858,17 +23870,17 @@
 
 	var _Section2 = _interopRequireDefault(_Section);
 
-	var _PanelGroup = __webpack_require__(211);
+	var _PanelGroup = __webpack_require__(212);
 
 	var _PanelGroup2 = _interopRequireDefault(_PanelGroup);
 
-	var _Panel = __webpack_require__(212);
+	var _Panel = __webpack_require__(213);
 
 	var _Panel2 = _interopRequireDefault(_Panel);
 
 	var _reactRedux = __webpack_require__(179);
 
-	var _Utilities = __webpack_require__(213);
+	var _Utilities = __webpack_require__(208);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23944,7 +23956,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Experience);
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23997,7 +24009,7 @@
 	exports.default = PanelGroup;
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24102,32 +24114,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Panel;
-
-/***/ },
-/* 213 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-
-	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-	var formattedDate = exports.formattedDate = function formattedDate(string) {
-		var date = new Date(string);
-		return months[date.getMonth()] + " " + date.getFullYear();
-	};
-
-	var shortenIfLengthLarger = exports.shortenIfLengthLarger = function shortenIfLengthLarger(text, length) {
-		if (text.length > length) {
-			return text.slice(0, length) + "...";
-		} else {
-			return text;
-		}
-	};
 
 /***/ },
 /* 214 */
@@ -25959,6 +25945,112 @@
 	  };
 	};
 
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Navigator = function (_React$Component) {
+		_inherits(Navigator, _React$Component);
+
+		function Navigator() {
+			_classCallCheck(this, Navigator);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Navigator).apply(this, arguments));
+		}
+
+		_createClass(Navigator, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"nav",
+					null,
+					_react2.default.createElement(
+						"ul",
+						{ className: "nav navbar-nav navbar-right" },
+						this.props.children
+					)
+				);
+			}
+		}]);
+
+		return Navigator;
+	}(_react2.default.Component);
+
+	exports.default = Navigator;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NavigatorLink = function (_React$Component) {
+		_inherits(NavigatorLink, _React$Component);
+
+		function NavigatorLink() {
+			_classCallCheck(this, NavigatorLink);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavigatorLink).apply(this, arguments));
+		}
+
+		_createClass(NavigatorLink, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"li",
+					{ className: "nav" },
+					_react2.default.createElement(
+						"a",
+						{ href: this.props.href },
+						this.props.children
+					)
+				);
+			}
+		}]);
+
+		return NavigatorLink;
+	}(_react2.default.Component);
+
+	exports.default = NavigatorLink;
 
 /***/ }
 /******/ ]);
