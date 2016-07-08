@@ -12,7 +12,9 @@ class About extends React.Component{
 					id="about" 
 			 glyphicon="glyphicon-user"
 			 title="About me">
-				<p>{this.props.about.description}</p>
+				<p className="pre">
+					{this.props.about.description}
+				</p>
 			</Section>
 		)
 	}

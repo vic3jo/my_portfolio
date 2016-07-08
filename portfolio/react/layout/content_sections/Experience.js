@@ -24,7 +24,7 @@ class Experience extends React.Component{
 						   	formattedDate(x.endDate)
 					   } 
 					expanded={true}>
-						<p>{x.description}</p>
+						<p className="pre">{x.description}</p>
 			</Panel>
 
 		));

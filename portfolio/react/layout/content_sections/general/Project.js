@@ -52,7 +52,9 @@ class Project extends React.Component{
 			        	</p>
 			        </div>
 			        <p>
-			        	Language: {languages}. 
+			        	Languages: {languages}.
+			        </p>
+			        <p> 
 			        	Libraries: {libraries}.
 			        </p>
 			        <p>

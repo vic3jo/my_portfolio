@@ -156,6 +156,10 @@ small, h2
 	background-color: #d9230f;
 }
 
+.pre{
+	white-space: pre-line;
+}
+
 /*@media (min-width: 1000px) {
    .collapse {
        display: none !important;
