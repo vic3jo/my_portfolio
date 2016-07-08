@@ -30,15 +30,15 @@ class Jumbotron extends React.Component{
 					  		<ListGroup>
 					  			<ListGroupItem 
 										key={1} 
-										title={"(585) 286-7684"} 
-										badge={"earphone"} 
+										title="(585) 286-7684" 
+										badge="earphone"
 										isBadgeIcon={true}
 										/>
 								<ListGroupItem 
 										key={2} 
-										title={"vic3jo AT gmail DOT com"}
+										title="vic3jo AT gmail DOT com"
 										isBadgeIcon={true}
-										badge={"envelope"} />		
+										badge="envelope" />		
 					  		</ListGroup>
 				     </div>
 				</div>

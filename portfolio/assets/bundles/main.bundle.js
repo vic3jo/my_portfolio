@@ -21165,8 +21165,8 @@
 										{ className: "nav" },
 										_react2.default.createElement(
 											"a",
-											{ href: "#academic-projects" },
-											"Academic projects"
+											{ href: "#experience" },
+											"Experience"
 										)
 									),
 									_react2.default.createElement(
@@ -21174,8 +21174,8 @@
 										{ className: "nav" },
 										_react2.default.createElement(
 											"a",
-											{ href: "#personal-projects" },
-											"Personal projects"
+											{ href: "#skills" },
+											"Skills"
 										)
 									),
 									_react2.default.createElement(
@@ -21192,8 +21192,8 @@
 										{ className: "nav" },
 										_react2.default.createElement(
 											"a",
-											{ href: "#experience" },
-											"Experience"
+											{ href: "#academic-projects" },
+											"Academic projects"
 										)
 									),
 									_react2.default.createElement(
@@ -21201,8 +21201,8 @@
 										{ className: "nav" },
 										_react2.default.createElement(
 											"a",
-											{ href: "#skills" },
-											"Skills"
+											{ href: "#personal-projects" },
+											"Personal projects"
 										)
 									)
 								)
@@ -21300,15 +21300,15 @@
 								null,
 								_react2.default.createElement(_ListGroupItem2.default, {
 									key: 1,
-									title: "(585) 286-7684",
-									badge: "earphone",
+									title: '(585) 286-7684',
+									badge: 'earphone',
 									isBadgeIcon: true
 								}),
 								_react2.default.createElement(_ListGroupItem2.default, {
 									key: 2,
-									title: "vic3jo AT gmail DOT com",
+									title: 'vic3jo AT gmail DOT com',
 									isBadgeIcon: true,
-									badge: "envelope" })
+									badge: 'envelope' })
 							)
 						)
 					)
@@ -21357,7 +21357,6 @@
 		_createClass(ListGroup, [{
 			key: "render",
 			value: function render() {
-
 				return _react2.default.createElement(
 					"ul",
 					{ className: "list-group" },
@@ -21411,12 +21410,16 @@
 		_createClass(ListGroupItem, [{
 			key: 'render',
 			value: function render() {
-				var title = this.props.title;
-				var badge = this.props.badge;
-				var isBadgeIcon = this.props.isBadgeIcon;
+				var _props = this.props;
+				var title = _props.title;
+				var badge = _props.badge;
+				var isBadgeIcon = _props.isBadgeIcon;
+
+
 				if (isBadgeIcon) {
 					badge = _react2.default.createElement(_Glyphicon2.default, { iconType: badge });
 				}
+
 				return _react2.default.createElement(
 					'li',
 					{ className: 'list-group-item' },
@@ -21610,7 +21613,7 @@
 					_Section2.default,
 					{
 						id: 'about',
-						glyphicon: 'glyphicon-user',
+						iconType: 'user',
 						title: 'About me' },
 					_react2.default.createElement(
 						'p',
@@ -21634,7 +21637,7 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -21645,6 +21648,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Glyphicon = __webpack_require__(175);
+
+	var _Glyphicon2 = _interopRequireDefault(_Glyphicon);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21664,36 +21671,36 @@
 		}
 
 		_createClass(Section, [{
-			key: "render",
+			key: 'render',
 			value: function render() {
-
-				var id = this.props.id;
-				var title = this.props.title;
-				var glyphicon = "glyphicon " + this.props.glyphicon;
+				var _props = this.props;
+				var id = _props.id;
+				var title = _props.title;
+				var iconType = _props.iconType;
 
 				return _react2.default.createElement(
-					"section",
+					'section',
 					{ id: id },
 					_react2.default.createElement(
-						"div",
-						{ className: "row" },
+						'div',
+						{ className: 'row' },
 						_react2.default.createElement(
-							"div",
-							{ className: "page-header" },
+							'div',
+							{ className: 'page-header' },
 							_react2.default.createElement(
-								"h1",
-								{ className: "cursive-style" },
-								_react2.default.createElement("span", { className: glyphicon }),
+								'h1',
+								{ className: 'cursive-style' },
+								_react2.default.createElement(_Glyphicon2.default, { iconType: iconType }),
 								_react2.default.createElement(
-									"span",
-									{ className: "section-title" },
+									'span',
+									{ className: 'section-title' },
 									title
 								)
 							)
 						),
 						_react2.default.createElement(
-							"div",
-							{ className: "content" },
+							'div',
+							{ className: 'content' },
 							this.props.children
 						)
 					)
@@ -23537,7 +23544,6 @@
 		_createClass(ProjectList, [{
 			key: 'render',
 			value: function render() {
-
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -23555,7 +23561,7 @@
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -23566,6 +23572,8 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Utilities = __webpack_require__(213);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23585,80 +23593,73 @@
 		}
 
 		_createClass(Project, [{
-			key: "shortenIfLengthLarger",
-			value: function shortenIfLengthLarger(text, length) {
-				if (text.length > length) {
-					return text.slice(0, length) + "...";
-				} else {
-					return text;
-				}
-			}
-		}, {
-			key: "render",
+			key: 'render',
 			value: function render() {
+				var _props = this.props;
+				var title = _props.title;
+				var course = _props.course;
+				var description = _props.description;
+				var _props2 = this.props;
+				var languages = _props2.languages;
+				var libraries = _props2.libraries;
+				var repositoryUrl = _props2.repositoryUrl;
 
-				var title = this.props.title;
-				var course = this.props.course;
 				var courseLabelClass = !course ? "hide" : "";
-				var description = this.props.description;
-				var languages = this.props.languages;
-				var libraries = this.props.libraries;
-				var repositoryUrl = this.props.repositoryUrl;
 
-				description = this.shortenIfLengthLarger(description, 105);
+				description = (0, _Utilities.shortenIfLengthLarger)(description, 105);
 
-				course = this.shortenIfLengthLarger(course, 25);
+				course = (0, _Utilities.shortenIfLengthLarger)(course, 25);
 
 				return _react2.default.createElement(
-					"div",
-					{ className: "col-sm-6 col-md-4" },
+					'div',
+					{ className: 'col-sm-6 col-md-4' },
 					_react2.default.createElement(
-						"div",
-						{ className: "thumbnail yellow" },
+						'div',
+						{ className: 'thumbnail yellow' },
 						_react2.default.createElement(
-							"div",
-							{ className: "caption" },
+							'div',
+							{ className: 'caption' },
 							_react2.default.createElement(
-								"h3",
+								'h3',
 								null,
 								title
 							),
 							_react2.default.createElement(
-								"h4",
+								'h4',
 								{ className: courseLabelClass },
-								"Course: ",
+								'Course: ',
 								course
 							),
 							_react2.default.createElement(
-								"div",
-								{ className: "well well-sm" },
+								'div',
+								{ className: 'well well-sm' },
 								_react2.default.createElement(
-									"p",
+									'p',
 									null,
 									description
 								)
 							),
 							_react2.default.createElement(
-								"p",
+								'p',
 								null,
-								"Languages: ",
+								'Languages: ',
 								languages,
-								"."
+								'.'
 							),
 							_react2.default.createElement(
-								"p",
+								'p',
 								null,
-								"Libraries: ",
+								'Libraries: ',
 								libraries,
-								"."
+								'.'
 							),
 							_react2.default.createElement(
-								"p",
+								'p',
 								null,
 								_react2.default.createElement(
-									"a",
-									{ href: repositoryUrl, className: "btn btn-default", role: "button" },
-									"Go to repository"
+									'a',
+									{ href: repositoryUrl, className: 'btn btn-default', role: 'button' },
+									'Go to repository'
 								)
 							)
 						)
@@ -23737,7 +23738,7 @@
 					_Section2.default,
 					{
 						id: 'personal-projects',
-						glyphicon: 'glyphicon-sunglasses',
+						iconType: 'sunglasses',
 						title: 'Personal Projects' },
 					_react2.default.createElement(
 						_ProjectList2.default,
@@ -23754,7 +23755,6 @@
 	function mapStateToProps(state) {
 		return { projects: state.personalProjects.projects };
 	}
-
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PersonalProjects);
 
 /***/ },
@@ -23801,14 +23801,7 @@
 		function Education() {
 			_classCallCheck(this, Education);
 
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Education).call(this));
-
-			_this.state = {
-				education: {
-					history: []
-				}
-			};
-			return _this;
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Education).apply(this, arguments));
 		}
 
 		_createClass(Education, [{
@@ -23825,7 +23818,7 @@
 					_Section2.default,
 					{
 						id: 'education',
-						glyphicon: 'glyphicon-education',
+						iconType: 'education',
 						title: 'Education' },
 					_react2.default.createElement(
 						_ListGroup2.default,
@@ -23898,7 +23891,6 @@
 			key: 'render',
 			value: function render() {
 				var history = this.props.experience.history;
-				console.log(history);
 				var historyPanels = history.map(function (x) {
 					return _react2.default.createElement(
 						_Panel2.default,
@@ -23916,13 +23908,12 @@
 						)
 					);
 				});
-				console.log(historyPanels);
 
 				return _react2.default.createElement(
 					_Section2.default,
 					{
 						id: 'experience',
-						glyphicon: 'glyphicon-road',
+						iconType: 'road',
 						title: 'Experience' },
 					_react2.default.createElement(
 						'div',
@@ -23988,12 +23979,11 @@
 		_createClass(PanelGroup, [{
 			key: "render",
 			value: function render() {
-				var id = this.props.id;
 				return _react2.default.createElement(
 					"div",
 					{
 						className: "panel-group",
-						id: id,
+						id: this.props.id,
 						role: "tablist",
 						"aria-multiselectable": "true" },
 					this.props.children
@@ -24042,21 +24032,23 @@
 		_createClass(Panel, [{
 			key: "render",
 			value: function render() {
-				var id = this.props.id;
+				var _props = this.props;
+				var id = _props.id;
+				var expanded = _props.expanded;
+				var badgeText = _props.badgeText;
+
 				var parentId = "#" + this.props.parentId;
 				var headingId = "heading-" + id;
 				var collapseId = "collapse-" + id;
-				var expanded = this.props.expanded;
 				var collapseClass = "panel-collapse collapse";
-				var badgeText = this.props.badgeText;
 				var badgeClass = "badge";
 
 				if (expanded) {
-					collapseClass = collapseClass + " in";
+					collapseClass += " in";
 				}
 
 				if (!badgeText) {
-					badgeClass = badgeClass + " hide";
+					badgeClass += " hide";
 				}
 
 				return _react2.default.createElement(
@@ -24129,6 +24121,14 @@
 		return months[date.getMonth()] + " " + date.getFullYear();
 	};
 
+	var shortenIfLengthLarger = exports.shortenIfLengthLarger = function shortenIfLengthLarger(text, length) {
+		if (text.length > length) {
+			return text.slice(0, length) + "...";
+		} else {
+			return text;
+		}
+	};
+
 /***/ },
 /* 214 */
 /***/ function(module, exports, __webpack_require__) {
@@ -24182,7 +24182,7 @@
 					_Section2.default,
 					{
 						id: 'skills',
-						glyphicon: 'glyphicon-plus-sign',
+						iconType: 'plus-sign',
 						title: 'Skills' },
 					_react2.default.createElement(
 						'ul',
@@ -24199,7 +24199,6 @@
 	function mapStateToProps(state) {
 		return { skills: state.skills };
 	}
-
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Skills);
 
 /***/ },
@@ -24247,7 +24246,8 @@
 						_react2.default.createElement(
 							"div",
 							{ className: "coder col-md-offset-4 col-md-4" },
-							"By Victor Trejo"
+							"By Victor Trejo, ",
+							2016
 						)
 					)
 				);

@@ -9,7 +9,7 @@ class Footer extends React.Component{
 			<footer>
 				<div className="container">
 					<div className="coder col-md-offset-4 col-md-4">
-							By Victor Trejo
+							By Victor Trejo, {2016}
 					</div>
 				
 				</div>

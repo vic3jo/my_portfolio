@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-class Header extends React.Component{
-
+class Header extends React.Component
+{
 	render()
 	{
 		return (
@@ -28,20 +28,20 @@ class Header extends React.Component{
 						            	<a href="#about">About</a>
 						            </li>
 						            <li className="nav">
-						            	<a href="#academic-projects">Academic projects</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#personal-projects">Personal projects</a>
-						            </li>
-						            <li className="nav">
-						            	<a href="#education">Education</a>
-						            </li>
-						            <li className="nav">
 						            	<a href="#experience">Experience</a>
 						            </li>
 						            <li className="nav">
 						            	<a href="#skills">Skills</a>
 						            </li>
+						            <li className="nav">
+						            	<a href="#education">Education</a>
+						            </li>
+						            <li className="nav">
+						            	<a href="#academic-projects">Academic projects</a>
+						            </li>
+						            <li className="nav">
+						            	<a href="#personal-projects">Personal projects</a>
+						            </li>  
 	      					</ul>	
 						</nav>
 					</div>

@@ -11,7 +11,6 @@ class Experience extends React.Component{
 
 	render(){
 		let history = this.props.experience.history;
-		console.log(history);
 		let historyPanels = history.map((x)=>(
 			<Panel 
 					      id={x.id} 
@@ -28,12 +27,11 @@ class Experience extends React.Component{
 			</Panel>
 
 		));
-		console.log(historyPanels)
 
 		return (
 			<Section 
 					id="experience" 
-			 glyphicon="glyphicon-road"
+			 iconType="road"
 			     title="Experience">
 				<div>
 					<PanelGroup id="experience-list">

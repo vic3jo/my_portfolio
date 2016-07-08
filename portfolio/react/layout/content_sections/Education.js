@@ -4,18 +4,8 @@ import ListGroup from './general/ListGroup'
 import ListGroupItem from './general/ListGroupItem';
 import {connect} from 'react-redux';
 
-class Education extends React.Component{
-	constructor()
-	{
-		super();
-		this.state = {
-			education:{
-				history:[]
-			}
-		};
-	}
-
-
+class Education extends React.Component
+{
 	render()
 	{
 		const items = this.props.education.history
@@ -28,7 +18,7 @@ class Education extends React.Component{
 		return (
 			<Section 
 					id="education" 
-			 glyphicon="glyphicon-education"
+			 iconType="education"
 			 title="Education">
 				<ListGroup>
 					{items}

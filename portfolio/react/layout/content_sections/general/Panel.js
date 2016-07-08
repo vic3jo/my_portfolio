@@ -3,23 +3,21 @@ import React from 'react';
 class Panel extends React.Component{
 	
 	render(){
-		let id = this.props.id;
+		let {id, expanded, badgeText}  = this.props;
 		let parentId = "#" + this.props.parentId
 		let headingId = "heading-" + id;
 		let collapseId = "collapse-" + id;
-		let expanded = this.props.expanded;
 		let collapseClass = "panel-collapse collapse";
-		let badgeText = this.props.badgeText;
 		let badgeClass = "badge";
 
 		if (expanded)
 		{
-			collapseClass = collapseClass + " in";
+			collapseClass += " in";
 		}
 
 		if (!badgeText)
 		{
-			badgeClass = badgeClass + " hide";
+			badgeClass += " hide";
 		}
 
 		return (
@@ -39,7 +37,7 @@ class Panel extends React.Component{
 						        	href={collapseId}
 						        	aria-expanded={expanded}
 						        	aria-controls={collapseId}>
-						          {this.props.title}
+						          		{this.props.title}
 						        </a>
 						      </h4>
 

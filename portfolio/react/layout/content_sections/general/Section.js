@@ -1,21 +1,17 @@
 import React from 'react';
+import Glyphicon from './Glyphicon';
 
-
-class Section extends React.Component{
-	
+class Section extends React.Component
+{
 	render()
 	{
-		
-		const id = this.props.id;
-		const title = this.props.title;
-		const glyphicon = "glyphicon " + this.props.glyphicon;
-
+		const {id, title, iconType} = this.props;
 		return (
 			<section id={id}>
 				<div className="row">
 						<div className="page-header">
 						  <h1 className="cursive-style">
-						  	<span className={glyphicon}></span> 
+						  	<Glyphicon iconType={iconType}/>
 						  	<span className="section-title">{title}</span>
 						  </h1>
 						</div>

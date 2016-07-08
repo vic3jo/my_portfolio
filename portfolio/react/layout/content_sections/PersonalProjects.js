@@ -5,8 +5,8 @@ import Project from './general/Project';
 import {connect} from 'react-redux';
 
 
-class PersonalProjects extends React.Component{
-
+class PersonalProjects extends React.Component
+{
 	render()
 	{
 		let projects = this.props.projects.map((x)=> <Project
@@ -22,7 +22,7 @@ class PersonalProjects extends React.Component{
 		return (
 			<Section 
 					id="personal-projects" 
-			 glyphicon="glyphicon-sunglasses"
+			 iconType="sunglasses"
 			 title="Personal Projects">
 				<ProjectList>
 						{projects}
@@ -35,6 +35,4 @@ class PersonalProjects extends React.Component{
 function mapStateToProps(state) {
   return { projects: state.personalProjects.projects };
 }
-
-
 export default connect(mapStateToProps)(PersonalProjects)

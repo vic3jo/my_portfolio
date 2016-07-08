@@ -1,38 +1,21 @@
 import React from 'react';
+import {shortenIfLengthLarger} from '../../../core/Utilities'
 
-
-class Project extends React.Component{
+class Project extends React.Component
+{
 	
-	shortenIfLengthLarger(text, length)
+	render()
 	{
-		if (text.length > length)
-		{
-			return  text.slice(0, length) + "...";
-		}
-		else
-		{
-			return text;
-		}
-	}
-
-	render(){
-
-		let title = this.props.title;
-		let course = this.props.course;
+		let {title, course, description} = this.props;
+		let {languages, libraries, repositoryUrl} = this.props;
 		let courseLabelClass = !course ? "hide" : "";
-		let description = this.props.description;
-		let languages = this.props.languages;
-		let libraries = this.props.libraries;
-		let repositoryUrl = this.props.repositoryUrl;
-
 		
-
-		description = this.shortenIfLengthLarger(
+		description = shortenIfLengthLarger(
 			description,
 			105
 		);
 		
-		course = this.shortenIfLengthLarger(
+		course = shortenIfLengthLarger(
 			course,
 			25
 		);	
@@ -47,9 +30,7 @@ class Project extends React.Component{
 			        </h4>
 			        
 			        <div className="well well-sm">
-			        	<p>
-			        		{description}
-			        	</p>
+			        	<p>{description}</p>
 			        </div>
 			        <p>
 			        	Languages: {languages}.

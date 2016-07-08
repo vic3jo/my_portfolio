@@ -1,13 +1,13 @@
 import React from 'react';
 
-class PanelGroup extends React.Component{
-	
-	render(){
-		const id = this.props.id;
+class PanelGroup extends React.Component
+{	
+	render()
+	{
 		return (
 			<div 
 					className="panel-group"
-					id={id} 
+					id={this.props.id} 
 					role="tablist" 
 					aria-multiselectable="true">	
 					{this.props.children}
