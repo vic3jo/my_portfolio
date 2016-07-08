@@ -21549,11 +21549,11 @@
 					'section',
 					{ id: 'page-body', className: 'container' },
 					_react2.default.createElement(_About2.default, null),
-					_react2.default.createElement(_AcademicProjects2.default, null),
-					_react2.default.createElement(_PersonalProjects2.default, null),
-					_react2.default.createElement(_Education2.default, null),
 					_react2.default.createElement(_Experience2.default, null),
-					_react2.default.createElement(_Skills2.default, null)
+					_react2.default.createElement(_Skills2.default, null),
+					_react2.default.createElement(_Education2.default, null),
+					_react2.default.createElement(_AcademicProjects2.default, null),
+					_react2.default.createElement(_PersonalProjects2.default, null)
 				);
 			}
 		}]);

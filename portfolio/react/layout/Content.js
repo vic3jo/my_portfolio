@@ -13,11 +13,13 @@ class Content extends React.Component{
 		return (
 			<section id="page-body" className="container">
 				<About />
-				<AcademicProjects />
-				<PersonalProjects />
-				<Education />
 				<Experience />
 				<Skills />
+				<Education />
+				<AcademicProjects />
+				<PersonalProjects />
+				
+				
 			</section>
 		)
 	}
