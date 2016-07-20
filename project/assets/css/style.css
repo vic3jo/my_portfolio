@@ -165,8 +165,9 @@ small, h2
 	white-space: pre-line;
 }
 
-/*@media (min-width: 1000px) {
-   .collapse {
-       display: none !important;
-   }
-}*/
+.link-styled {
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: underline;
+    font-size: 22px;
+}

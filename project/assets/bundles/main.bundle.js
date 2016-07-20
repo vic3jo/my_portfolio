@@ -6827,11 +6827,11 @@
 	                        'a',
 	                        { href: resume.file },
 	                        _react2.default.createElement(
-	                            'span',
-	                            { className: 'glyphicon glyphicon-file' },
-	                            ' '
-	                        ),
-	                        'See full Resume'
+	                            'h2',
+	                            { className: 'link-styled' },
+	                            _react2.default.createElement('span', { className: 'glyphicon glyphicon-file' }),
+	                            'See full resume'
+	                        )
 	                    )
 	                )
 	            );

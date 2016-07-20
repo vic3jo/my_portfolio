@@ -45,8 +45,10 @@ class Experience extends React.Component {
                         {historyPanels}
                     </PanelGroup>
                     <a href={resume.file}>
-                        <span className="glyphicon glyphicon-file">&nbsp;</span>
-                        See full Resume
+                        <h2 className="link-styled">
+                            <span className="glyphicon glyphicon-file"></span>
+                            See full resume
+                        </h2>
                     </a>
                 </div>
             </Section>

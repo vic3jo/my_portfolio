@@ -50,9 +50,9 @@ export default class Header extends React.Component
         const links = LINKS_CONFIG.map((entry) => {
 
             return (
-                        <NavigatorLink key={entry.sectionId} href={`#${entry.sectionId}`}>
-                            <Glyphicon iconType={entry.icon} /> {entry.label}
-                        </NavigatorLink>
+                <NavigatorLink key={entry.sectionId} href={`#${entry.sectionId}`}>
+                    <Glyphicon iconType={entry.icon} /> {entry.label}
+                </NavigatorLink>
             );
 
         });
