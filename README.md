@@ -3,29 +3,31 @@
 A simple portfolio to talk about me and show some of my work projects.
 
 ### What is this repository for? ###
+This repository contains the source code for an online resume/portfolio
+web page.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 
 * Summary of set up
 * Configuration
+	You have to set the following environment variables:
+		SECRET_KEY
+		ALLOWED_HOSTS
+		DEBUG
+		STATIC_ROOT
+
 * Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+	Django
+	Djangorestframwork
+	ReactJs
+	Python3.4.3
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Who do I talk to? ###
+	
+	Victor Trejo.
+	Email: vic3jo AT gmail DOT com
 
-* Repo owner or admin
-* Other community or team contact
-
+### Screenshot of the app ###
 ![Sample Screenshot](screenshot.png "Sample Screenshot")
