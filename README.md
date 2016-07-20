@@ -9,9 +9,9 @@ web page.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-	You have to set the following environment variables:
+
+* Configuration: 
+	** You have to set the following environment variables:
 		- SECRET_KEY
 		- ALLOWED_HOSTS
 		- DEBUG
