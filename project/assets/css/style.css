@@ -202,4 +202,5 @@ li:hover .skill-description{
 
 :target {
    padding-top: 40px;
+   transition: 1.5s;
 }
