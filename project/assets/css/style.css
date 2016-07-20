@@ -171,3 +171,31 @@ small, h2
     text-decoration: underline;
     font-size: 22px;
 }
+
+.skill-description{
+	z-index: 1;
+    border: 1px solid;
+    position: absolute;
+    background-color: #2B2B2B;
+    color: #FFFFFF;
+    display: none;
+    border-radius: 5px;
+    line-height: 22PX;
+    font-size: 15px;
+    padding: 10px;
+}
+
+li:hover .skill-description{
+	display: block;
+}
+
+.up-triangle {
+    position: absolute;
+    top: -17px;
+    color: #2B2B2B;
+    font-size: 22px;
+}
+
+.list-group-item {
+    font-weight: bold;
+}

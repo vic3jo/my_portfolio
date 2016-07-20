@@ -45,6 +45,11 @@ router.register(
 )
 
 router.register(
+    r'skills-category',
+    views.SkillCategoryViewSet
+)
+
+router.register(
     r'file-content',
     views.FileContentViewSet
 )

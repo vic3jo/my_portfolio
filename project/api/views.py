@@ -8,7 +8,7 @@ from rest_framework import viewsets
 from rest_framework import authentication, permissions
 from .models import EducationHistoryEntry
 from .models import ExperienceHistoryEntry
-from .models import AcademicProjects, Skill
+from .models import AcademicProjects, Skill, SkillCategory
 from .models import PersonalProjects, SectionMultipleContent
 from .models import FileContent, Content
 from .serializers import EducationHistoryEntrySerializer
@@ -19,6 +19,7 @@ from .serializers import SectionMultipleContentSerializer
 from .serializers import SkillSerializer
 from .serializers import FileContentSerializer
 from .serializers import ContentSerializer
+from .serializers import SkillCategorySerializer
 
 LABEL_FIELD = 'label'
 
@@ -103,6 +104,14 @@ class SkillViewSet(
     """API endpoint for listing skills."""
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+
+class SkillCategoryViewSet(
+    DefaultsSettings,
+    viewsets.ModelViewSet
+):
+    """API endpoint for listing skills category."""
+    queryset = SkillCategory.objects.all()
+    serializer_class = SkillCategorySerializer
 
 
 class FileContentViewSet(

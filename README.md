@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A simple portfolio to talk about me and show some of my work projects.
 
 ### What is this repository for? ###
 

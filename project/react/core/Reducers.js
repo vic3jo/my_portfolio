@@ -147,11 +147,24 @@ const skillsReducer = (
 
     if ( action.type === ActionTypes.LOAD_SKILLS_DATA )
     {
+        let result = {};
+        const skills = action.payload;
 
-        return {
-            ...state,
-            list: action.payload
-        };
+        for (let key in skills)
+        {
+
+            const category = skills[key].categoryName;
+
+            if ( !result[category] )
+            {
+                result[category] = [];
+            }
+
+            result[category].push(skills[key]);
+
+        }
+
+        return result;
 
     }
 

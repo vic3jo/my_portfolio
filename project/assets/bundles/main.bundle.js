@@ -7197,8 +7197,74 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	var Skills = function (_React$Component) {
-	    _inherits(Skills, _React$Component);
+	var SkillsList = function (_React$Component) {
+	    _inherits(SkillsList, _React$Component);
+
+	    function SkillsList() {
+	        _classCallCheck(this, SkillsList);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SkillsList).apply(this, arguments));
+	    }
+
+	    _createClass(SkillsList, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var categoryName = _props.categoryName;
+	            var skills = _props.skills;
+
+	            var items = skills.map(function (skill) {
+
+	                return _react2.default.createElement(
+	                    'li',
+	                    {
+	                        className: 'skill',
+	                        key: skill.id
+	                    },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: skill.url },
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'btn btn-info' },
+	                            skill.label
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'skill-description' },
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'up-triangle' },
+	                            '▲'
+	                        ),
+	                        skill.description
+	                    )
+	                );
+	            });
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'skills-list-container' },
+	                _react2.default.createElement(
+	                    'h4',
+	                    null,
+	                    categoryName
+	                ),
+	                _react2.default.createElement(
+	                    'ul',
+	                    { className: 'list-unstyled list-inline skills-list' },
+	                    items
+	                )
+	            );
+	        }
+	    }]);
+
+	    return SkillsList;
+	}(_react2.default.Component);
+
+	var Skills = function (_React$Component2) {
+	    _inherits(Skills, _React$Component2);
 
 	    function Skills() {
 	        _classCallCheck(this, Skills);
@@ -7209,17 +7275,15 @@
 	    _createClass(Skills, [{
 	        key: 'render',
 	        value: function render() {
+	            var groupedSkills = this.props.groupedSkills;
 
-	            var items = this.props.skills.list.map(function (skill) {
+	            var lists = Object.keys(groupedSkills).map(function (key) {
 
-	                return _react2.default.createElement(
-	                    'li',
-	                    {
-	                        className: 'btn btn-success skill',
-	                        key: skill.id
-	                    },
-	                    skill.label
-	                );
+	                return _react2.default.createElement(SkillsList, {
+	                    key: key,
+	                    categoryName: key,
+	                    skills: groupedSkills[key]
+	                });
 	            });
 
 	            return _react2.default.createElement(
@@ -7229,11 +7293,7 @@
 	                    iconType: 'plus-sign',
 	                    title: 'Skills'
 	                },
-	                _react2.default.createElement(
-	                    'ul',
-	                    { className: 'list-unstyled list-inline skills-list' },
-	                    items
-	                )
+	                lists
 	            );
 	        }
 	    }]);
@@ -7241,7 +7301,7 @@
 	    return Skills;
 	}(_react2.default.Component);
 
-	Skills.propTypes = { skills: _react2.default.PropTypes.shape({ list: _react2.default.PropTypes.array.isRequired }) };
+	Skills.propTypes = { groupedSkills: _react2.default.PropTypes.object.isRequired };
 
 	/**
 	 * Map the store states to the corresponding properties
@@ -7251,7 +7311,7 @@
 	 */
 	function mapStateToProps(state) {
 
-	    return { skills: state.skills };
+	    return { groupedSkills: state.skills };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Skills);
@@ -24881,10 +24941,21 @@
 
 
 	    if (action.type === _ActionTypes2.default.LOAD_SKILLS_DATA) {
+	        var result = {};
+	        var skills = action.payload;
 
-	        return _extends({}, state, {
-	            list: action.payload
-	        });
+	        for (var key in skills) {
+
+	            var category = skills[key].categoryName;
+
+	            if (!result[category]) {
+	                result[category] = [];
+	            }
+
+	            result[category].push(skills[key]);
+	        }
+
+	        return result;
 	    }
 
 	    return state;
@@ -24973,7 +25044,7 @@
 	        imageUrl: ''
 	    },
 	    RESUME: { file: '' },
-	    SKILLS: { list: [] }
+	    SKILLS: {}
 	};
 
 /***/ },

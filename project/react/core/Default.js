@@ -17,5 +17,5 @@ export default{
         imageUrl: ''
     },
     RESUME: {file: ''},
-    SKILLS: {list: []}
+    SKILLS: {}
 };

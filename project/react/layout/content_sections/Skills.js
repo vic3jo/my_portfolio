@@ -7,21 +7,58 @@ import React from 'react';
 import Section from './general/Section';
 import {connect} from 'react-redux';
 
-class Skills extends React.Component
+class SkillsList extends React.Component
 {
 
     render ()
     {
 
-        const items = this.props.skills.list.map( (skill) => {
+        const {categoryName, skills} = this.props;
+        const items = skills.map( (skill) => {
 
             return (
                 <li
-                    className="btn btn-success skill"
+                    className="skill"
                           key={skill.id}
                 >
-                    {skill.label}
+                    <a href={skill.url}>
+                        <span className="btn btn-info">{skill.label}</span>
+                    </a>
+                    <div className="skill-description">
+                        <span className="up-triangle">&#9650;</span>
+                        {skill.description}
+                    </div>
                 </li>
+            );
+
+        });
+
+        return (
+            <div className="skills-list-container">
+                <h4>{categoryName}</h4>
+                <ul className="list-unstyled list-inline skills-list">
+                    {items}
+                </ul>
+            </div>
+        );
+    }
+}
+
+
+class Skills extends React.Component
+{
+
+    render ()
+    {
+        const {groupedSkills} = this.props;
+        const lists = Object.keys(groupedSkills).map( (key) => {
+
+            return (
+               <SkillsList 
+                         key={key}
+                    categoryName={key} 
+                      skills={groupedSkills[key]}
+               />
             );
 
         });
@@ -32,9 +69,7 @@ class Skills extends React.Component
               iconType="plus-sign"
                  title="Skills"
             >
-                <ul className="list-unstyled list-inline skills-list">
-                    {items}
-                </ul>
+                {lists}
             </Section>
         );
 
@@ -42,7 +77,7 @@ class Skills extends React.Component
 
 }
 
-Skills.propTypes = {skills: React.PropTypes.shape({list: React.PropTypes.array.isRequired})};
+Skills.propTypes = {groupedSkills: React.PropTypes.object.isRequired};
 
 /**
  * Map the store states to the corresponding properties
@@ -53,7 +88,7 @@ Skills.propTypes = {skills: React.PropTypes.shape({list: React.PropTypes.array.i
 function mapStateToProps (state)
 {
 
-    return {skills: state.skills};
+    return {groupedSkills: state.skills};
 
 }
 

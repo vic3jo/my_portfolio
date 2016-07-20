@@ -6,7 +6,7 @@ Description: This file contains all the serializers.
 from rest_framework import serializers
 from .models import EducationHistoryEntry, AcademicProjects
 from .models import PersonalProjects, SectionMultipleContent
-from .models import ExperienceHistoryEntry, Skill
+from .models import ExperienceHistoryEntry, Skill, SkillCategory
 from .models import FileContent, Content
 
 class EducationHistoryEntrySerializer(serializers.ModelSerializer):
@@ -128,6 +128,7 @@ class SkillSerializer(serializers.ModelSerializer):
     """
     Skills serializer.
     """
+    categoryName = serializers.SerializerMethodField('get_category_name')
     class Meta:
         """
         Meta class.
@@ -136,6 +137,28 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'label',
+            'description',
+            'url',
+            'categoryName',
+            'category'
+        )
+
+    def get_category_name(self, obj):
+        return SkillCategorySerializer(obj.category).data['label']
+
+class SkillCategorySerializer(serializers.ModelSerializer):
+    """
+    Skills category serializer.
+    """
+    class Meta:
+        """
+        Meta class.
+        """
+        model = SkillCategory
+        fields = (
+            'id',
+            'label',
+            'description'
         )
 
 class FileContentSerializer(serializers.ModelSerializer):

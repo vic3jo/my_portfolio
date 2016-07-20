@@ -149,6 +149,21 @@ class Content(models.Model):
             self.description
         )
 
+class SkillCategory(models.Model):
+    """Skill category"""
+    label = models.CharField(
+        max_length=120,
+        blank=True,
+        default=''
+    )
+    description = models.TextField(
+        max_length=500,
+        blank=True,
+        default=''
+    )
+
+    def __str__(self):
+        return self.label
 
 class Skill(models.Model):
     """Skill."""
@@ -156,6 +171,18 @@ class Skill(models.Model):
         max_length=120,
         blank=True,
         default=''
+    )
+    description = models.TextField(
+        max_length=500,
+        blank=True,
+        default=''
+    )
+    url = models.URLField(
+        max_length=1000,
+        default=''
+    )
+    category = models.ForeignKey(
+        SkillCategory
     )
 
     def __str__(self):
