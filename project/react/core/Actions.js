@@ -76,6 +76,16 @@ const loadPersonalProjectsData = (store) => {
 };
 
 
+const loadJumbotronData = (store) => {
+
+    loadAndNotify(
+        store,
+        URLS.LOAD_JUMBOTRON_DATA,
+        ActionTypes.LOAD_JUMBOTRON_DATA
+    );
+
+};
+
 const loadAboutData = (store) => {
 
     loadAndNotify(
@@ -107,8 +117,20 @@ const loadResumeData = (store) => {
 
 };
 
+const loadProfilePictureData = (store) => {
+
+    loadAndNotify(
+        store,
+        URLS.LOAD_PROFILE_PICTURE_DATA,
+        ActionTypes.LOAD_PROFILE_PICTURE_DATA
+    );
+
+};
+
 const loadData = (store) => {
 
+    loadJumbotronData(store);
+    loadProfilePictureData(store);
     loadAboutData(store);
     loadEducationData(store);
     loadAcademicProjectsData(store);

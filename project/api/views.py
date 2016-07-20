@@ -9,15 +9,16 @@ from rest_framework import authentication, permissions
 from .models import EducationHistoryEntry
 from .models import ExperienceHistoryEntry
 from .models import AcademicProjects, Skill
-from .models import PersonalProjects, SectionContent
-from .models import FileContent
+from .models import PersonalProjects, SectionMultipleContent
+from .models import FileContent, Content
 from .serializers import EducationHistoryEntrySerializer
 from .serializers import ExperienceHistoryEntrySerializer
 from .serializers import AcademicProjectsSerializer
 from .serializers import PersonalProjectsSerializer
-from .serializers import SectionContentSerializer
+from .serializers import SectionMultipleContentSerializer
 from .serializers import SkillSerializer
 from .serializers import FileContentSerializer
+from .serializers import ContentSerializer
 
 LABEL_FIELD = 'label'
 
@@ -70,17 +71,29 @@ class PersonalProjectsViewSet(
 
 
 
-class SectionContentViewSet(
+class SectionMultipleContentViewSet(
     DefaultsSettings,
     viewsets.ModelViewSet
 ):
     """API endpoint for listing section content."""
     lookup_field = LABEL_FIELD
     lookup_url_kwarg = LABEL_FIELD
-    queryset = SectionContent.objects.order_by(
+    queryset = SectionMultipleContent.objects.order_by(
         LABEL_FIELD
     )
-    serializer_class = SectionContentSerializer
+    serializer_class = SectionMultipleContentSerializer
+
+class ContentViewSet(
+    DefaultsSettings,
+    viewsets.ModelViewSet
+):
+    """API endpoint for listing section content."""
+    lookup_field = LABEL_FIELD
+    lookup_url_kwarg = LABEL_FIELD
+    queryset = Content.objects.order_by(
+        LABEL_FIELD
+    )
+    serializer_class = ContentSerializer
 
 
 class SkillViewSet(

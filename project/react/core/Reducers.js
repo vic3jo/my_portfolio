@@ -80,6 +80,7 @@ const personalProjectsReducer = (
 
 };
 
+const ABOUT_DESCRIPTION_KEY = 'about-description';
 
 const aboutReducer = (
     state = Default.ABOUT,
@@ -91,7 +92,45 @@ const aboutReducer = (
 
         return {
             ...state,
-            description: action.payload.description
+            description: action.payload.contents[ABOUT_DESCRIPTION_KEY].description
+        };
+
+    }
+
+    return state;
+
+};
+
+const JUMBOTRON_DESCRIPTION_KEY = 'jumbotron-description';
+const JUMBOTRON_TITLE_KEY = 'jumbotron-title';
+const JUMBOTRON_PHONE_KEY = 'jumbotron-phone';
+const JUMBOTRON_EMAIL_KEY = 'jumbotron-email';
+
+
+const jumbotronReducer = (
+    state = Default.JUMBOTRON,
+    action
+) => {
+
+    if ( action.type === ActionTypes.LOAD_JUMBOTRON_DATA )
+    {
+
+        return {
+            ...state,
+            description: action.payload.contents[JUMBOTRON_DESCRIPTION_KEY].description,
+            title: action.payload.contents[JUMBOTRON_TITLE_KEY].description,
+            phone: action.payload.contents[JUMBOTRON_PHONE_KEY].description,
+            email: action.payload.contents[JUMBOTRON_EMAIL_KEY].description
+        };
+
+    }
+
+    if ( action.type === ActionTypes.LOAD_PROFILE_PICTURE_DATA )
+    {
+
+        return {
+            ...state,
+            imageUrl: action.payload.file,
         };
 
     }
@@ -147,7 +186,8 @@ const Reducers = combineReducers({
     personalProjects: personalProjectsReducer,
     skills: skillsReducer,
     experience: experienceReducer,
-    resume: resumeReducer
+    resume: resumeReducer,
+    jumbotron: jumbotronReducer
 });
 
 export default Reducers;

@@ -7,25 +7,24 @@ import Glyphicon from './content_sections/general/Glyphicon';
 import ListGroup from './content_sections/general/ListGroup';
 import ListGroupItem from './content_sections/general/ListGroupItem';
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default class Jumbotron extends React.Component {
+class Jumbotron extends React.Component {
 
     render ()
     {
 
-        const title = 'It\'s me, Victor Trejo.';
-        const imageUrl = '/static/images/gatsby.jpg';
-        const description = 'Web and mobile software developer and Computer Science MS alumnus at RIT.';
+        const {description, phone, email, title, imageUrl} = this.props;
         const infoItems = [
             {
                 id: 1,
-                title: '(585) 286-7684',
+                title: phone,
                 badge: 'earphone',
                 isBadgeIcon: true
             },
             {
                 id: 2,
-                title: 'vic3jo AT gmail DOT com',
+                title: email,
                 badge: 'envelope',
                 isBadgeIcon: true
             }
@@ -68,3 +67,33 @@ export default class Jumbotron extends React.Component {
     }
 
 }
+
+Jumbotron.propTypes = {
+    description: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
+    email: React.PropTypes.string.isRequired,
+    phone: React.PropTypes.string.isRequired,
+    imageUrl: React.PropTypes.string.isRequired
+};
+
+/**
+ * Map the store states to the corresponding properties
+ * of the component when the store state changes.
+ * @param  {object} state the state object
+ * @return {object}       the updated properties object.
+ */
+function mapStateToProps (state) {
+
+    const jumbotron = state.jumbotron;
+
+    return {
+        email: jumbotron.email,
+        phone: jumbotron.phone,
+        title: jumbotron.title,
+        description: jumbotron.description,
+        imageUrl: jumbotron.imageUrl
+    };
+
+}
+
+export default connect(mapStateToProps)(Jumbotron);

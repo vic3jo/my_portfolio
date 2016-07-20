@@ -9,6 +9,13 @@ export default{
     ACADEMIC_PROJECTS: {projects: []},
     PERSONAL_PROJECTS: {projects: []},
     ABOUT: {description: ''},
+    JUMBOTRON: {
+    	title: '',
+    	description: '',
+    	phone: '',
+    	email: '',
+        imageUrl: ''
+    },
     RESUME: {file: ''},
     SKILLS: {list: []}
 };

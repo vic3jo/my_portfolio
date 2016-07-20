@@ -30,8 +30,13 @@ router.register(
 )
 
 router.register(
+    r'section',
+    views.SectionMultipleContentViewSet
+)
+
+router.register(
     r'section-content',
-    views.SectionContentViewSet
+    views.ContentViewSet
 )
 
 router.register(

@@ -37,5 +37,5 @@ export default class ListGroupItem extends React.Component
 ListGroupItem.propTypes = {
     title: React.PropTypes.string.isRequired,
     badge: React.PropTypes.string.isRequired,
-    isBadgeIcon: React.PropTypes.bool.isRequired
+    isBadgeIcon: React.PropTypes.bool
 };

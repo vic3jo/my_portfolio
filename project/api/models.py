@@ -115,8 +115,19 @@ class PersonalProjects(models.Model):
 
 
 
+class SectionMultipleContent(models.Model):
+    """Section multiple Content entry."""
+    label = models.CharField(
+        max_length=120,
+        blank=True,
+        default=''
+    )
+    def __str__(self):
+        return "{}".format(
+            self.label
+        )
 
-class SectionContent(models.Model):
+class Content(models.Model):
     """Section Content entry."""
     label = models.CharField(
         max_length=120,
@@ -129,6 +140,8 @@ class SectionContent(models.Model):
         blank=True,
         default=''
     )
+
+    section_multiple_content = models.ForeignKey(SectionMultipleContent)
 
     def __str__(self):
         return "{}: {}".format(

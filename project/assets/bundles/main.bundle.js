@@ -88,12 +88,12 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var logger = (0, _reduxLogger2.default)(); /**
-	                                            * Author: Victor Trejo
-	                                            * Description: This is the entry file of the react application.
-	                                            */
+	// const logger = createLogger();
+	var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default); /**
+	                                                                     * Author: Victor Trejo
+	                                                                     * Description: This is the entry file of the react application.
+	                                                                     */
 
-	var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default, logger);
 	var store = (0, _redux.createStore)(_Reducers2.default, middleware);
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -6726,7 +6726,7 @@
 	ListGroupItem.propTypes = {
 	    title: _react2.default.PropTypes.string.isRequired,
 	    badge: _react2.default.PropTypes.string.isRequired,
-	    isBadgeIcon: _react2.default.PropTypes.bool.isRequired
+	    isBadgeIcon: _react2.default.PropTypes.bool
 	};
 
 /***/ },
@@ -6793,7 +6793,7 @@
 	                return _react2.default.createElement(
 	                    _Panel2.default,
 	                    {
-	                        id: entry.id,
+	                        id: '' + entry.id,
 	                        key: entry.id,
 	                        parentId: 'experience-list',
 	                        title: entry.position + ' - ' + entry.company,
@@ -7614,6 +7614,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(52);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7639,18 +7641,21 @@
 	    _createClass(Jumbotron, [{
 	        key: 'render',
 	        value: function render() {
+	            var _props = this.props;
+	            var description = _props.description;
+	            var phone = _props.phone;
+	            var email = _props.email;
+	            var title = _props.title;
+	            var imageUrl = _props.imageUrl;
 
-	            var title = 'It\'s me, Victor Trejo.';
-	            var imageUrl = '/static/images/gatsby.jpg';
-	            var description = 'Web and mobile software developer and Computer Science MS alumnus at RIT.';
 	            var infoItems = [{
 	                id: 1,
-	                title: '(585) 286-7684',
+	                title: phone,
 	                badge: 'earphone',
 	                isBadgeIcon: true
 	            }, {
 	                id: 2,
-	                title: 'vic3jo AT gmail DOT com',
+	                title: email,
 	                badge: 'envelope',
 	                isBadgeIcon: true
 	            }];
@@ -7707,7 +7712,34 @@
 	    return Jumbotron;
 	}(_react2.default.Component);
 
-	exports.default = Jumbotron;
+	Jumbotron.propTypes = {
+	    description: _react2.default.PropTypes.string.isRequired,
+	    title: _react2.default.PropTypes.string.isRequired,
+	    email: _react2.default.PropTypes.string.isRequired,
+	    phone: _react2.default.PropTypes.string.isRequired,
+	    imageUrl: _react2.default.PropTypes.string.isRequired
+	};
+
+	/**
+	 * Map the store states to the corresponding properties
+	 * of the component when the store state changes.
+	 * @param  {object} state the state object
+	 * @return {object}       the updated properties object.
+	 */
+	function mapStateToProps(state) {
+
+	    var jumbotron = state.jumbotron;
+
+	    return {
+	        email: jumbotron.email,
+	        phone: jumbotron.phone,
+	        title: jumbotron.title,
+	        description: jumbotron.description,
+	        imageUrl: jumbotron.imageUrl
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Jumbotron);
 
 /***/ },
 /* 82 */
@@ -24796,6 +24828,8 @@
 	    return state;
 	};
 
+	var ABOUT_DESCRIPTION_KEY = 'about-description';
+
 	var aboutReducer = function aboutReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.ABOUT : arguments[0];
 	    var action = arguments[1];
@@ -24804,7 +24838,37 @@
 	    if (action.type === _ActionTypes2.default.LOAD_ABOUT_DATA) {
 
 	        return _extends({}, state, {
-	            description: action.payload.description
+	            description: action.payload.contents[ABOUT_DESCRIPTION_KEY].description
+	        });
+	    }
+
+	    return state;
+	};
+
+	var JUMBOTRON_DESCRIPTION_KEY = 'jumbotron-description';
+	var JUMBOTRON_TITLE_KEY = 'jumbotron-title';
+	var JUMBOTRON_PHONE_KEY = 'jumbotron-phone';
+	var JUMBOTRON_EMAIL_KEY = 'jumbotron-email';
+
+	var jumbotronReducer = function jumbotronReducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.JUMBOTRON : arguments[0];
+	    var action = arguments[1];
+
+
+	    if (action.type === _ActionTypes2.default.LOAD_JUMBOTRON_DATA) {
+
+	        return _extends({}, state, {
+	            description: action.payload.contents[JUMBOTRON_DESCRIPTION_KEY].description,
+	            title: action.payload.contents[JUMBOTRON_TITLE_KEY].description,
+	            phone: action.payload.contents[JUMBOTRON_PHONE_KEY].description,
+	            email: action.payload.contents[JUMBOTRON_EMAIL_KEY].description
+	        });
+	    }
+
+	    if (action.type === _ActionTypes2.default.LOAD_PROFILE_PICTURE_DATA) {
+
+	        return _extends({}, state, {
+	            imageUrl: action.payload.file
 	        });
 	    }
 
@@ -24848,7 +24912,8 @@
 	    personalProjects: personalProjectsReducer,
 	    skills: skillsReducer,
 	    experience: experienceReducer,
-	    resume: resumeReducer
+	    resume: resumeReducer,
+	    jumbotron: jumbotronReducer
 	});
 
 	exports.default = Reducers;
@@ -24873,7 +24938,9 @@
 	    LOAD_ACADEMIC_PROJECTS_DATA: 'LOAD_ACADEMIC_PROJECTS_DATA',
 	    LOAD_PERSONAL_PROJECTS_DATA: 'LOAD_PERSONAL_PROJECTS_DATA',
 	    LOAD_ABOUT_DATA: 'LOAD_ABOUT_DATA',
+	    LOAD_JUMBOTRON_DATA: 'LOAD_JUMBOTRON_DATA',
 	    LOAD_RESUME_DATA: 'LOAD_RESUME_DATA',
+	    LOAD_PROFILE_PICTURE_DATA: 'LOAD_PROFILE_PICTURE_DATA',
 	    LOAD_SKILLS_DATA: 'LOAD_SKILLS_DATA',
 	    ERROR_LOADING_DATA: 'ERROR_LOADING_DATA'
 	};
@@ -24898,6 +24965,13 @@
 	    ACADEMIC_PROJECTS: { projects: [] },
 	    PERSONAL_PROJECTS: { projects: [] },
 	    ABOUT: { description: '' },
+	    JUMBOTRON: {
+	        title: '',
+	        description: '',
+	        phone: '',
+	        email: '',
+	        imageUrl: ''
+	    },
 	    RESUME: { file: '' },
 	    SKILLS: { list: [] }
 	};
@@ -25203,6 +25277,11 @@
 	    loadAndNotify(store, _URLS2.default.LOAD_PERSONAL_PROJECTS_DATA, _ActionTypes2.default.LOAD_PERSONAL_PROJECTS_DATA);
 	};
 
+	var loadJumbotronData = function loadJumbotronData(store) {
+
+	    loadAndNotify(store, _URLS2.default.LOAD_JUMBOTRON_DATA, _ActionTypes2.default.LOAD_JUMBOTRON_DATA);
+	};
+
 	var loadAboutData = function loadAboutData(store) {
 
 	    loadAndNotify(store, _URLS2.default.LOAD_ABOUT_DATA, _ActionTypes2.default.LOAD_ABOUT_DATA);
@@ -25218,8 +25297,15 @@
 	    loadAndNotify(store, _URLS2.default.LOAD_RESUME_DATA, _ActionTypes2.default.LOAD_RESUME_DATA);
 	};
 
+	var loadProfilePictureData = function loadProfilePictureData(store) {
+
+	    loadAndNotify(store, _URLS2.default.LOAD_PROFILE_PICTURE_DATA, _ActionTypes2.default.LOAD_PROFILE_PICTURE_DATA);
+	};
+
 	var loadData = function loadData(store) {
 
+	    loadJumbotronData(store);
+	    loadProfilePictureData(store);
 	    loadAboutData(store);
 	    loadEducationData(store);
 	    loadAcademicProjectsData(store);
@@ -25249,8 +25335,10 @@
 	    LOAD_EXPERIENCE_HISTORY_DATA: '/api/experience-history/',
 	    LOAD_ACADEMIC_PROJECTS_DATA: 'api/academic-projects/',
 	    LOAD_PERSONAL_PROJECTS_DATA: '/api/personal-projects/',
-	    LOAD_ABOUT_DATA: '/api/section-content/about/',
+	    LOAD_ABOUT_DATA: '/api/section/about/',
+	    LOAD_JUMBOTRON_DATA: '/api/section/jumbotron/',
 	    LOAD_RESUME_DATA: '/api/file-content/resume/',
+	    LOAD_PROFILE_PICTURE_DATA: '/api/file-content/profile-picture/',
 	    LOAD_SKILLS_DATA: '/api/skills/'
 	};
 

@@ -20,7 +20,7 @@ class Experience extends React.Component {
         const historyPanels = history.map((entry) => (
 
             <Panel
-                          id={entry.id}
+                          id={`${entry.id}`}
                          key={entry.id}
                     parentId="experience-list"
                        title={`${entry.position} - ${entry.company}`}

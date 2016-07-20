@@ -12,10 +12,9 @@ import createLogger from 'redux-logger';
 import loadData from './core/Actions';
 import thunk from 'redux-thunk';
 
-const logger = createLogger();
+// const logger = createLogger();
 const middleware = applyMiddleware(
-    thunk,
-    logger
+    thunk
 );
 const store = createStore(
     Reducers,

@@ -5,9 +5,9 @@ Description: This file contains all the serializers.
 """
 from rest_framework import serializers
 from .models import EducationHistoryEntry, AcademicProjects
-from .models import PersonalProjects, SectionContent
+from .models import PersonalProjects, SectionMultipleContent
 from .models import ExperienceHistoryEntry, Skill
-from .models import FileContent
+from .models import FileContent, Content
 
 class EducationHistoryEntrySerializer(serializers.ModelSerializer):
     """
@@ -84,21 +84,45 @@ class PersonalProjectsSerializer(serializers.ModelSerializer):
         )
 
 
-class SectionContentSerializer(serializers.ModelSerializer):
+class SectionMultipleContentSerializer(serializers.ModelSerializer):
     """
-    Section content serializer.
+    Section multiple content serializer.
+    """
+    contents = serializers.SerializerMethodField('get_content_values')
+    class Meta:
+        """
+        Meta class.
+        """
+        model = SectionMultipleContent
+        fields = (
+            'id',
+            'label',
+            'contents'
+        )
+
+    def get_content_values(self, obj):
+        result = {}
+        for x in obj.content_set.all():
+            data = ContentSerializer(x).data
+            result[data['label']] = data
+        return result
+
+
+class ContentSerializer(serializers.ModelSerializer):
+    """
+    Content serializer.
     """
     class Meta:
         """
         Meta class.
         """
-        model = SectionContent
+        model = Content
         fields = (
             'id',
             'label',
-            'description'
+            'description',
+            'section_multiple_content'
         )
-
 
 class SkillSerializer(serializers.ModelSerializer):
     """
