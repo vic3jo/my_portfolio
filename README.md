@@ -28,4 +28,4 @@ A simple portfolio to talk about me and show some of my work projects.
 * Repo owner or admin
 * Other community or team contact
 
-![Alt text](/screenshot.png?raw=true "Sample Screenshot")
+![Sample Screenshot](screenshot.png?raw=true "Sample Screenshot")
