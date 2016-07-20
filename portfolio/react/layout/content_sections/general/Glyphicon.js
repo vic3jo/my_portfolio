@@ -1,18 +1,35 @@
+/**
+ * Author: Victor Trejo.
+ *
+ * Description: This file contains the Glyphicon component.
+ */
 import React from 'react';
 
-class Glyphicon extends React.Component
+export default class Glyphicon extends React.Component
 {
-	render()
-	{
-		let className = "glyphicon glyphicon-" + 
-					this.props.iconType;
-		return (
-			<span className={className}>
-				{this.props.children}
-			</span>
 
-		)
-	}
+    render ()
+    {
+
+        const className = `glyphicon glyphicon-${this.props.iconType}`;
+
+        return (
+            <span className={className}>
+                {this.props.children}
+            </span>
+        );
+
+    }
+
 }
 
-export default Glyphicon;
+Glyphicon.propTypes = {
+    iconType: React.PropTypes.string.isRequired,
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.node,
+        React.PropTypes.arrayOf(
+            React.PropTypes.node
+        )
+    ])
+};
+

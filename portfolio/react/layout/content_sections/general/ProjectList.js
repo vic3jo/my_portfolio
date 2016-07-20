@@ -1,15 +1,30 @@
+/**
+* Author: Victor Trejo.
+*
+* Description: This file contains the ProjectList component.
+*/
+import Project from './Project';
 import React from 'react';
 
-class ProjectList extends React.Component
-{	
-	render()
-	{
-		return (
-			<div>
-				{this.props.children}
-			</div>
-		)
-	}
+export default class ProjectList extends React.Component
+{
+
+    render ()
+    {
+
+        return (
+            <div> {this.props.children} </div>
+        );
+
+    }
+
 }
 
-export default ProjectList;
+ProjectList.propTypes = {
+    children: React.PropTypes.oneOfType([
+        Project,
+        React.PropTypes.arrayOf(
+            Project
+        )
+    ])
+};
