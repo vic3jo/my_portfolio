@@ -12,16 +12,16 @@ web page.
 * Summary of set up
 * Configuration
 	You have to set the following environment variables:
-		SECRET_KEY
-		ALLOWED_HOSTS
-		DEBUG
-		STATIC_ROOT
+		- SECRET_KEY
+		- ALLOWED_HOSTS
+		- DEBUG
+		- STATIC_ROOT
 
 * Dependencies
-	Django
-	Djangorestframwork
-	ReactJs
-	Python3.4.3
+	- [Django 1.7](https://www.djangoproject.com/)
+	- [Djangorestframework](http://www.django-rest-framework.org/)
+	- [ReactJs](https://facebook.github.io/react/)
+	- [Python3.4.3](https://www.python.org/)
 
 
 ### Who do I talk to? ###
