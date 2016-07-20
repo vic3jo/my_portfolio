@@ -11,7 +11,7 @@ web page.
 
 
 * Configuration: 
-	** You have to set the following environment variables:
+	+ You have to set the following environment variables:
 		- SECRET_KEY
 		- ALLOWED_HOSTS
 		- DEBUG
