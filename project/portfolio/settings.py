@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import binascii
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -19,14 +20,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a4$*usv_r)sl(73h_w&7eb#5qo5i8fuu3c2hx9oywq!k@l=21t'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    binascii.hexlify(
+        os.urandom(24)
+    )
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', "on") == "on"
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get(
+    'ALLOWED_HOSTS',
+    "localhost,127.0.0.1"
+).split(',')
 
 
 # Application definition
@@ -89,9 +98,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'    
 
-
 TEMPLATE_DIRS = (
-    BASE_DIR+'/templates/',
+    BASE_DIR + '/templates/',
 )
 
 MEDIA_URL = '/media/'
