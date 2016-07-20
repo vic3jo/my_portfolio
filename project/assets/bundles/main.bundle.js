@@ -5160,7 +5160,7 @@
 	                    { className: 'row' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'page-header' },
+	                        { className: 'page-header col-sm-12' },
 	                        _react2.default.createElement(
 	                            'h1',
 	                            { className: 'cursive-style' },
@@ -5174,7 +5174,7 @@
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'content' },
+	                        { className: 'content col-sm-12' },
 	                        this.props.children
 	                    )
 	                )

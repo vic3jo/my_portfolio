@@ -17,13 +17,13 @@ export default class Section extends React.Component
         return (
             <section id={id}>
                 <div className="row">
-                        <div className="page-header">
+                        <div className="page-header col-sm-12">
                             <h1 className="cursive-style">
                                 <Glyphicon iconType={iconType}/>
                                 <span className="section-title">{title}</span>
                             </h1>
                         </div>
-                        <div className="content">
+                        <div className="content col-sm-12">
                             {this.props.children}
                         </div>
                 </div>
