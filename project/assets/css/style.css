@@ -196,6 +196,6 @@ li:hover .skill-description{
     font-size: 22px;
 }
 
-.list-group-item {
+#education .list-group-item {
     font-weight: bold;
 }
