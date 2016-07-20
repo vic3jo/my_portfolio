@@ -1,62 +1,84 @@
-import React from 'react';
+/**
+ * Author: Victor Trejo.
+ *
+ * Description: This file contains the Header component of the page.
+ */
+import Glyphicon from './content_sections/general/Glyphicon';
 import Navigator from './content_sections/general/Navigator';
 import NavigatorLink from './content_sections/general/NavigatorLink';
-import Glyphicon from './content_sections/general/Glyphicon';
+import React from 'react';
 
+const LINKS_CONFIG = [
+    {
+        label: 'About',
+        sectionId: 'about',
+        icon: 'user'
+    },
+    {
+        label: 'Experience',
+        sectionId: 'experience',
+        icon: 'road'
+    },
+    {
+        label: 'Skills',
+        sectionId: 'skills',
+        icon: 'plus-sign'
+    },
+    {
+        label: 'Education',
+        sectionId: 'education',
+        icon: 'education'
+    },
+    {
+        label: 'Academic projects',
+        sectionId: 'academic-projects',
+        icon: 'blackboard'
+    },
+    {
+        label: 'Personal projects',
+        sectionId: 'personal-projects',
+        icon: 'sunglasses'
+    }
+];
 
-
-class Header extends React.Component
+export default class Header extends React.Component
 {
-	render()
-	{
-		return (
-			<header className="container">
-				<div className="navbar navbar-default navbar-fixed-top">
-					<div className="navbar-header col-offset-md-1">
-						<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					        <span className="icon-bar"></span>
-					        <span className="icon-bar"></span>
-					        <span className="icon-bar"></span> 
-					    </button>
 
-						<h1 className="cursive-style">
-							<Glyphicon iconType="folder-open" /> My Portfolio
-						</h1>
-						
-					</div>
-					<div className="collapse navbar-collapse" id="myNavbar">
-						<Navigator>
-							<NavigatorLink href="#about">
-								<Glyphicon iconType="user" /> About
-							</NavigatorLink>
+    render ()
+    {
 
-							<NavigatorLink href="#experience">
-								<Glyphicon iconType="road" /> Experience
-							</NavigatorLink>
+        const links = LINKS_CONFIG.map((entry) => {
 
-							<NavigatorLink href="#skills">
-								<Glyphicon iconType="plus-sign" /> Skills
-							</NavigatorLink>
+            return (
+                        <NavigatorLink key={entry.sectionId} href={`#${entry.sectionId}`}>
+                            <Glyphicon iconType={entry.icon} /> {entry.label}
+                        </NavigatorLink>
+            );
 
-							<NavigatorLink href="#education">
-								<Glyphicon iconType="education" /> Education
-							</NavigatorLink>
+        });
 
-							<NavigatorLink href="#academic-projects">
-								<Glyphicon iconType="blackboard" /> 
-								Academic projects
-							</NavigatorLink>
+        return (
+            <header className="container">
+                <div className="navbar navbar-default navbar-fixed-top">
+                    <div className="navbar-header col-offset-md-1">
+                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
 
-							<NavigatorLink href="#personal-projects">
-								<Glyphicon iconType="sunglasses" /> 
-								Personal projects
-							</NavigatorLink>
-						</Navigator>
-					</div>
-				</div>
-			</header>
-		)
-	}
+                        <h1 className="cursive-style">
+                            <Glyphicon iconType="folder-open" /> My Portfolio
+                        </h1>
+
+                    </div>
+                    <div className="collapse navbar-collapse" id="myNavbar">
+                        <Navigator>{links}</Navigator>
+                    </div>
+                </div>
+            </header>
+        );
+
+    }
+
 }
-
-export default Header;
