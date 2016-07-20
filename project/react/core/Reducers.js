@@ -2,8 +2,8 @@
  * Author: Victor Trejo.
  * Description: This file contains all the all the reducers.
  */
-import * as ActionTypes from './ActionTypes';
-import * as Default from './Default';
+import ActionTypes from './ActionTypes';
+import Default from './Default';
 import {combineReducers,  createStore} from 'redux';
 
 
@@ -120,6 +120,25 @@ const skillsReducer = (
 
 };
 
+const resumeReducer = (
+    state = Default.RESUME,
+    action
+) => {
+
+    if ( action.type === ActionTypes.LOAD_RESUME_DATA )
+    {
+
+        return {
+            ...state,
+            file: action.payload.file
+        };
+
+    }
+
+    return state;
+
+};
+
 
 const Reducers = combineReducers({
     about: aboutReducer,
@@ -127,7 +146,8 @@ const Reducers = combineReducers({
     academicProjects: academicProjectsReducer,
     personalProjects: personalProjectsReducer,
     skills: skillsReducer,
-    experience: experienceReducer
+    experience: experienceReducer,
+    resume: resumeReducer
 });
 
 export default Reducers;

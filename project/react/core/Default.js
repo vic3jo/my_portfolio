@@ -9,5 +9,6 @@ export default{
     ACADEMIC_PROJECTS: {projects: []},
     PERSONAL_PROJECTS: {projects: []},
     ABOUT: {description: ''},
+    RESUME: {file: ''},
     SKILLS: {list: []}
 };

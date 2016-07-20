@@ -4,6 +4,7 @@ Author: Victor Trejo
 Description: This file contains all the models.
 """
 from django.db import models
+from django.conf import settings
 
 class EducationHistoryEntry(models.Model):
     """Education history entry."""
@@ -176,4 +177,19 @@ class ExperienceHistoryEntry(models.Model):
             self.startDate,
             self.endDate,
             self.description
+        )
+
+class FileContent(models.Model):
+    """File Content entry."""
+    label = models.CharField(
+        max_length=120,
+        blank=True,
+        default=''
+    )
+    file = models.FileField(upload_to=settings.MEDIA_URL)
+
+    def __str__(self):
+        return "{}: {}".format(
+            self.label,
+            self.file
         )

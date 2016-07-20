@@ -7,6 +7,7 @@ from rest_framework import serializers
 from .models import EducationHistoryEntry, AcademicProjects
 from .models import PersonalProjects, SectionContent
 from .models import ExperienceHistoryEntry, Skill
+from .models import FileContent
 
 class EducationHistoryEntrySerializer(serializers.ModelSerializer):
     """
@@ -111,4 +112,19 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'label',
+        )
+
+class FileContentSerializer(serializers.ModelSerializer):
+    """
+    File contentt serializer.
+    """
+    class Meta:
+        """
+        Meta class.
+        """
+        model = FileContent
+        fields = (
+            'id',
+            'label',
+            'file'
         )

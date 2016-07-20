@@ -38,3 +38,8 @@ router.register(
     r'skills',
     views.SkillViewSet
 )
+
+router.register(
+    r'file-content',
+    views.FileContentViewSet
+)

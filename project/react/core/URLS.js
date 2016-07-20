@@ -8,6 +8,7 @@ export default {
     LOAD_ACADEMIC_PROJECTS_DATA: 'api/academic-projects/',
     LOAD_PERSONAL_PROJECTS_DATA: '/api/personal-projects/',
     LOAD_ABOUT_DATA: '/api/section-content/about/',
+    LOAD_RESUME_DATA: '/api/file-content/resume/',
     LOAD_SKILLS_DATA: '/api/skills/'
 };
 

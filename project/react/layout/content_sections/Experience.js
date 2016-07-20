@@ -16,6 +16,7 @@ class Experience extends React.Component {
     {
 
         const history = this.props.experience.history;
+        const resume =  this.props.resume;
         const historyPanels = history.map((entry) => (
 
             <Panel
@@ -43,8 +44,10 @@ class Experience extends React.Component {
                     <PanelGroup id="experience-list">
                         {historyPanels}
                     </PanelGroup>
-                    <span className="glyphicon glyphicon-file">&nbsp;</span>
-                    See full Resume
+                    <a href={resume.file}>
+                        <span className="glyphicon glyphicon-file">&nbsp;</span>
+                        See full Resume
+                    </a>
                 </div>
             </Section>
         );
@@ -56,6 +59,9 @@ class Experience extends React.Component {
 Experience.propTypes = {
     experience: React.PropTypes.shape(
         {history:React.PropTypes.array.isRequired}
+    ),
+    resume: React.PropTypes.shape(
+        {file:React.PropTypes.string.isRequired}
     )
 };
 
@@ -68,7 +74,10 @@ Experience.propTypes = {
 function mapStateToProps (state)
 {
 
-    return {experience: state.experience};
+    return {
+        experience: state.experience,
+        resume: state.resume
+    };
 
 }
 

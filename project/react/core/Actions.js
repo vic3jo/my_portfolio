@@ -3,7 +3,7 @@
  * Description: This file contains all the Actions that
  *              be performed.
  */
-import * as URLS from './URLS';
+import URLS from './URLS';
 import ActionTypes from './ActionTypes';
 import axios from 'axios';
 
@@ -97,6 +97,15 @@ const loadSkillsData = (store) => {
 
 };
 
+const loadResumeData = (store) => {
+
+    loadAndNotify(
+        store,
+        URLS.LOAD_RESUME_DATA,
+        ActionTypes.LOAD_RESUME_DATA
+    );
+
+};
 
 const loadData = (store) => {
 
@@ -106,6 +115,7 @@ const loadData = (store) => {
     loadPersonalProjectsData(store);
     loadSkillsData(store);
     loadExperienceData(store);
+    loadResumeData(store);
 
 };
 
