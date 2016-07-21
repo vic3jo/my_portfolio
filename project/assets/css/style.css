@@ -78,11 +78,6 @@ footer{
 	border-bottom: 6px solid #DE1B1B;
 }
 
-/*.yellow .thumbnail
-{
-	background-color:#E9E581;
-}*/
-
 .page-header
 {
 	border-bottom: 6px solid #DE1B1B;
@@ -100,9 +95,12 @@ footer{
     font-weight: bold;
     text-align: center;
     padding-bottom: 8px;
-    border-bottom: solid 1px #bbb;
-    height: 80px; 
-	overflow: hidden;
+	border-bottom: solid 2px #DE1B1B;
+    height: 80px;
+    overflow: hidden;
+    font-family: arial;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 h1.cursive-style{
@@ -130,12 +128,12 @@ small, h2
 	margin-top: 50px;
 }
 
-.thumbnail .well { 
+/*.thumbnail .well { 
 	height: 85px; 
 	overflow: hidden; 
 	text-overflow: ellipsis;
 	text-overflow-multiline:ellipsis;
-} 
+} */
 
 .thumbnail h4 { 
 	height: 20px; 
@@ -204,3 +202,25 @@ li:hover .skill-description{
    padding-top: 40px;
    transition: 1.5s;
 }
+
+.project-box .description{
+	font-style: italic;
+	font-weight: bold;
+	height: 85px; 
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	text-overflow-multiline:ellipsis;
+}
+
+
+
+
+/**/
+
+
+/*Remove that CSS*/
+.col-md-3 {
+    margin-left:5%;
+    }
+
+

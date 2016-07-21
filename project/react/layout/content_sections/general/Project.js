@@ -30,14 +30,14 @@ export default class Project extends React.Component
         );
 
         return (
-            <div className="col-sm-6 col-md-4">
+            <div className="col-sm-6 col-md-4 project-box">
                 <div className="thumbnail yellow">
                   <div className="caption">
                     <h3>{title}</h3>
                     <h4 className={courseLabelClass}>
                         Course: {course}
                     </h4>
-                    <div className="well well-sm">
+                    <div className="description">
                         <p>{description}</p>
                     </div>
                     <p>

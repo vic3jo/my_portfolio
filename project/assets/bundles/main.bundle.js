@@ -6294,7 +6294,7 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-6 col-md-4' },
+	                { className: 'col-sm-6 col-md-4 project-box' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'thumbnail yellow' },
@@ -6314,7 +6314,7 @@
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'well well-sm' },
+	                            { className: 'description' },
 	                            _react2.default.createElement(
 	                                'p',
 	                                null,
