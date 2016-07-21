@@ -5,31 +5,24 @@
  */
 import React from 'react';
 
-export default class Glyphicon extends React.Component
-{
+const Glyphicon = (iconType, children) => {
+  const className = `glyphicon glyphicon-${iconType}`;
 
-    render ()
-    {
-
-        const className = `glyphicon glyphicon-${this.props.iconType}`;
-
-        return (
-            <span className={className}>
-                {this.props.children}
-            </span>
-        );
-
-    }
-
-}
-
-Glyphicon.propTypes = {
-    iconType: React.PropTypes.string.isRequired,
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.node,
-        React.PropTypes.arrayOf(
-            React.PropTypes.node
-        )
-    ])
+  return (
+    <span className={className}>
+      {children}
+    </span>
+  );
 };
 
+Glyphicon.propTypes = {
+  iconType: React.PropTypes.string.isRequired,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.node,
+    React.PropTypes.arrayOf(
+      React.PropTypes.node
+    ),
+  ]),
+};
+
+export default Glyphicon;

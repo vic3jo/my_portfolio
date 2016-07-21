@@ -6,27 +6,21 @@
 import ListGroupItem from './ListGroupItem';
 import React from 'react';
 
-export default class ListGroup extends React.Component
-{
-
-    render ()
-    {
-
-        return (
-            <ul className="list-group">
-                {this.props.children}
-            </ul>
-        );
-
-    }
-
-}
+const ListGroup = (children) => {
+  (
+    <ul className="list-group">
+        {children}
+    </ul>
+  );
+};
 
 ListGroup.propTypes = {
-    children: React.PropTypes.oneOfType([
-        ListGroupItem,
-        React.PropTypes.arrayOf(
-            ListGroupItem
-        )
-    ])
+  children: React.PropTypes.oneOfType([
+    ListGroupItem,
+    React.PropTypes.arrayOf(
+        ListGroupItem
+    ),
+  ]),
 };
+
+export default ListGroup;

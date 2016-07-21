@@ -7,46 +7,35 @@ import Project from './general/Project';
 import ProjectList from './general/ProjectList';
 import React from 'react';
 import Section from './general/Section';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-class AcademicProjects extends React.Component  {
+const AcademicProjects = (projects) => {
+  const projects = projects.map((project) => (
+    <Project
+                  key={project.id}
+                title={project.title}
+               course={project.course}
+          description={project.description}
+            languages={project.languages}
+            libraries={project.libraries}
+        repositoryUrl={project.repositoryUrl}
+    />
+  ));
 
-    render ()
-    {
+  return (
+    <Section
+              id="academic-projects"
+        iconType="blackboard"
+           title="Academic Projects"
+    >
+      <ProjectList>
+        {projects}
+      </ProjectList>
+    </Section>
+  );
+};
 
-        const projects = this.props.projects.map((project) => {
-
-            return (
-                <Project
-                              key={project.id}
-                            title={project.title}
-                           course={project.course}
-                      description={project.description}
-                        languages={project.languages}
-                        libraries={project.libraries}
-                    repositoryUrl={project.repositoryUrl}
-                />
-            );
-
-        });
-
-        return (
-            <Section
-                      id="academic-projects"
-                iconType="blackboard"
-                   title="Academic Projects"
-            >
-                <ProjectList>
-                        {projects}
-                </ProjectList>
-            </Section>
-        );
-
-    }
-
-}
-
-AcademicProjects.propTypes = {projects: React.PropTypes.array.isRequired};
+AcademicProjects.propTypes = { projects: React.PropTypes.array.isRequired };
 
 /**
  * Map the store states to the corresponding properties
@@ -54,11 +43,9 @@ AcademicProjects.propTypes = {projects: React.PropTypes.array.isRequired};
  * @param  {object} state the state object
  * @return {object}       the updated properties object.
  */
-function mapStateToProps (state)
+function mapStateToProps(state)
 {
-
-    return {projects: state.academicProjects.projects};
-
+  return { projects: state.academicProjects.projects };
 }
 
 

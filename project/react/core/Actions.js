@@ -22,27 +22,21 @@ const loadAndNotify = (
     successActionType,
     errorActionType = ActionTypes.ERROR_LOADING_DATA
 ) => {
-
-    return (dispatch) => {
-
-        axios.get(url).then((response) => {
-
-            dispatch({
-                type: successActionType,
-                payload: response.data
-            });
-
-        }).catch((response) => {
-
-            dispatch({
-                type: errorActionType,
-                payload: response
-            });
-
+  (
+    (dispatch) => {
+      axios.get(url).then((response) => {
+        dispatch({
+          type: successActionType,
+          payload: response.data,
         });
-
-    };
-
+      }).catch((response) => {
+        dispatch({
+          type: errorActionType,
+          payload: response,
+        });
+      });
+    }
+  );
 };
 
 
@@ -52,19 +46,14 @@ const loadAndNotify = (
  * @param  {function} dispatch store's dispatch function.
  */
 const loadData = (dispatch) => {
-
-    for ( let key in URLS )
-    {
-
-        dispatch(
-            loadAndNotify(
-                URLS[key],
-                ActionTypes[key]
-            )
-        );
-
-    }
-
+  Object.keys(URLS).forEach((key, index) => {
+    dispatch(
+      loadAndNotify(
+        URLS[key],
+        ActionTypes[key]
+      )
+    );
+  });
 };
 
 export default loadData;

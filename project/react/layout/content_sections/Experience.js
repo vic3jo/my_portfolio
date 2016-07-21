@@ -7,65 +7,56 @@ import Panel from './general/Panel';
 import PanelGroup from './general/PanelGroup';
 import React from 'react';
 import Section from './general/Section';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Utilties from '../../core/Utilities';
 
-class Experience extends React.Component {
+const Experience = (experience, resume) => {
+  const history = experience.history;
+  const historyPanels = history.map((entry) => (
+    <Panel
+            id={`${entry.id}`}
+           key={entry.id}
+      parentId="experience-list"
+         title={`${entry.position} - ${entry.company}`}
+     badgeText={
+          `${Utilties.formattedDate(entry.startDate)} - ${Utilties.formattedDate(entry.endDate)}`
+      }
+    >
+      <p className="pre">{entry.description}</p>
+    </Panel>
+  ));
 
-    render ()
-    {
+  return (
+    <Section
+          id="experience"
+    iconType="road"
+       title="Experience"
+    >
+      <div>
+        <PanelGroup id="experience-list">
+          {historyPanels}
+        </PanelGroup>
+        <a href={resume.file}>
+          <h2 className="link-styled">
+            <span className="glyphicon glyphicon-file"></span>
+            See full resume
+          </h2>
+        </a>
+      </div>
+    </Section>
+  );
+};
 
-        const history = this.props.experience.history;
-        const resume =  this.props.resume;
-        const historyPanels = history.map((entry) => (
-
-            <Panel
-                          id={`${entry.id}`}
-                         key={entry.id}
-                    parentId="experience-list"
-                       title={`${entry.position} - ${entry.company}`}
-                   badgeText={
-                        `${Utilties.formattedDate(entry.startDate)} - ${Utilties.formattedDate(entry.endDate)}`
-                    }
-                    expanded={true}
-            >
-                <p className="pre">{entry.description}</p>
-            </Panel>
-
-        ));
-
-        return (
-            <Section
-                    id="experience"
-              iconType="road"
-                 title="Experience"
-            >
-                <div>
-                    <PanelGroup id="experience-list">
-                        {historyPanels}
-                    </PanelGroup>
-                    <a href={resume.file}>
-                        <h2 className="link-styled">
-                            <span className="glyphicon glyphicon-file"></span>
-                            See full resume
-                        </h2>
-                    </a>
-                </div>
-            </Section>
-        );
-
-    }
-
-}
 
 Experience.propTypes = {
-    experience: React.PropTypes.shape(
-        {history:React.PropTypes.array.isRequired}
-    ),
-    resume: React.PropTypes.shape(
-        {file:React.PropTypes.string.isRequired}
-    )
+  experience: React.PropTypes.shape(
+      { history: React.PropTypes.array.isRequired }
+  ),
+  resume: React.PropTypes.shape(
+      { file: React.PropTypes.string.isRequired }
+  ),
 };
+
 
 /**
  * Map the store states to the corresponding properties
@@ -73,14 +64,12 @@ Experience.propTypes = {
  * @param  {object} state the state object
  * @return {object}       the updated properties object.
  */
-function mapStateToProps (state)
+function mapStateToProps(state)
 {
-
-    return {
-        experience: state.experience,
-        resume: state.resume
-    };
-
+  return {
+    experience: state.experience,
+    resume: state.resume,
+  };
 }
 
 export default connect(mapStateToProps)(Experience);

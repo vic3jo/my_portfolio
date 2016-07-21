@@ -6,25 +6,19 @@
 import Project from './Project';
 import React from 'react';
 
-export default class ProjectList extends React.Component
-{
-
-    render ()
-    {
-
-        return (
-            <div> {this.props.children} </div>
-        );
-
-    }
-
-}
+const ProjectList = (children) => {
+  (
+    <div> {children} </div>
+  );
+};
 
 ProjectList.propTypes = {
-    children: React.PropTypes.oneOfType([
-        Project,
-        React.PropTypes.arrayOf(
-            Project
-        )
-    ])
+  children: React.PropTypes.oneOfType([
+    Project,
+    React.PropTypes.arrayOf(
+      Project
+    ),
+  ]),
 };
+
+export default ProjectList;

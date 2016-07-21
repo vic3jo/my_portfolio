@@ -6,29 +6,23 @@
 import NavigatorLink from './NavigatorLink';
 import React from 'react';
 
-export default class Navigator extends React.Component
-{
-
-    render ()
-    {
-
-        return (
-            <nav>
-                <ul className="nav navbar-nav navbar-right">
-                    {this.props.children}
-                </ul>
-            </nav>
-        );
-
-    }
-
-}
+const Navigator = (children) => {
+  (
+    <nav>
+      <ul className="nav navbar-nav navbar-right">
+        {children}
+      </ul>
+    </nav>
+  );
+};
 
 Navigator.propTypes = {
-    children: React.PropTypes.oneOfType([
-        NavigatorLink,
-        React.PropTypes.arrayOf(
-            NavigatorLink
-        )
-    ])
+  children: React.PropTypes.oneOfType([
+    NavigatorLink,
+    React.PropTypes.arrayOf(
+      NavigatorLink
+    ),
+  ]),
 };
+
+export default  Navigator;

@@ -5,33 +5,26 @@
  */
 import React from 'react';
 import Section from './general/Section';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-class About extends React.Component {
-
-    render ()
-    {
-
-        return (
-            <Section
-                       id="about"
-                 iconType="user"
-                    title="About me"
-            >
-                <p className="pre">
-                    {this.props.about.description}
-                </p>
-            </Section>
-        );
-
-    }
-
-}
+const About = (about) => {
+  (
+    <Section
+           id="about"
+     iconType="user"
+        title="About me"
+    >
+      <p className="pre">
+        {about.description}
+      </p>
+    </Section>
+  );
+};
 
 About.propTypes = {
-    about: React.PropTypes.shape(
-        {description:React.PropTypes.string.isRequired}
-    )
+  about: React.PropTypes.shape(
+    { description:React.PropTypes.string.isRequired }
+  ),
 };
 
 /**
@@ -40,10 +33,9 @@ About.propTypes = {
  * @param  {object} state the state object
  * @return {object}       the updated properties object.
  */
-function mapStateToProps (state) {
-
-    return {about: state.about};
-
+function mapStateToProps(state)
+{
+  return { about: state.about };
 }
 
 export default connect(mapStateToProps)(About);

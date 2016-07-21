@@ -6,33 +6,27 @@
 import Panel from './Panel';
 import React from 'react';
 
-export default class PanelGroup extends React.Component
-{
-
-    render ()
-    {
-
-        return (
-            <div
-                               className="panel-group"
-                                      id={this.props.id}
-                                    role="tablist"
-                    aria-multiselectable="true"
-            >
-                    {this.props.children}
-            </div>
-        );
-
-    }
-
-}
+const PanelGroup = (id, children) => {
+  (
+    <div
+                 className="panel-group"
+                        id={id}
+                      role="tablist"
+      aria-multiselectable="true"
+    >
+      {children}
+    </div>
+  );
+};
 
 PanelGroup.propTypes = {
-    children: React.PropTypes.oneOfType([
-        Panel,
-        React.PropTypes.arrayOf(
-            Panel
-        )
-    ]),
-    id: React.PropTypes.string.isRequired
+  children: React.PropTypes.oneOfType([
+    Panel,
+    React.PropTypes.arrayOf(
+      Panel
+    ),
+  ]),
+  id: React.PropTypes.string.isRequired,
 };
+
+export default PanelGroup;

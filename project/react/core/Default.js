@@ -4,18 +4,18 @@
  *              value the reducers will be in charge.
  */
 export default{
-    EDUCATION: {history: []},
-    EXPERIENCE: {history: []},
-    ACADEMIC_PROJECTS: {projects: []},
-    PERSONAL_PROJECTS: {projects: []},
-    ABOUT: {description: ''},
-    JUMBOTRON: {
-    	title: '',
-    	description: '',
-    	phone: '',
-    	email: '',
-        imageUrl: ''
-    },
-    RESUME: {file: ''},
-    SKILLS: {}
+  EDUCATION: { history: [] },
+  EXPERIENCE: { history: [] },
+  ACADEMIC_PROJECTS: { projects: [] },
+  PERSONAL_PROJECTS: { projects: [] },
+  ABOUT: { description: '' },
+  JUMBOTRON: {
+    title: '',
+    description: '',
+    phone: '',
+    email: '',
+    imageUrl: '',
+  },
+  RESUME: { file: '' },
+  SKILLS: {},
 };

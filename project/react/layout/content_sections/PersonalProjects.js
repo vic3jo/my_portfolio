@@ -7,47 +7,35 @@ import Project from './general/Project';
 import ProjectList from './general/ProjectList';
 import React from 'react';
 import Section from './general/Section';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-class PersonalProjects extends React.Component
-{
+const PersonalProjects = (projects) => {
+  const projectsItems = projects.map((project) => (
+    <Project
+                key={project.id}
+              title={project.title}
+        description={project.description}
+          languages={project.languages}
+          libraries={project.libraries}
+      repositoryUrl={project.repositoryUrl}
+    />
+  ));
 
-    render ()
-    {
+  return (
+    <Section
+            id="personal-projects"
+      iconType="sunglasses"
+         title="Personal Projects"
+    >
+      <ProjectList>
+        {projectsItems}
+      </ProjectList>
+    </Section>
+  );
+};
 
-        const projects = this.props.projects.map((project) => {
 
-            return (
-                <Project
-                            key={project.id}
-                          title={project.title}
-                         course={''}
-                    description={project.description}
-                      languages={project.languages}
-                      libraries={project.libraries}
-                  repositoryUrl={project.repositoryUrl}
-                />
-            );
-
-        });
-
-        return (
-            <Section
-                    id="personal-projects"
-              iconType="sunglasses"
-                 title="Personal Projects"
-            >
-                <ProjectList>
-                        {projects}
-                </ProjectList>
-            </Section>
-        );
-
-    }
-
-}
-
-PersonalProjects.propTypes = {projects: React.PropTypes.array.isRequired};
+PersonalProjects.propTypes = { projects: React.PropTypes.array.isRequired };
 
 /**
  * Map the store states to the corresponding properties
@@ -55,10 +43,9 @@ PersonalProjects.propTypes = {projects: React.PropTypes.array.isRequired};
  * @param  {object} state the state object
  * @return {object}       the updated properties object.
  */
-function mapStateToProps (state) {
-
-    return {projects: state.personalProjects.projects};
-
+function mapStateToProps(state)
+{
+  return { projects: state.personalProjects.projects };
 }
 
 export default connect(mapStateToProps)(PersonalProjects);
