@@ -11,22 +11,17 @@ import PersonalProjects from './content_sections/PersonalProjects';
 import React from 'react';
 import Skills from './content_sections/Skills';
 
-export default class Content extends React.Component {
+const Content = () => {
+  (
+    <section id="page-body" className="container">
+      <About />
+      <Experience />
+      <Skills />
+      <Education />
+      <AcademicProjects />
+      <PersonalProjects />
+    </section>
+  );
+};
 
-    render ()
-    {
-
-        return (
-            <section id="page-body" className="container">
-                <About />
-                <Experience />
-                <Skills />
-                <Education />
-                <AcademicProjects />
-                <PersonalProjects />
-            </section>
-        );
-
-    }
-
-}
+export default  Content;
