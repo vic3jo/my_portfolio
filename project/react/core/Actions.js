@@ -8,7 +8,7 @@ import ActionTypes from './ActionTypes';
 import axios from 'axios';
 
 const loadAndNotify = (
-    store,
+    dispatch,
     url,
     successActionType,
     errorActionType = ActionTypes.ERROR_LOADING_DATA
@@ -16,14 +16,14 @@ const loadAndNotify = (
 
     axios.get(url).then((response) => {
 
-        store.dispatch({
+        dispatch({
             type: successActionType,
             payload: response.data
         });
 
     }).catch((response) => {
 
-        store.dispatch({
+        dispatch({
             type: errorActionType,
             payload: response
         });
@@ -33,10 +33,10 @@ const loadAndNotify = (
 };
 
 
-const loadEducationData = (store) => {
+const loadEducationData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_EDUCATION_HISTORY_DATA,
         ActionTypes.LOAD_EDUCATION_HISTORY_DATA
     );
@@ -44,20 +44,20 @@ const loadEducationData = (store) => {
 };
 
 
-const loadExperienceData = (store) => {
+const loadExperienceData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_EXPERIENCE_HISTORY_DATA,
         ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA
     );
 
 };
 
-const loadAcademicProjectsData = (store) => {
+const loadAcademicProjectsData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_ACADEMIC_PROJECTS_DATA,
         ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA
     );
@@ -65,10 +65,10 @@ const loadAcademicProjectsData = (store) => {
 };
 
 
-const loadPersonalProjectsData = (store) => {
+const loadPersonalProjectsData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_PERSONAL_PROJECTS_DATA,
         ActionTypes.LOAD_PERSONAL_PROJECTS_DATA
     );
@@ -76,20 +76,20 @@ const loadPersonalProjectsData = (store) => {
 };
 
 
-const loadJumbotronData = (store) => {
+const loadJumbotronData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_JUMBOTRON_DATA,
         ActionTypes.LOAD_JUMBOTRON_DATA
     );
 
 };
 
-const loadAboutData = (store) => {
+const loadAboutData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_ABOUT_DATA,
         ActionTypes.LOAD_ABOUT_DATA
     );
@@ -97,47 +97,47 @@ const loadAboutData = (store) => {
 };
 
 
-const loadSkillsData = (store) => {
+const loadSkillsData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_SKILLS_DATA,
         ActionTypes.LOAD_SKILLS_DATA
     );
 
 };
 
-const loadResumeData = (store) => {
+const loadResumeData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_RESUME_DATA,
         ActionTypes.LOAD_RESUME_DATA
     );
 
 };
 
-const loadProfilePictureData = (store) => {
+const loadProfilePictureData = (dispatch) => {
 
     loadAndNotify(
-        store,
+        dispatch,
         URLS.LOAD_PROFILE_PICTURE_DATA,
         ActionTypes.LOAD_PROFILE_PICTURE_DATA
     );
 
 };
 
-const loadData = (store) => {
+const loadData = (dispatch) => {
 
-    loadJumbotronData(store);
-    loadProfilePictureData(store);
-    loadAboutData(store);
-    loadEducationData(store);
-    loadAcademicProjectsData(store);
-    loadPersonalProjectsData(store);
-    loadSkillsData(store);
-    loadExperienceData(store);
-    loadResumeData(store);
+    loadJumbotronData(dispatch);
+    loadProfilePictureData(dispatch);
+    loadAboutData(dispatch);
+    loadEducationData(dispatch);
+    loadAcademicProjectsData(dispatch);
+    loadPersonalProjectsData(dispatch);
+    loadSkillsData(dispatch);
+    loadExperienceData(dispatch);
+    loadResumeData(dispatch);
 
 };
 

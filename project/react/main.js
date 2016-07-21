@@ -9,7 +9,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Reducers from './core/Reducers';
 import createLogger from 'redux-logger';
-import loadData from './core/Actions';
 import thunk from 'redux-thunk';
 
 // const logger = createLogger();
@@ -27,4 +26,3 @@ ReactDOM.render(
     </Provider>),
     document.getElementById('app')
 );
-loadData(store);

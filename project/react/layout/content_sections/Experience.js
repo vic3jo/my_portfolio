@@ -8,7 +8,7 @@ import PanelGroup from './general/PanelGroup';
 import React from 'react';
 import Section from './general/Section';
 import {connect} from 'react-redux';
-import {formattedDate} from '../../core/Utilities';
+import Utilties from '../../core/Utilities';
 
 class Experience extends React.Component {
 
@@ -25,7 +25,7 @@ class Experience extends React.Component {
                     parentId="experience-list"
                        title={`${entry.position} - ${entry.company}`}
                    badgeText={
-                        `${formattedDate(entry.startDate)} - ${formattedDate(entry.endDate)}`
+                        `${Utilties.formattedDate(entry.startDate)} - ${Utilties.formattedDate(entry.endDate)}`
                     }
                     expanded={true}
             >

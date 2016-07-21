@@ -4,7 +4,7 @@
 * Description: This file contains the Project component.
 */
 import React from 'react';
-import {shortenIfLengthLarger} from '../../../core/Utilities';
+import Utilties from '../../../core/Utilities';
 
 const DESCRIPTION_MAX_LENGTH = 105;
 const COURSE_MAX_LENGTH = 25;
@@ -19,12 +19,12 @@ export default class Project extends React.Component
         const {languages, libraries, repositoryUrl, title} = this.props;
         const courseLabelClass = course ? '' : 'hide';
 
-        description = shortenIfLengthLarger(
+        description = Utilties.shortenIfLengthLarger(
             description,
             DESCRIPTION_MAX_LENGTH
         );
 
-        course = shortenIfLengthLarger(
+        course = Utilties.shortenIfLengthLarger(
             course,
             COURSE_MAX_LENGTH
         );

@@ -25,7 +25,7 @@ const MONTHS = [
  * @param  {string} dateString date string to be formatted.
  * @return {string}        the formatted date string.
  */
-export const formattedDate =  (dateString) => {
+const formattedDate =  (dateString) => {
 
     const date = new Date(dateString);
 
@@ -43,7 +43,7 @@ const START_INDEX = 0;
  * @param  {number} length maximum length.
  * @return {string}        the shorten string.
  */
-export const shortenIfLengthLarger = (text, length) => {
+const shortenIfLengthLarger = (text, length) => {
 
     if ( text.length > length )
     {
@@ -58,4 +58,10 @@ export const shortenIfLengthLarger = (text, length) => {
 
     }
 
+};
+
+
+export default{
+    formattedDate,
+    shortenIfLengthLarger
 };
