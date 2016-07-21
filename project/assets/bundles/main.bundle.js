@@ -7858,23 +7858,26 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var loadAndNotify = function loadAndNotify(dispatch, url, successActionType) {
-	    var errorActionType = arguments.length <= 3 || arguments[3] === undefined ? _ActionTypes2.default.ERROR_LOADING_DATA : arguments[3];
+	var loadAndNotify = function loadAndNotify(url, successActionType) {
+	    var errorActionType = arguments.length <= 2 || arguments[2] === undefined ? _ActionTypes2.default.ERROR_LOADING_DATA : arguments[2];
 
 
-	    _axios2.default.get(url).then(function (response) {
+	    return function (dispatch) {
 
-	        dispatch({
-	            type: successActionType,
-	            payload: response.data
+	        _axios2.default.get(url).then(function (response) {
+
+	            dispatch({
+	                type: successActionType,
+	                payload: response.data
+	            });
+	        }).catch(function (response) {
+
+	            dispatch({
+	                type: errorActionType,
+	                payload: response
+	            });
 	        });
-	    }).catch(function (response) {
-
-	        dispatch({
-	            type: errorActionType,
-	            payload: response
-	        });
-	    });
+	    };
 	}; /**
 	    * Author: Victor Trejo.
 	    * Description: This file contains all the Actions that
@@ -7882,62 +7885,11 @@
 	    */
 
 
-	var loadEducationData = function loadEducationData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_EDUCATION_HISTORY_DATA, _ActionTypes2.default.LOAD_EDUCATION_HISTORY_DATA);
-	};
-
-	var loadExperienceData = function loadExperienceData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_EXPERIENCE_HISTORY_DATA, _ActionTypes2.default.LOAD_EXPERIENCE_HISTORY_DATA);
-	};
-
-	var loadAcademicProjectsData = function loadAcademicProjectsData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_ACADEMIC_PROJECTS_DATA, _ActionTypes2.default.LOAD_ACADEMIC_PROJECTS_DATA);
-	};
-
-	var loadPersonalProjectsData = function loadPersonalProjectsData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_PERSONAL_PROJECTS_DATA, _ActionTypes2.default.LOAD_PERSONAL_PROJECTS_DATA);
-	};
-
-	var loadJumbotronData = function loadJumbotronData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_JUMBOTRON_DATA, _ActionTypes2.default.LOAD_JUMBOTRON_DATA);
-	};
-
-	var loadAboutData = function loadAboutData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_ABOUT_DATA, _ActionTypes2.default.LOAD_ABOUT_DATA);
-	};
-
-	var loadSkillsData = function loadSkillsData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_SKILLS_DATA, _ActionTypes2.default.LOAD_SKILLS_DATA);
-	};
-
-	var loadResumeData = function loadResumeData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_RESUME_DATA, _ActionTypes2.default.LOAD_RESUME_DATA);
-	};
-
-	var loadProfilePictureData = function loadProfilePictureData(dispatch) {
-
-	    loadAndNotify(dispatch, _URLS2.default.LOAD_PROFILE_PICTURE_DATA, _ActionTypes2.default.LOAD_PROFILE_PICTURE_DATA);
-	};
-
 	var loadData = function loadData(dispatch) {
 
-	    loadJumbotronData(dispatch);
-	    loadProfilePictureData(dispatch);
-	    loadAboutData(dispatch);
-	    loadEducationData(dispatch);
-	    loadAcademicProjectsData(dispatch);
-	    loadPersonalProjectsData(dispatch);
-	    loadSkillsData(dispatch);
-	    loadExperienceData(dispatch);
-	    loadResumeData(dispatch);
+	    for (var key in _URLS2.default) {
+	        dispatch(loadAndNotify(_URLS2.default[key], _ActionTypes2.default[key]));
+	    }
 	};
 
 	exports.default = loadData;

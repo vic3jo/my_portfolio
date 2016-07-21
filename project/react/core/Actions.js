@@ -7,137 +7,63 @@ import URLS from './URLS';
 import ActionTypes from './ActionTypes';
 import axios from 'axios';
 
+
+/**
+ * Makes a get request to a given url and notifies a given
+ * type of action event.
+ * @param  {string} url               target url
+ * @param  {string} successActionType action type to be notified on success
+ * @param  {string} errorActionType   action type to be notified on error
+ * @return {function}                 a function that can be dispatch by
+ *                                    the store's dispatch function.
+ */
 const loadAndNotify = (
-    dispatch,
     url,
     successActionType,
     errorActionType = ActionTypes.ERROR_LOADING_DATA
 ) => {
 
-    axios.get(url).then((response) => {
+    return (dispatch) => {
 
-        dispatch({
-            type: successActionType,
-            payload: response.data
+        axios.get(url).then((response) => {
+
+            dispatch({
+                type: successActionType,
+                payload: response.data
+            });
+
+        }).catch((response) => {
+
+            dispatch({
+                type: errorActionType,
+                payload: response
+            });
+
         });
 
-    }).catch((response) => {
-
-        dispatch({
-            type: errorActionType,
-            payload: response
-        });
-
-    });
+    };
 
 };
 
 
-const loadEducationData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_EDUCATION_HISTORY_DATA,
-        ActionTypes.LOAD_EDUCATION_HISTORY_DATA
-    );
-
-};
-
-
-const loadExperienceData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_EXPERIENCE_HISTORY_DATA,
-        ActionTypes.LOAD_EXPERIENCE_HISTORY_DATA
-    );
-
-};
-
-const loadAcademicProjectsData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_ACADEMIC_PROJECTS_DATA,
-        ActionTypes.LOAD_ACADEMIC_PROJECTS_DATA
-    );
-
-};
-
-
-const loadPersonalProjectsData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_PERSONAL_PROJECTS_DATA,
-        ActionTypes.LOAD_PERSONAL_PROJECTS_DATA
-    );
-
-};
-
-
-const loadJumbotronData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_JUMBOTRON_DATA,
-        ActionTypes.LOAD_JUMBOTRON_DATA
-    );
-
-};
-
-const loadAboutData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_ABOUT_DATA,
-        ActionTypes.LOAD_ABOUT_DATA
-    );
-
-};
-
-
-const loadSkillsData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_SKILLS_DATA,
-        ActionTypes.LOAD_SKILLS_DATA
-    );
-
-};
-
-const loadResumeData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_RESUME_DATA,
-        ActionTypes.LOAD_RESUME_DATA
-    );
-
-};
-
-const loadProfilePictureData = (dispatch) => {
-
-    loadAndNotify(
-        dispatch,
-        URLS.LOAD_PROFILE_PICTURE_DATA,
-        ActionTypes.LOAD_PROFILE_PICTURE_DATA
-    );
-
-};
-
+/**
+ * Loads all the necessary data from the API for each section
+ * in the web page.
+ * @param  {function} dispatch store's dispatch function.
+ */
 const loadData = (dispatch) => {
 
-    loadJumbotronData(dispatch);
-    loadProfilePictureData(dispatch);
-    loadAboutData(dispatch);
-    loadEducationData(dispatch);
-    loadAcademicProjectsData(dispatch);
-    loadPersonalProjectsData(dispatch);
-    loadSkillsData(dispatch);
-    loadExperienceData(dispatch);
-    loadResumeData(dispatch);
+    for ( let key in URLS )
+    {
+
+        dispatch(
+            loadAndNotify(
+                URLS[key],
+                ActionTypes[key]
+            )
+        );
+
+    }
 
 };
 
