@@ -33,14 +33,10 @@ const Project = (props) => {
           <div className="description">
             <p>{descriptionText}</p>
           </div>
+          <p>Languages: {languages}.</p>
+          <p>Libraries: {libraries}.</p>
           <p>
-            Languages: {languages}.
-          </p>
-          <p>
-            Libraries: {libraries}.
-          </p>
-          <p>
-            <a href={repositoryUrl} className="btn btn-default" role="button">
+            <a href={repositoryUrl} className="btn btn-default">
               Go to repository
             </a>
           </p>

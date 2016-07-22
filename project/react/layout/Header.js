@@ -42,7 +42,6 @@ const LINKS_CONFIG = [
 ];
 
 const links = LINKS_CONFIG.map((entry) => {
-  console.log(entry.icon)
   return (
     <NavigatorLink key={entry.sectionId} href={`#${entry.sectionId}`}>
       <Glyphicon iconType={entry.icon} /> {entry.label}

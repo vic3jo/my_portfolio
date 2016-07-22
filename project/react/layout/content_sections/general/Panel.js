@@ -6,7 +6,7 @@
 import React from 'react';
 
 const Panel = (props) => {
-  const {id, expanded, badgeText, parentId} = props;
+  const {id, expanded, badgeText} = props;
   const headingId = `heading-${id}`;
   const collapseId = `collapse-${id}`;
   let collapseClass = 'panel-collapse collapse';
@@ -24,33 +24,15 @@ const Panel = (props) => {
 
   return (
     <div className="panel panel-default">
-      <div
-          className="panel-heading"
-               role="tab"
-                 id={headingId}
-      >
+      <div className="panel-heading" id={headingId} >
         <span className={badgeClass}>
           {badgeText}
         </span>
         <h4 className="panel-title">
-          <a
-                       role="button"
-                data-toggle="collapse"
-                data-parent={`#${parentId}`}
-                       href={collapseId}
-              aria-expanded={expanded}
-              aria-controls={collapseId}
-          >
-            {props.title}
-          </a>
+          {props.title}
         </h4>
       </div>
-      <div
-                     id={collapseId}
-              className={collapseClass}
-                   role="tabpanel"
-        aria-labelledby={headingId}
-      >
+      <div id={collapseId} className={collapseClass} >
         <div className="panel-body">
           {props.children}
         </div>
@@ -70,7 +52,6 @@ Panel.propTypes = {
   id: React.PropTypes.string.isRequired,
   expanded: React.PropTypes.bool,
   badgeText: React.PropTypes.string.isRequired,
-  parentId: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
 };
 

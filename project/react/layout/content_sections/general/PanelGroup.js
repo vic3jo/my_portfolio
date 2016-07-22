@@ -8,12 +8,7 @@ import React from 'react';
 
 const PanelGroup = (props) => {
   return (
-    <div
-                 className="panel-group"
-                        id={props.id}
-                      role="tablist"
-      aria-multiselectable="true"
-    >
+    <div className="panel-group" id={props.id}>
       {props.children}
     </div>
   );

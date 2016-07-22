@@ -18,9 +18,9 @@ const Footer = (props) => {
 };
 
 
-// Footer.propTypes = { 
-// 	author: React.PropTypes.string.isRequired,
-// 	year: React.PropTypes.number.isRequired,
-// };
+Footer.propTypes = { 
+	author: React.PropTypes.string.isRequired,
+	year: React.PropTypes.number.isRequired,
+};
 
 export default Footer;

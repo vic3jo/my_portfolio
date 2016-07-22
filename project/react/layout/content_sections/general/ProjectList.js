@@ -8,7 +8,7 @@ import React from 'react';
 
 const ProjectList = (props) => {
   return (
-    <div> {props.children} </div>
+    <div>{props.children}</div>
   );
 };
 
