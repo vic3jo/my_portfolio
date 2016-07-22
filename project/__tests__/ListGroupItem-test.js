@@ -15,6 +15,8 @@ import Glyphicon from '../react/layout/content_sections/general/Glyphicon';
 describe('ListGroupItem', () => {
   const TITLE = 'test title';
   const BADGE = 'phone';
+  const TAG_NAME = 'li';
+  const CLASS_NAME = 'list-group-item';
   const shallowRenderer = TestUtils.createRenderer(); 
 
   it('should successfully create a list group item bootstrap element with no badge icon', () => {
@@ -23,8 +25,8 @@ describe('ListGroupItem', () => {
     );
     const item = shallowRenderer.getRenderOutput();
 
-    expect(item.type).toEqual('li');
-    expect(item.props.className).toEqual('list-group-item');
+    expect(item.type).toEqual(TAG_NAME);
+    expect(item.props.className).toEqual(CLASS_NAME);
     expect(item.props.children).toEqual([
       <span className="badge">{BADGE}</span>,
       TITLE
@@ -37,8 +39,8 @@ describe('ListGroupItem', () => {
     );
     const item = shallowRenderer.getRenderOutput();
     
-    expect(item.type).toEqual('li');
-    expect(item.props.className).toEqual('list-group-item');
+    expect(item.type).toEqual(TAG_NAME);
+    expect(item.props.className).toEqual(CLASS_NAME);
     expect(item.props.children).toEqual([
       <span className="badge">
         <Glyphicon iconType={BADGE} />

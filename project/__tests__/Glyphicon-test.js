@@ -13,6 +13,8 @@ describe('Glyphicon', () => {
   
   const ICON_TYPE = 'phone';
   const CONTENT = 'Phone';
+  const TAG_NAME = 'span';
+  const CLASS_NAME = `glyphicon glyphicon-${ICON_TYPE}`;
   const shallowRenderer = TestUtils.createRenderer(); 
 
   shallowRenderer.render(
@@ -25,8 +27,8 @@ describe('Glyphicon', () => {
 
   it('should successfully create a bootstrap glyphicon with content.', () => {
     expect(glyphicon.props.children).toEqual(CONTENT);
-    expect(glyphicon.type).toEqual('span');
-    expect(glyphicon.props.className).toEqual(`glyphicon glyphicon-${ICON_TYPE}`);
+    expect(glyphicon.type).toEqual(TAG_NAME);
+    expect(glyphicon.props.className).toEqual(CLASS_NAME);
   });
  
 });

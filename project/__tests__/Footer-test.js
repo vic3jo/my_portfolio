@@ -14,6 +14,7 @@ describe('Footer', () => {
   
   const AUTHOR = 'test author';
   const YEAR = 1999;
+  const CONTENT = `By ${AUTHOR}, ${YEAR}`;
 
   var footer = TestUtils.renderIntoDocument(
     <div>
@@ -24,7 +25,7 @@ describe('Footer', () => {
   var footerNode = ReactDOM.findDOMNode(footer);
 
   it('should contain the author name and creation year', () => {
-    expect(footerNode.textContent).toEqual(`By ${AUTHOR}, ${YEAR}`);
+    expect(footerNode.textContent).toEqual(CONTENT);
   });
  
 });

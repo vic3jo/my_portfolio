@@ -13,7 +13,9 @@ import ListGroupItem from '../react/layout/content_sections/general/ListGroupIte
 
 describe('ListGroup', () => {
   const shallowRenderer = TestUtils.createRenderer(); 
- 
+  const TAG_NAME = 'ul';
+  const CLASS_NAME = 'list-group';
+
 
   it('should successfully create a list group bootstrap element with no children', () => {
     shallowRenderer.render(
@@ -21,9 +23,9 @@ describe('ListGroup', () => {
     );
     const listGroup = shallowRenderer.getRenderOutput();
 
-    expect(listGroup.type).toEqual('ul');
+    expect(listGroup.type).toEqual(TAG_NAME);
     expect(listGroup.props.children).toEqual(undefined);
-    expect(listGroup.props.className).toEqual('list-group');
+    expect(listGroup.props.className).toEqual(CLASS_NAME);
   });
 
 
@@ -37,8 +39,8 @@ describe('ListGroup', () => {
     );
     const listGroup = shallowRenderer.getRenderOutput();
 
-    expect(listGroup.type).toEqual('ul');
-    expect(listGroup.props.className).toEqual('list-group');
+    expect(listGroup.type).toEqual(TAG_NAME);
+    expect(listGroup.props.className).toEqual(CLASS_NAME);
     expect(listGroup.props.children).toEqual([
       <ListGroupItem />,
       <ListGroupItem />,

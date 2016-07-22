@@ -13,6 +13,7 @@ import NavigatorLink from '../react/layout/content_sections/general/NavigatorLin
 describe('NavigatorLink', () => {
   const shallowRenderer = TestUtils.createRenderer(); 
   const TAG_NAME = 'li';
+  const CLASS_NAME = 'nav';
   const HREF = 'example.com';
 
 
@@ -23,7 +24,7 @@ describe('NavigatorLink', () => {
     const link = shallowRenderer.getRenderOutput();
 
     expect(link.type).toEqual(TAG_NAME);
-    expect(link.props.className).toEqual('nav');
+    expect(link.props.className).toEqual(CLASS_NAME);
     expect(link.props.children).toEqual(
       <a href={HREF}></a>      
     );
@@ -43,7 +44,7 @@ describe('NavigatorLink', () => {
     const link = shallowRenderer.getRenderOutput();
 
     expect(link.type).toEqual(TAG_NAME);
-    expect(link.props.className).toEqual('nav');
+    expect(link.props.className).toEqual(CLASS_NAME);
     expect(link.props.children).toEqual(
        <a href={HREF}>
         {CONTENT}
