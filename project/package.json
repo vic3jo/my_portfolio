@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "webpack"
+    "test": "jest"
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -20,6 +20,7 @@
     "react-redux": "~4.4.5"
   },
   "devDependencies": {
+    "babel-jest": "^13.2.2",
     "babel-plugin-transform-object-rest-spread": "~6.8.0",
     "babel-preset-stage-0": "~6.5.0",
     "babel-preset-stage-2": "~6.11.0",
@@ -28,6 +29,17 @@
     "eslint-plugin-import": "^1.11.1",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
+    "jest-cli": "^13.2.3",
+    "react-addons-test-utils": "^15.2.1",
     "webpack-bundle-tracker": "0.0.93"
+  },
+  "jest": {
+    "scriptPreprocessor": "node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "node_modules/react",
+      "node_modules/react-dom",
+      "node_modules/react-addons-test-utils",
+      "node_modules/fbjs"
+    ]
   }
 }

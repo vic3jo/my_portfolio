@@ -25,7 +25,7 @@ class App extends React.Component {
         <Header />
         <Jumbotron />
         <Content />
-        <Footer />
+        <Footer author={'Victor Trejo'} year={2016} />
       </div>
     );
   }
