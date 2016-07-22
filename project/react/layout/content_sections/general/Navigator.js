@@ -6,11 +6,11 @@
 import NavigatorLink from './NavigatorLink';
 import React from 'react';
 
-const Navigator = (children) => {
-  (
+const Navigator = (props) => {
+  return (
     <nav>
       <ul className="nav navbar-nav navbar-right">
-        {children}
+        {props.children}
       </ul>
     </nav>
   );

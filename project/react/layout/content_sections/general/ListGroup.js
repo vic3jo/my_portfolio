@@ -6,10 +6,10 @@
 import ListGroupItem from './ListGroupItem';
 import React from 'react';
 
-const ListGroup = (children) => {
-  (
+const ListGroup = (props) => {
+  return (
     <ul className="list-group">
-        {children}
+        {props.children}
     </ul>
   );
 };

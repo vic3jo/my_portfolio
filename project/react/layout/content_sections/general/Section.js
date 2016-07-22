@@ -6,8 +6,10 @@
 import Glyphicon from './Glyphicon';
 import React from 'react';
 
-const Section = (id, title, iconType, children) => {
-  (
+const Section = (props) => {
+  const {id, title, iconType, children} = props;
+  
+  return (
     <section id={id}>
       <div className="row">
         <div className="page-header col-sm-12">

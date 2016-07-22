@@ -7,7 +7,8 @@ import React from 'react';
 import Section from './general/Section';
 import { connect } from 'react-redux';
 
-const SkillsList = (categoryName, skills) => {
+const SkillsList = (props) => {
+  const { categoryName, skills } = props;
   const items = skills.map( (skill) => (
     <li
       className="skill"
@@ -34,12 +35,12 @@ const SkillsList = (categoryName, skills) => {
 };
 
 
-const Skills = (groupedSkills) => {
-  const lists = Object.keys(groupedSkills).map( (key) => (
+const Skills = (props) => {
+  const lists = Object.keys(props.groupedSkills).map( (key) => (
     <SkillsList
            key={key}
       categoryName={key}
-        skills={groupedSkills[key]}
+        skills={props.groupedSkills[key]}
     />
   ));
 

@@ -41,7 +41,7 @@ const START_INDEX = 0;
  * @return {string}        the shorten string.
  */
 const shortenIfLengthLarger = (text, length) => {
-  if ( text.length > length )
+  if ( text && text.length > length )
   {
     return  `${text.slice(START_INDEX, length)}...`;
   }

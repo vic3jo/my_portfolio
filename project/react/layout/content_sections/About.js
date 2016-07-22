@@ -7,15 +7,15 @@ import React from 'react';
 import Section from './general/Section';
 import { connect } from 'react-redux';
 
-const About = (about) => {
-  (
+const About = (props) => {
+  return (
     <Section
            id="about"
      iconType="user"
         title="About me"
     >
       <p className="pre">
-        {about.description}
+        {props.about.description}
       </p>
     </Section>
   );

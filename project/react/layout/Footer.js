@@ -6,11 +6,11 @@
 import React from 'react';
 
 const Footer = () => {
-  (
+  return (
     <footer>
       <div className="container">
         <div className="coder col-md-offset-4 col-md-4">
-          By Victor Trejo, {2016}
+          By Victor Trejo, 2016
         </div>
       </div>
     </footer>

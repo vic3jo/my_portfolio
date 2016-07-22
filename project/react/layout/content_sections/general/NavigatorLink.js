@@ -5,11 +5,11 @@
  */
 import React from 'react';
 
-const NavigatorLink = (href, children) => {
-  (
+const NavigatorLink = (props) => {
+  return (
     <li className="nav">
-      <a href={this.props.href}>
-        {this.props.children}
+      <a href={props.href}>
+        {props.children}
       </a>
     </li>
   );

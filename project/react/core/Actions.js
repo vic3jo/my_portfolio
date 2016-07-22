@@ -22,20 +22,20 @@ const loadAndNotify = (
     successActionType,
     errorActionType = ActionTypes.ERROR_LOADING_DATA
 ) => {
-  (
-    (dispatch) => {
-      axios.get(url).then((response) => {
-        dispatch({
-          type: successActionType,
-          payload: response.data,
+  return (
+      (dispatch) => {
+        axios.get(url).then((response) => {
+          dispatch({
+            type: successActionType,
+            payload: response.data,
+          });
+        }).catch((response) => {
+          dispatch({
+            type: errorActionType,
+            payload: response,
+          });
         });
-      }).catch((response) => {
-        dispatch({
-          type: errorActionType,
-          payload: response,
-        });
-      });
-    }
+      }
   );
 };
 

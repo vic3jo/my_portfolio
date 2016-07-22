@@ -10,7 +10,8 @@ import Section from './general/Section';
 import { connect } from 'react-redux';
 import Utilties from '../../core/Utilities';
 
-const Experience = (experience, resume) => {
+const Experience = (props) => {
+  const { experience, resume } = props;
   const history = experience.history;
   const historyPanels = history.map((entry) => (
     <Panel

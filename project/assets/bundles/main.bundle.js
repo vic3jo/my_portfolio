@@ -74,22 +74,17 @@
 
 	var _Reducers2 = _interopRequireDefault(_Reducers);
 
-	var _reduxLogger = __webpack_require__(243);
-
-	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
-
-	var _reduxThunk = __webpack_require__(244);
+	var _reduxThunk = __webpack_require__(243);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const logger = createLogger();
-	/**
-	 * Author: Victor Trejo
-	 * Description: This is the entry file of the react application.
-	 */
-	var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default);
+	var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default); /**
+	                                                                     * Author: Victor Trejo
+	                                                                     * Description: This is the entry file of the react application.
+	                                                                     */
+
 	var store = (0, _redux.createStore)(_Reducers2.default, middleware);
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -1070,7 +1065,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1115,53 +1110,50 @@
 
 
 	var App = function (_React$Component) {
-	    _inherits(App, _React$Component);
+	  _inherits(App, _React$Component);
 
-	    function App() {
-	        _classCallCheck(this, App);
+	  function App() {
+	    _classCallCheck(this, App);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.onMount();
 	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { id: 'page' },
+	        _react2.default.createElement(_Header2.default, null),
+	        _react2.default.createElement(_Jumbotron2.default, null),
+	        _react2.default.createElement(_Content2.default, null),
+	        _react2.default.createElement(_Footer2.default, null)
+	      );
+	    }
+	  }]);
 
-	    _createClass(App, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.props.onMount();
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                'div',
-	                { id: 'page' },
-	                _react2.default.createElement(_Header2.default, null),
-	                _react2.default.createElement(_Jumbotron2.default, null),
-	                _react2.default.createElement(_Content2.default, null),
-	                _react2.default.createElement(_Footer2.default, null)
-	            );
-	        }
-	    }]);
-
-	    return App;
+	  return App;
 	}(_react2.default.Component);
 
 	App.propTypes = { onMount: _react2.default.PropTypes.func.isRequired };
 
 	/**
-	 * Gives the object access to the dispatch function 
-	 * throught properties.
-	 * @param  {function} dispatch the dispatch function
-	 * @return {object}   the updated properties object.
-	 */
+	* Gives the object access to the dispatch function
+	* throught properties.
+	* @param  {function} dispatch the dispatch function
+	* @return {object}   the updated properties object.
+	*/
 	function mapDispatchToProps(dispatch) {
-
-	    return {
-	        onMount: function onMount() {
-
-	            dispatch(_Actions2.default);
-	        }
-	    };
+	  return {
+	    onMount: function onMount() {
+	      dispatch(_Actions2.default);
+	    }
+	  };
 	}
 
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(App);
@@ -1173,10 +1165,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _About = __webpack_require__(18);
 
@@ -1186,15 +1176,15 @@
 
 	var _AcademicProjects2 = _interopRequireDefault(_AcademicProjects);
 
-	var _Education = __webpack_require__(69);
+	var _Education = __webpack_require__(66);
 
 	var _Education2 = _interopRequireDefault(_Education);
 
-	var _Experience = __webpack_require__(72);
+	var _Experience = __webpack_require__(69);
 
 	var _Experience2 = _interopRequireDefault(_Experience);
 
-	var _PersonalProjects = __webpack_require__(75);
+	var _PersonalProjects = __webpack_require__(73);
 
 	var _PersonalProjects2 = _interopRequireDefault(_PersonalProjects);
 
@@ -1208,45 +1198,23 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Content = function Content() {
+	  return _react2.default.createElement(
+	    'section',
+	    { id: 'page-body', className: 'container' },
+	    _react2.default.createElement(_About2.default, null),
+	    _react2.default.createElement(_Experience2.default, null),
+	    _react2.default.createElement(_Skills2.default, null),
+	    _react2.default.createElement(_Education2.default, null),
+	    _react2.default.createElement(_AcademicProjects2.default, null),
+	    _react2.default.createElement(_PersonalProjects2.default, null)
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the Content component.
+	    */
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Content component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var Content = function (_React$Component) {
-	    _inherits(Content, _React$Component);
-
-	    function Content() {
-	        _classCallCheck(this, Content);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Content).apply(this, arguments));
-	    }
-
-	    _createClass(Content, [{
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                'section',
-	                { id: 'page-body', className: 'container' },
-	                _react2.default.createElement(_About2.default, null),
-	                _react2.default.createElement(_Experience2.default, null),
-	                _react2.default.createElement(_Skills2.default, null),
-	                _react2.default.createElement(_Education2.default, null),
-	                _react2.default.createElement(_AcademicProjects2.default, null),
-	                _react2.default.createElement(_PersonalProjects2.default, null)
-	            );
-	        }
-	    }]);
-
-	    return Content;
-	}(_react2.default.Component);
 
 	exports.default = Content;
 
@@ -1257,10 +1225,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(19);
 
@@ -1274,51 +1240,29 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var About = function About(props) {
+	  return _react2.default.createElement(
+	    _Section2.default,
+	    {
+	      id: 'about',
+	      iconType: 'user',
+	      title: 'About me'
+	    },
+	    _react2.default.createElement(
+	      'p',
+	      { className: 'pre' },
+	      props.about.description
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the component for the About section.
+	    */
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the component for the About section.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var About = function (_React$Component) {
-	    _inherits(About, _React$Component);
-
-	    function About() {
-	        _classCallCheck(this, About);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(About).apply(this, arguments));
-	    }
-
-	    _createClass(About, [{
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                _Section2.default,
-	                {
-	                    id: 'about',
-	                    iconType: 'user',
-	                    title: 'About me'
-	                },
-	                _react2.default.createElement(
-	                    'p',
-	                    { className: 'pre' },
-	                    this.props.about.description
-	                )
-	            );
-	        }
-	    }]);
-
-	    return About;
-	}(_react2.default.Component);
 
 	About.propTypes = {
-	    about: _react2.default.PropTypes.shape({ description: _react2.default.PropTypes.string.isRequired })
+	  about: _react2.default.PropTypes.shape({ description: _react2.default.PropTypes.string.isRequired })
 	};
 
 	/**
@@ -1328,8 +1272,7 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
-
-	    return { about: state.about };
+	  return { about: state.about };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(About);
@@ -5132,10 +5075,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _Glyphicon = __webpack_require__(51);
 
@@ -5147,77 +5088,57 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Description: This file contains the Section component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	/**
+	* Author: Victor Trejo.
+	*
+	* Description: This file contains the Section component.
+	*/
 
 
-	var Section = function (_React$Component) {
-	    _inherits(Section, _React$Component);
-
-	    function Section() {
-	        _classCallCheck(this, Section);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Section).apply(this, arguments));
-	    }
-
-	    _createClass(Section, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var id = _props.id;
-	            var title = _props.title;
-	            var iconType = _props.iconType;
+	var Section = function Section(props) {
+	  var id = props.id;
+	  var title = props.title;
+	  var iconType = props.iconType;
+	  var children = props.children;
 
 
-	            return _react2.default.createElement(
-	                'section',
-	                { id: id },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'page-header col-sm-12' },
-	                        _react2.default.createElement(
-	                            'h1',
-	                            { className: 'cursive-style' },
-	                            _react2.default.createElement(_Glyphicon2.default, { iconType: iconType }),
-	                            _react2.default.createElement(
-	                                'span',
-	                                { className: 'section-title' },
-	                                title
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'content col-sm-12' },
-	                        this.props.children
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Section;
-	}(_react2.default.Component);
-
-	exports.default = Section;
-
+	  return _react2.default.createElement(
+	    'section',
+	    { id: id },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'page-header col-sm-12' },
+	        _react2.default.createElement(
+	          'h1',
+	          { className: 'cursive-style' },
+	          _react2.default.createElement(_Glyphicon2.default, { iconType: iconType }),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'section-title' },
+	            title
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'content col-sm-12' },
+	        children
+	      )
+	    )
+	  );
+	};
 
 	Section.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
-	    title: _react2.default.PropTypes.string.isRequired,
-	    iconType: _react2.default.PropTypes.string.isRequired,
-	    id: _react2.default.PropTypes.string.isRequired
+	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
+	  title: _react2.default.PropTypes.string.isRequired,
+	  iconType: _react2.default.PropTypes.string.isRequired,
+	  id: _react2.default.PropTypes.string.isRequired
 	};
+
+	exports.default = Section;
 
 /***/ },
 /* 51 */
@@ -5226,10 +5147,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(19);
 
@@ -5237,50 +5156,29 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Glyphicon component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var Glyphicon = function (_React$Component) {
-	    _inherits(Glyphicon, _React$Component);
-
-	    function Glyphicon() {
-	        _classCallCheck(this, Glyphicon);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Glyphicon).apply(this, arguments));
-	    }
-
-	    _createClass(Glyphicon, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var className = 'glyphicon glyphicon-' + this.props.iconType;
-
-	            return _react2.default.createElement(
-	                'span',
-	                { className: className },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return Glyphicon;
-	}(_react2.default.Component);
-
-	exports.default = Glyphicon;
+	var Glyphicon = function Glyphicon(props) {
+	  var className = 'glyphicon glyphicon-' + props.iconType;
+	  return _react2.default.createElement(
+	    'span',
+	    { className: className },
+	    props.children
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the Glyphicon component.
+	    */
 
 
 	Glyphicon.propTypes = {
-	    iconType: _react2.default.PropTypes.string.isRequired,
-	    children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)])
+	  iconType: _react2.default.PropTypes.string.isRequired,
+	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)])
 	};
+
+	Glyphicon.defaultProps = {
+	  children: []
+	};
+	exports.default = Glyphicon;
 
 /***/ },
 /* 52 */
@@ -6159,16 +6057,14 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Project = __webpack_require__(66);
+	var _Project = __webpack_require__(74);
 
 	var _Project2 = _interopRequireDefault(_Project);
 
-	var _ProjectList = __webpack_require__(68);
+	var _ProjectList = __webpack_require__(75);
 
 	var _ProjectList2 = _interopRequireDefault(_ProjectList);
 
@@ -6184,61 +6080,38 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var AcademicProjects = function AcademicProjects(props) {
+	  var projectsItems = props.projects.map(function (project) {
+	    return _react2.default.createElement(_Project2.default, {
+	      key: project.id,
+	      title: project.title,
+	      course: project.course,
+	      description: project.description,
+	      languages: project.languages,
+	      libraries: project.libraries,
+	      repositoryUrl: project.repositoryUrl
+	    });
+	  });
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  return _react2.default.createElement(
+	    _Section2.default,
+	    {
+	      id: 'academic-projects',
+	      iconType: 'blackboard',
+	      title: 'Academic Projects'
+	    },
+	    _react2.default.createElement(
+	      _ProjectList2.default,
+	      null,
+	      projectsItems
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the component for the Academic projects section.
+	    */
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the component for the Academic projects section.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var AcademicProjects = function (_React$Component) {
-	    _inherits(AcademicProjects, _React$Component);
-
-	    function AcademicProjects() {
-	        _classCallCheck(this, AcademicProjects);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(AcademicProjects).apply(this, arguments));
-	    }
-
-	    _createClass(AcademicProjects, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var projects = this.props.projects.map(function (project) {
-
-	                return _react2.default.createElement(_Project2.default, {
-	                    key: project.id,
-	                    title: project.title,
-	                    course: project.course,
-	                    description: project.description,
-	                    languages: project.languages,
-	                    libraries: project.libraries,
-	                    repositoryUrl: project.repositoryUrl
-	                });
-	            });
-
-	            return _react2.default.createElement(
-	                _Section2.default,
-	                {
-	                    id: 'academic-projects',
-	                    iconType: 'blackboard',
-	                    title: 'Academic Projects'
-	                },
-	                _react2.default.createElement(
-	                    _ProjectList2.default,
-	                    null,
-	                    projects
-	                )
-	            );
-	        }
-	    }]);
-
-	    return AcademicProjects;
-	}(_react2.default.Component);
 
 	AcademicProjects.propTypes = { projects: _react2.default.PropTypes.array.isRequired };
 
@@ -6249,8 +6122,7 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
-
-	    return { projects: state.academicProjects.projects };
+	  return { projects: state.academicProjects.projects };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AcademicProjects);
@@ -6262,275 +6134,14 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(19);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Utilities = __webpack_require__(67);
-
-	var _Utilities2 = _interopRequireDefault(_Utilities);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Description: This file contains the Project component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
-
-
-	var DESCRIPTION_MAX_LENGTH = 105;
-	var COURSE_MAX_LENGTH = 25;
-
-	var Project = function (_React$Component) {
-	    _inherits(Project, _React$Component);
-
-	    function Project() {
-	        _classCallCheck(this, Project);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Project).apply(this, arguments));
-	    }
-
-	    _createClass(Project, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var course = _props.course;
-	            var description = _props.description;
-	            var _props2 = this.props;
-	            var languages = _props2.languages;
-	            var libraries = _props2.libraries;
-	            var repositoryUrl = _props2.repositoryUrl;
-	            var title = _props2.title;
-
-	            var courseLabelClass = course ? '' : 'hide';
-
-	            description = _Utilities2.default.shortenIfLengthLarger(description, DESCRIPTION_MAX_LENGTH);
-
-	            course = _Utilities2.default.shortenIfLengthLarger(course, COURSE_MAX_LENGTH);
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'col-sm-6 col-md-4 project-box' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'thumbnail yellow' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'caption' },
-	                        _react2.default.createElement(
-	                            'h3',
-	                            null,
-	                            title
-	                        ),
-	                        _react2.default.createElement(
-	                            'h4',
-	                            { className: courseLabelClass },
-	                            'Course: ',
-	                            course
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'description' },
-	                            _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                description
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            'Languages: ',
-	                            languages,
-	                            '.'
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            'Libraries: ',
-	                            libraries,
-	                            '.'
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            _react2.default.createElement(
-	                                'a',
-	                                { href: repositoryUrl, className: 'btn btn-default', role: 'button' },
-	                                'Go to repository'
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Project;
-	}(_react2.default.Component);
-
-	exports.default = Project;
-
-
-	Project.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
-	    course: _react2.default.PropTypes.string.isRequired,
-	    description: _react2.default.PropTypes.string.isRequired,
-	    languages: _react2.default.PropTypes.string.isRequired,
-	    libraries: _react2.default.PropTypes.string.isRequired,
-	    title: _react2.default.PropTypes.string.isRequired,
-	    repositoryUrl: _react2.default.PropTypes.string.isRequired
-	};
-
-/***/ },
-/* 67 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	/**
-	 * Author: Victor Trejo.
-	 * Description: This file contains utilities functions used
-	 * through the application.
-	 */
-	var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-	/**
-	 * Formats a given date string into the 
-	 * {Month} {Year} format.
-	 * 
-	 * @param  {string} dateString date string to be formatted.
-	 * @return {string}        the formatted date string.
-	 */
-	var formattedDate = function formattedDate(dateString) {
-
-	    var date = new Date(dateString);
-
-	    return MONTHS[date.getMonth()] + ' ' + date.getFullYear();
-	};
-
-	var START_INDEX = 0;
-
-	/**
-	 * Shortens a string if its length is longer than
-	 * a maximun specified length. At the end adds elipses.
-	 * 
-	 * @param  {string} text   string to be shorten.
-	 * @param  {number} length maximum length.
-	 * @return {string}        the shorten string.
-	 */
-	var shortenIfLengthLarger = function shortenIfLengthLarger(text, length) {
-
-	    if (text.length > length) {
-
-	        return text.slice(START_INDEX, length) + '...';
-	    } else {
-
-	        return text;
-	    }
-	};
-
-	exports.default = {
-	    formattedDate: formattedDate,
-	    shortenIfLengthLarger: shortenIfLengthLarger
-	};
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Project = __webpack_require__(66);
-
-	var _Project2 = _interopRequireDefault(_Project);
-
-	var _react = __webpack_require__(19);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Description: This file contains the ProjectList component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
-
-
-	var ProjectList = function (_React$Component) {
-	    _inherits(ProjectList, _React$Component);
-
-	    function ProjectList() {
-	        _classCallCheck(this, ProjectList);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ProjectList).apply(this, arguments));
-	    }
-
-	    _createClass(ProjectList, [{
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                ' ',
-	                this.props.children,
-	                ' '
-	            );
-	        }
-	    }]);
-
-	    return ProjectList;
-	}(_react2.default.Component);
-
-	exports.default = ProjectList;
-
-
-	ProjectList.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_Project2.default, _react2.default.PropTypes.arrayOf(_Project2.default)])
-	};
-
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _ListGroup = __webpack_require__(70);
+	var _ListGroup = __webpack_require__(67);
 
 	var _ListGroup2 = _interopRequireDefault(_ListGroup);
 
-	var _ListGroupItem = __webpack_require__(71);
+	var _ListGroupItem = __webpack_require__(68);
 
 	var _ListGroupItem2 = _interopRequireDefault(_ListGroupItem);
 
@@ -6546,60 +6157,37 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Education = function Education(props) {
+	  var items = props.education.history.map(function (entry) {
+	    return _react2.default.createElement(_ListGroupItem2.default, {
+	      key: entry.id,
+	      title: entry.career + ' - ' + entry.institution,
+	      badge: entry.startYear + '-' + entry.endYear
+	    });
+	  });
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  return _react2.default.createElement(
+	    _Section2.default,
+	    {
+	      id: 'education',
+	      iconType: 'education',
+	      title: 'Education'
+	    },
+	    _react2.default.createElement(
+	      _ListGroup2.default,
+	      null,
+	      items
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the component for the Education section.
+	    */
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the component for the Education section.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var Education = function (_React$Component) {
-	    _inherits(Education, _React$Component);
-
-	    function Education() {
-	        _classCallCheck(this, Education);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Education).apply(this, arguments));
-	    }
-
-	    _createClass(Education, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var items = this.props.education.history.map(function (entry) {
-
-	                return _react2.default.createElement(_ListGroupItem2.default, {
-	                    key: entry.id,
-	                    title: entry.career + ' - ' + entry.institution,
-	                    badge: entry.startYear + '-' + entry.endYear
-	                });
-	            });
-
-	            return _react2.default.createElement(
-	                _Section2.default,
-	                {
-	                    id: 'education',
-	                    iconType: 'education',
-	                    title: 'Education'
-	                },
-	                _react2.default.createElement(
-	                    _ListGroup2.default,
-	                    null,
-	                    items
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Education;
-	}(_react2.default.Component);
 
 	Education.propTypes = {
-	    education: _react2.default.PropTypes.shape({ history: _react2.default.PropTypes.array.isRequired })
+	  education: _react2.default.PropTypes.shape({ history: _react2.default.PropTypes.array.isRequired })
 	};
 
 	/**
@@ -6609,25 +6197,22 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
-
-	    return { education: state.education };
+	  return { education: state.education };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Education);
 
 /***/ },
-/* 70 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _ListGroupItem = __webpack_require__(71);
+	var _ListGroupItem = __webpack_require__(68);
 
 	var _ListGroupItem2 = _interopRequireDefault(_ListGroupItem);
 
@@ -6637,59 +6222,36 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the ListGroup component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	/**
+	 * Author: Victor Trejo.
+	 *
+	 * Description: This file contains the ListGroup component.
+	 */
 
 
-	var ListGroup = function (_React$Component) {
-	    _inherits(ListGroup, _React$Component);
+	var ListGroup = function ListGroup(props) {
+	  return _react2.default.createElement(
+	    'ul',
+	    { className: 'list-group' },
+	    props.children
+	  );
+	};
 
-	    function ListGroup() {
-	        _classCallCheck(this, ListGroup);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ListGroup).apply(this, arguments));
-	    }
-
-	    _createClass(ListGroup, [{
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                'ul',
-	                { className: 'list-group' },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return ListGroup;
-	}(_react2.default.Component);
+	ListGroup.propTypes = {
+	  children: _react2.default.PropTypes.oneOfType([_ListGroupItem2.default, _react2.default.PropTypes.arrayOf(_ListGroupItem2.default)])
+	};
 
 	exports.default = ListGroup;
 
-
-	ListGroup.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_ListGroupItem2.default, _react2.default.PropTypes.arrayOf(_ListGroupItem2.default)])
-	};
-
 /***/ },
-/* 71 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _Glyphicon = __webpack_require__(51);
 
@@ -6701,82 +6263,55 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the ListGroupItem component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	/**
+	 * Author: Victor Trejo.
+	 *
+	 * Description: This file contains the ListGroupItem component.
+	 */
 
 
-	var ListGroupItem = function (_React$Component) {
-	    _inherits(ListGroupItem, _React$Component);
+	var ListGroupItem = function ListGroupItem(props) {
+	  var badgeElement = props.badge;
 
-	    function ListGroupItem() {
-	        _classCallCheck(this, ListGroupItem);
+	  if (props.isBadgeIcon) {
+	    badgeElement = _react2.default.createElement(_Glyphicon2.default, { iconType: props.badge });
+	  }
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ListGroupItem).apply(this, arguments));
-	    }
+	  return _react2.default.createElement(
+	    'li',
+	    { className: 'list-group-item' },
+	    _react2.default.createElement(
+	      'span',
+	      { className: 'badge' },
+	      badgeElement
+	    ),
+	    props.title
+	  );
+	};
 
-	    _createClass(ListGroupItem, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var title = _props.title;
-	            var isBadgeIcon = _props.isBadgeIcon;
-	            var badge = this.props.badge;
-
-
-	            if (isBadgeIcon) {
-
-	                badge = _react2.default.createElement(_Glyphicon2.default, { iconType: badge });
-	            }
-
-	            return _react2.default.createElement(
-	                'li',
-	                { className: 'list-group-item' },
-	                _react2.default.createElement(
-	                    'span',
-	                    { className: 'badge' },
-	                    badge
-	                ),
-	                title
-	            );
-	        }
-	    }]);
-
-	    return ListGroupItem;
-	}(_react2.default.Component);
+	ListGroupItem.propTypes = {
+	  title: _react2.default.PropTypes.string.isRequired,
+	  badge: _react2.default.PropTypes.string.isRequired,
+	  isBadgeIcon: _react2.default.PropTypes.bool
+	};
 
 	exports.default = ListGroupItem;
 
-
-	ListGroupItem.propTypes = {
-	    title: _react2.default.PropTypes.string.isRequired,
-	    badge: _react2.default.PropTypes.string.isRequired,
-	    isBadgeIcon: _react2.default.PropTypes.bool
-	};
-
 /***/ },
-/* 72 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Panel = __webpack_require__(73);
+	var _Panel = __webpack_require__(70);
 
 	var _Panel2 = _interopRequireDefault(_Panel);
 
-	var _PanelGroup = __webpack_require__(74);
+	var _PanelGroup = __webpack_require__(71);
 
 	var _PanelGroup2 = _interopRequireDefault(_PanelGroup);
 
@@ -6790,93 +6325,74 @@
 
 	var _reactRedux = __webpack_require__(52);
 
-	var _Utilities = __webpack_require__(67);
+	var _Utilities = __webpack_require__(72);
 
 	var _Utilities2 = _interopRequireDefault(_Utilities);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the component for the Experience section.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	/**
+	 * Author: Victor Trejo.
+	 *
+	 * Description: This file contains the component for the Experience section.
+	 */
 
 
-	var Experience = function (_React$Component) {
-	    _inherits(Experience, _React$Component);
+	var Experience = function Experience(props) {
+	  var experience = props.experience;
+	  var resume = props.resume;
 
-	    function Experience() {
-	        _classCallCheck(this, Experience);
+	  var history = experience.history;
+	  var historyPanels = history.map(function (entry) {
+	    return _react2.default.createElement(
+	      _Panel2.default,
+	      {
+	        id: '' + entry.id,
+	        key: entry.id,
+	        parentId: 'experience-list',
+	        title: entry.position + ' - ' + entry.company,
+	        badgeText: _Utilities2.default.formattedDate(entry.startDate) + ' - ' + _Utilities2.default.formattedDate(entry.endDate)
+	      },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'pre' },
+	        entry.description
+	      )
+	    );
+	  });
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Experience).apply(this, arguments));
-	    }
-
-	    _createClass(Experience, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var history = this.props.experience.history;
-	            var resume = this.props.resume;
-	            var historyPanels = history.map(function (entry) {
-	                return _react2.default.createElement(
-	                    _Panel2.default,
-	                    {
-	                        id: '' + entry.id,
-	                        key: entry.id,
-	                        parentId: 'experience-list',
-	                        title: entry.position + ' - ' + entry.company,
-	                        badgeText: _Utilities2.default.formattedDate(entry.startDate) + ' - ' + _Utilities2.default.formattedDate(entry.endDate),
-	                        expanded: true
-	                    },
-	                    _react2.default.createElement(
-	                        'p',
-	                        { className: 'pre' },
-	                        entry.description
-	                    )
-	                );
-	            });
-
-	            return _react2.default.createElement(
-	                _Section2.default,
-	                {
-	                    id: 'experience',
-	                    iconType: 'road',
-	                    title: 'Experience'
-	                },
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        _PanelGroup2.default,
-	                        { id: 'experience-list' },
-	                        historyPanels
-	                    ),
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: resume.file },
-	                        _react2.default.createElement(
-	                            'h2',
-	                            { className: 'link-styled' },
-	                            _react2.default.createElement('span', { className: 'glyphicon glyphicon-file' }),
-	                            'See full resume'
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Experience;
-	}(_react2.default.Component);
+	  return _react2.default.createElement(
+	    _Section2.default,
+	    {
+	      id: 'experience',
+	      iconType: 'road',
+	      title: 'Experience'
+	    },
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        _PanelGroup2.default,
+	        { id: 'experience-list' },
+	        historyPanels
+	      ),
+	      _react2.default.createElement(
+	        'a',
+	        { href: resume.file },
+	        _react2.default.createElement(
+	          'h2',
+	          { className: 'link-styled' },
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-file' }),
+	          'See full resume'
+	        )
+	      )
+	    )
+	  );
+	};
 
 	Experience.propTypes = {
-	    experience: _react2.default.PropTypes.shape({ history: _react2.default.PropTypes.array.isRequired }),
-	    resume: _react2.default.PropTypes.shape({ file: _react2.default.PropTypes.string.isRequired })
+	  experience: _react2.default.PropTypes.shape({ history: _react2.default.PropTypes.array.isRequired }),
+	  resume: _react2.default.PropTypes.shape({ file: _react2.default.PropTypes.string.isRequired })
 	};
 
 	/**
@@ -6886,26 +6402,23 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
-
-	    return {
-	        experience: state.experience,
-	        resume: state.resume
-	    };
+	  return {
+	    experience: state.experience,
+	    resume: state.resume
+	  };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Experience);
 
 /***/ },
-/* 73 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(19);
 
@@ -6913,128 +6426,103 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Panel = function Panel(props) {
+	  var id = props.id;
+	  var expanded = props.expanded;
+	  var badgeText = props.badgeText;
+	  var parentId = props.parentId;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  var headingId = 'heading-' + id;
+	  var collapseId = 'collapse-' + id;
+	  var collapseClass = 'panel-collapse collapse';
+	  var badgeClass = 'badge danger';
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Panel component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	  if (expanded) {
+	    collapseClass = collapseClass + ' in';
+	  }
 
+	  if (!badgeText) {
+	    badgeClass = badgeClass + ' hide';
+	  }
 
-	var Panel = function (_React$Component) {
-	    _inherits(Panel, _React$Component);
-
-	    function Panel() {
-	        _classCallCheck(this, Panel);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Panel).apply(this, arguments));
-	    }
-
-	    _createClass(Panel, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var id = _props.id;
-	            var expanded = _props.expanded;
-	            var badgeText = _props.badgeText;
-
-	            var parentId = '#' + this.props.parentId;
-	            var headingId = 'heading-' + id;
-	            var collapseId = 'collapse-' + id;
-	            var collapseClass = 'panel-collapse collapse';
-	            var badgeClass = 'badge danger';
-
-	            if (expanded) {
-
-	                collapseClass = collapseClass + ' in';
-	            }
-
-	            if (!badgeText) {
-
-	                badgeClass = badgeClass + ' hide';
-	            }
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'panel panel-default' },
-	                _react2.default.createElement(
-	                    'div',
-	                    {
-	                        className: 'panel-heading',
-	                        role: 'tab',
-	                        id: headingId
-	                    },
-	                    _react2.default.createElement(
-	                        'span',
-	                        { className: badgeClass },
-	                        badgeText
-	                    ),
-	                    _react2.default.createElement(
-	                        'h4',
-	                        { className: 'panel-title' },
-	                        _react2.default.createElement(
-	                            'a',
-	                            {
-	                                role: 'button',
-	                                'data-toggle': 'collapse',
-	                                'data-parent': parentId,
-	                                href: collapseId,
-	                                'aria-expanded': expanded,
-	                                'aria-controls': collapseId
-	                            },
-	                            this.props.title
-	                        )
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    {
-	                        id: collapseId,
-	                        className: collapseClass,
-	                        role: 'tabpanel',
-	                        'aria-labelledby': headingId
-	                    },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'panel-body' },
-	                        this.props.children
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Panel;
-	}(_react2.default.Component);
-
-	exports.default = Panel;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'panel panel-default' },
+	    _react2.default.createElement(
+	      'div',
+	      {
+	        className: 'panel-heading',
+	        role: 'tab',
+	        id: headingId
+	      },
+	      _react2.default.createElement(
+	        'span',
+	        { className: badgeClass },
+	        badgeText
+	      ),
+	      _react2.default.createElement(
+	        'h4',
+	        { className: 'panel-title' },
+	        _react2.default.createElement(
+	          'a',
+	          {
+	            role: 'button',
+	            'data-toggle': 'collapse',
+	            'data-parent': '#' + parentId,
+	            href: collapseId,
+	            'aria-expanded': expanded,
+	            'aria-controls': collapseId
+	          },
+	          props.title
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      {
+	        id: collapseId,
+	        className: collapseClass,
+	        role: 'tabpanel',
+	        'aria-labelledby': headingId
+	      },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'panel-body' },
+	        props.children
+	      )
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the Panel component.
+	    */
 
 
 	Panel.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
-	    id: _react2.default.PropTypes.string.isRequired,
-	    expanded: _react2.default.PropTypes.bool.isRequired,
-	    badgeText: _react2.default.PropTypes.string.isRequired,
-	    parentId: _react2.default.PropTypes.string.isRequired,
-	    title: _react2.default.PropTypes.string.isRequired
+	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
+	  id: _react2.default.PropTypes.string.isRequired,
+	  expanded: _react2.default.PropTypes.bool,
+	  badgeText: _react2.default.PropTypes.string.isRequired,
+	  parentId: _react2.default.PropTypes.string.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired
 	};
 
+	Panel.defaultProps = { expanded: true };
+
+	exports.default = Panel;
+
 /***/ },
-/* 74 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Panel = __webpack_require__(73);
+	var _Panel = __webpack_require__(70);
 
 	var _Panel2 = _interopRequireDefault(_Panel);
 
@@ -7044,71 +6532,99 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Description: This file contains the PanelGroup component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	/**
+	* Author: Victor Trejo.
+	*
+	* Description: This file contains the PanelGroup component.
+	*/
 
 
-	var PanelGroup = function (_React$Component) {
-	    _inherits(PanelGroup, _React$Component);
+	var PanelGroup = function PanelGroup(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    {
+	      className: 'panel-group',
+	      id: props.id,
+	      role: 'tablist',
+	      'aria-multiselectable': 'true'
+	    },
+	    props.children
+	  );
+	};
 
-	    function PanelGroup() {
-	        _classCallCheck(this, PanelGroup);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(PanelGroup).apply(this, arguments));
-	    }
-
-	    _createClass(PanelGroup, [{
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                'div',
-	                {
-	                    className: 'panel-group',
-	                    id: this.props.id,
-	                    role: 'tablist',
-	                    'aria-multiselectable': 'true'
-	                },
-	                this.props.children
-	            );
-	        }
-	    }]);
-
-	    return PanelGroup;
-	}(_react2.default.Component);
+	PanelGroup.propTypes = {
+	  children: _react2.default.PropTypes.oneOfType([_Panel2.default, _react2.default.PropTypes.arrayOf(_Panel2.default)]),
+	  id: _react2.default.PropTypes.string.isRequired
+	};
 
 	exports.default = PanelGroup;
 
+/***/ },
+/* 72 */
+/***/ function(module, exports) {
 
-	PanelGroup.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_Panel2.default, _react2.default.PropTypes.arrayOf(_Panel2.default)]),
-	    id: _react2.default.PropTypes.string.isRequired
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/**
+	 * Author: Victor Trejo.
+	 * Description: This file contains utilities functions used
+	 * through the application.
+	 */
+	var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+	/**
+	 * Formats a given date string into the
+	 * {Month} {Year} format.
+	 *
+	 * @param  {string} dateString date string to be formatted.
+	 * @return {string}        the formatted date string.
+	 */
+	var formattedDate = function formattedDate(dateString) {
+	  var date = new Date(dateString);
+	  return MONTHS[date.getMonth()] + ' ' + date.getFullYear();
+	};
+
+	var START_INDEX = 0;
+
+	/**
+	 * Shortens a string if its length is longer than
+	 * a maximun specified length. At the end adds elipses.
+	 *
+	 * @param  {string} text   string to be shorten.
+	 * @param  {number} length maximum length.
+	 * @return {string}        the shorten string.
+	 */
+	var shortenIfLengthLarger = function shortenIfLengthLarger(text, length) {
+	  if (text && text.length > length) {
+	    return text.slice(START_INDEX, length) + '...';
+	  } else {
+	    return text;
+	  }
+	};
+
+	exports.default = {
+	  formattedDate: formattedDate,
+	  shortenIfLengthLarger: shortenIfLengthLarger
 	};
 
 /***/ },
-/* 75 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Project = __webpack_require__(66);
+	var _Project = __webpack_require__(74);
 
 	var _Project2 = _interopRequireDefault(_Project);
 
-	var _ProjectList = __webpack_require__(68);
+	var _ProjectList = __webpack_require__(75);
 
 	var _ProjectList2 = _interopRequireDefault(_ProjectList);
 
@@ -7124,61 +6640,37 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var PersonalProjects = function PersonalProjects(props) {
+	  var projectsItems = props.projects.map(function (project) {
+	    return _react2.default.createElement(_Project2.default, {
+	      key: project.id,
+	      title: project.title,
+	      description: project.description,
+	      languages: project.languages,
+	      libraries: project.libraries,
+	      repositoryUrl: project.repositoryUrl
+	    });
+	  });
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  return _react2.default.createElement(
+	    _Section2.default,
+	    {
+	      id: 'personal-projects',
+	      iconType: 'sunglasses',
+	      title: 'Personal Projects'
+	    },
+	    _react2.default.createElement(
+	      _ProjectList2.default,
+	      null,
+	      projectsItems
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the component for the Personal projects section.
+	    */
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the component for the Personal projects section.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var PersonalProjects = function (_React$Component) {
-	    _inherits(PersonalProjects, _React$Component);
-
-	    function PersonalProjects() {
-	        _classCallCheck(this, PersonalProjects);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(PersonalProjects).apply(this, arguments));
-	    }
-
-	    _createClass(PersonalProjects, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var projects = this.props.projects.map(function (project) {
-
-	                return _react2.default.createElement(_Project2.default, {
-	                    key: project.id,
-	                    title: project.title,
-	                    course: '',
-	                    description: project.description,
-	                    languages: project.languages,
-	                    libraries: project.libraries,
-	                    repositoryUrl: project.repositoryUrl
-	                });
-	            });
-
-	            return _react2.default.createElement(
-	                _Section2.default,
-	                {
-	                    id: 'personal-projects',
-	                    iconType: 'sunglasses',
-	                    title: 'Personal Projects'
-	                },
-	                _react2.default.createElement(
-	                    _ProjectList2.default,
-	                    null,
-	                    projects
-	                )
-	            );
-	        }
-	    }]);
-
-	    return PersonalProjects;
-	}(_react2.default.Component);
 
 	PersonalProjects.propTypes = { projects: _react2.default.PropTypes.array.isRequired };
 
@@ -7189,11 +6681,169 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
-
-	    return { projects: state.personalProjects.projects };
+	  return { projects: state.personalProjects.projects };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PersonalProjects);
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(19);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Utilities = __webpack_require__(72);
+
+	var _Utilities2 = _interopRequireDefault(_Utilities);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	* Author: Victor Trejo.
+	*
+	* Description: This file contains the Project component.
+	*/
+
+
+	var DESCRIPTION_MAX_LENGTH = 105;
+	var COURSE_MAX_LENGTH = 25;
+
+	var Project = function Project(props) {
+	  var languages = props.languages;
+	  var libraries = props.libraries;
+	  var repositoryUrl = props.repositoryUrl;
+	  var title = props.title;
+	  var course = props.course;
+	  var description = props.description;
+
+	  var courseLabelClass = course ? '' : 'hide';
+	  var descriptionText = _Utilities2.default.shortenIfLengthLarger(description, DESCRIPTION_MAX_LENGTH);
+	  var courseText = _Utilities2.default.shortenIfLengthLarger(course, COURSE_MAX_LENGTH);
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'col-sm-6 col-md-4 project-box' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'thumbnail yellow' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'caption' },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          title
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          { className: courseLabelClass },
+	          'Course: ',
+	          courseText
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'description' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            descriptionText
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Languages: ',
+	          languages,
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Libraries: ',
+	          libraries,
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          _react2.default.createElement(
+	            'a',
+	            { href: repositoryUrl, className: 'btn btn-default', role: 'button' },
+	            'Go to repository'
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
+
+	Project.propTypes = {
+	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
+	  course: _react2.default.PropTypes.string,
+	  description: _react2.default.PropTypes.string.isRequired,
+	  languages: _react2.default.PropTypes.string.isRequired,
+	  libraries: _react2.default.PropTypes.string.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired,
+	  repositoryUrl: _react2.default.PropTypes.string.isRequired
+	};
+
+	Project.defaultProps = {
+	  course: '',
+	  description: ''
+	};
+
+	exports.default = Project;
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _Project = __webpack_require__(74);
+
+	var _Project2 = _interopRequireDefault(_Project);
+
+	var _react = __webpack_require__(19);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	* Author: Victor Trejo.
+	*
+	* Description: This file contains the ProjectList component.
+	*/
+
+
+	var ProjectList = function ProjectList(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    ' ',
+	    props.children,
+	    ' '
+	  );
+	};
+
+	ProjectList.propTypes = {
+	  children: _react2.default.PropTypes.oneOfType([_Project2.default, _react2.default.PropTypes.arrayOf(_Project2.default)])
+	};
+
+	exports.default = ProjectList;
 
 /***/ },
 /* 76 */
@@ -7202,10 +6852,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(19);
 
@@ -7219,120 +6867,79 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var SkillsList = function SkillsList(props) {
+	  var categoryName = props.categoryName;
+	  var skills = props.skills;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  var items = skills.map(function (skill) {
+	    return _react2.default.createElement(
+	      'li',
+	      {
+	        className: 'skill',
+	        key: skill.id
+	      },
+	      _react2.default.createElement(
+	        'a',
+	        { href: skill.url },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'btn btn-info' },
+	          skill.label
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'skill-description' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'up-triangle' },
+	          '▲'
+	        ),
+	        skill.description
+	      )
+	    );
+	  });
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the component for the Skills section.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'skills-list-container' },
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      categoryName
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'list-unstyled list-inline skills-list' },
+	      items
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the component for the Skills section.
+	    */
 
 
-	var SkillsList = function (_React$Component) {
-	    _inherits(SkillsList, _React$Component);
+	var Skills = function Skills(props) {
+	  var lists = Object.keys(props.groupedSkills).map(function (key) {
+	    return _react2.default.createElement(SkillsList, {
+	      key: key,
+	      categoryName: key,
+	      skills: props.groupedSkills[key]
+	    });
+	  });
 
-	    function SkillsList() {
-	        _classCallCheck(this, SkillsList);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SkillsList).apply(this, arguments));
-	    }
-
-	    _createClass(SkillsList, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var categoryName = _props.categoryName;
-	            var skills = _props.skills;
-
-	            var items = skills.map(function (skill) {
-
-	                return _react2.default.createElement(
-	                    'li',
-	                    {
-	                        className: 'skill',
-	                        key: skill.id
-	                    },
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: skill.url },
-	                        _react2.default.createElement(
-	                            'span',
-	                            { className: 'btn btn-info' },
-	                            skill.label
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'skill-description' },
-	                        _react2.default.createElement(
-	                            'span',
-	                            { className: 'up-triangle' },
-	                            '▲'
-	                        ),
-	                        skill.description
-	                    )
-	                );
-	            });
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'skills-list-container' },
-	                _react2.default.createElement(
-	                    'h4',
-	                    null,
-	                    categoryName
-	                ),
-	                _react2.default.createElement(
-	                    'ul',
-	                    { className: 'list-unstyled list-inline skills-list' },
-	                    items
-	                )
-	            );
-	        }
-	    }]);
-
-	    return SkillsList;
-	}(_react2.default.Component);
-
-	var Skills = function (_React$Component2) {
-	    _inherits(Skills, _React$Component2);
-
-	    function Skills() {
-	        _classCallCheck(this, Skills);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Skills).apply(this, arguments));
-	    }
-
-	    _createClass(Skills, [{
-	        key: 'render',
-	        value: function render() {
-	            var groupedSkills = this.props.groupedSkills;
-
-	            var lists = Object.keys(groupedSkills).map(function (key) {
-
-	                return _react2.default.createElement(SkillsList, {
-	                    key: key,
-	                    categoryName: key,
-	                    skills: groupedSkills[key]
-	                });
-	            });
-
-	            return _react2.default.createElement(
-	                _Section2.default,
-	                {
-	                    id: 'skills',
-	                    iconType: 'plus-sign',
-	                    title: 'Skills'
-	                },
-	                lists
-	            );
-	        }
-	    }]);
-
-	    return Skills;
-	}(_react2.default.Component);
+	  return _react2.default.createElement(
+	    _Section2.default,
+	    {
+	      id: 'skills',
+	      iconType: 'plus-sign',
+	      title: 'Skills'
+	    },
+	    lists
+	  );
+	};
 
 	Skills.propTypes = { groupedSkills: _react2.default.PropTypes.object.isRequired };
 
@@ -7343,8 +6950,7 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
-
-	    return { groupedSkills: state.skills };
+	  return { groupedSkills: state.skills };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Skills);
@@ -7356,10 +6962,8 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(19);
 
@@ -7367,49 +6971,26 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Footer = function Footer() {
+	  return _react2.default.createElement(
+	    "footer",
+	    null,
+	    _react2.default.createElement(
+	      "div",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "coder col-md-offset-4 col-md-4" },
+	        "By Victor Trejo, 2016"
+	      )
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the Footer component of the page.
+	    */
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Footer component of the page.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var Footer = function (_React$Component) {
-	    _inherits(Footer, _React$Component);
-
-	    function Footer() {
-	        _classCallCheck(this, Footer);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
-	    }
-
-	    _createClass(Footer, [{
-	        key: "render",
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                "footer",
-	                null,
-	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "coder col-md-offset-4 col-md-4" },
-	                        "By Victor Trejo, ",
-	                        2016
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Footer;
-	}(_react2.default.Component);
 
 	exports.default = Footer;
 
@@ -7420,10 +7001,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _Glyphicon = __webpack_require__(51);
 
@@ -7443,106 +7022,86 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Header component of the page.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	/**
+	 * Author: Victor Trejo.
+	 *
+	 * Description: This file contains the Header component of the page.
+	 */
 
 
 	var LINKS_CONFIG = [{
-	    label: 'About',
-	    sectionId: 'about',
-	    icon: 'user'
+	  label: 'About',
+	  sectionId: 'about',
+	  icon: 'user'
 	}, {
-	    label: 'Experience',
-	    sectionId: 'experience',
-	    icon: 'road'
+	  label: 'Experience',
+	  sectionId: 'experience',
+	  icon: 'road'
 	}, {
-	    label: 'Skills',
-	    sectionId: 'skills',
-	    icon: 'plus-sign'
+	  label: 'Skills',
+	  sectionId: 'skills',
+	  icon: 'plus-sign'
 	}, {
-	    label: 'Education',
-	    sectionId: 'education',
-	    icon: 'education'
+	  label: 'Education',
+	  sectionId: 'education',
+	  icon: 'education'
 	}, {
-	    label: 'Academic projects',
-	    sectionId: 'academic-projects',
-	    icon: 'blackboard'
+	  label: 'Academic projects',
+	  sectionId: 'academic-projects',
+	  icon: 'blackboard'
 	}, {
-	    label: 'Personal projects',
-	    sectionId: 'personal-projects',
-	    icon: 'sunglasses'
+	  label: 'Personal projects',
+	  sectionId: 'personal-projects',
+	  icon: 'sunglasses'
 	}];
 
-	var Header = function (_React$Component) {
-	    _inherits(Header, _React$Component);
+	var links = LINKS_CONFIG.map(function (entry) {
+	  console.log(entry.icon);
+	  return _react2.default.createElement(
+	    _NavigatorLink2.default,
+	    { key: entry.sectionId, href: '#' + entry.sectionId },
+	    _react2.default.createElement(_Glyphicon2.default, { iconType: entry.icon }),
+	    ' ',
+	    entry.label
+	  );
+	});
 
-	    function Header() {
-	        _classCallCheck(this, Header);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
-	    }
-
-	    _createClass(Header, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var links = LINKS_CONFIG.map(function (entry) {
-
-	                return _react2.default.createElement(
-	                    _NavigatorLink2.default,
-	                    { key: entry.sectionId, href: '#' + entry.sectionId },
-	                    _react2.default.createElement(_Glyphicon2.default, { iconType: entry.icon }),
-	                    ' ',
-	                    entry.label
-	                );
-	            });
-
-	            return _react2.default.createElement(
-	                'header',
-	                { className: 'container' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'navbar navbar-default navbar-fixed-top' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'navbar-header col-offset-md-1' },
-	                        _react2.default.createElement(
-	                            'button',
-	                            { type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#myNavbar' },
-	                            _react2.default.createElement('span', { className: 'icon-bar' }),
-	                            _react2.default.createElement('span', { className: 'icon-bar' }),
-	                            _react2.default.createElement('span', { className: 'icon-bar' })
-	                        ),
-	                        _react2.default.createElement(
-	                            'h1',
-	                            { className: 'cursive-style' },
-	                            _react2.default.createElement(_Glyphicon2.default, { iconType: 'folder-open' }),
-	                            ' My Portfolio'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'collapse navbar-collapse', id: 'myNavbar' },
-	                        _react2.default.createElement(
-	                            _Navigator2.default,
-	                            null,
-	                            links
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Header;
-	}(_react2.default.Component);
+	var Header = function Header() {
+	  return _react2.default.createElement(
+	    'header',
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'navbar navbar-default navbar-fixed-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'navbar-header col-offset-md-1' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#myNavbar' },
+	          _react2.default.createElement('span', { className: 'icon-bar' }),
+	          _react2.default.createElement('span', { className: 'icon-bar' }),
+	          _react2.default.createElement('span', { className: 'icon-bar' })
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          { className: 'cursive-style' },
+	          _react2.default.createElement(_Glyphicon2.default, { iconType: 'folder-open' }),
+	          ' My Portfolio'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'collapse navbar-collapse', id: 'myNavbar' },
+	        _react2.default.createElement(
+	          _Navigator2.default,
+	          null,
+	          links
+	        )
+	      )
+	    )
+	  );
+	};
 
 	exports.default = Header;
 
@@ -7553,10 +7112,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _NavigatorLink = __webpack_require__(80);
 
@@ -7568,51 +7125,30 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Navigator component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	/**
+	 * Author: Victor Trejo.
+	 *
+	 * Description: This file contains the Navigator component.
+	 */
 
 
-	var Navigator = function (_React$Component) {
-	    _inherits(Navigator, _React$Component);
-
-	    function Navigator() {
-	        _classCallCheck(this, Navigator);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Navigator).apply(this, arguments));
-	    }
-
-	    _createClass(Navigator, [{
-	        key: 'render',
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                'nav',
-	                null,
-	                _react2.default.createElement(
-	                    'ul',
-	                    { className: 'nav navbar-nav navbar-right' },
-	                    this.props.children
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Navigator;
-	}(_react2.default.Component);
-
-	exports.default = Navigator;
-
+	var Navigator = function Navigator(props) {
+	  return _react2.default.createElement(
+	    'nav',
+	    null,
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'nav navbar-nav navbar-right' },
+	      props.children
+	    )
+	  );
+	};
 
 	Navigator.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_NavigatorLink2.default, _react2.default.PropTypes.arrayOf(_NavigatorLink2.default)])
+	  children: _react2.default.PropTypes.oneOfType([_NavigatorLink2.default, _react2.default.PropTypes.arrayOf(_NavigatorLink2.default)])
 	};
+
+	exports.default = Navigator;
 
 /***/ },
 /* 80 */
@@ -7621,10 +7157,8 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(19);
 
@@ -7632,52 +7166,29 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the NavigatorLink component.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	var NavigatorLink = function (_React$Component) {
-	    _inherits(NavigatorLink, _React$Component);
-
-	    function NavigatorLink() {
-	        _classCallCheck(this, NavigatorLink);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(NavigatorLink).apply(this, arguments));
-	    }
-
-	    _createClass(NavigatorLink, [{
-	        key: "render",
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                "li",
-	                { className: "nav" },
-	                _react2.default.createElement(
-	                    "a",
-	                    { href: this.props.href },
-	                    this.props.children
-	                )
-	            );
-	        }
-	    }]);
-
-	    return NavigatorLink;
-	}(_react2.default.Component);
-
-	exports.default = NavigatorLink;
+	var NavigatorLink = function NavigatorLink(props) {
+	  return _react2.default.createElement(
+	    "li",
+	    { className: "nav" },
+	    _react2.default.createElement(
+	      "a",
+	      { href: props.href },
+	      props.children
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the NavigatorLink component.
+	    */
 
 
 	NavigatorLink.propTypes = {
-	    children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
-	    href: _react2.default.PropTypes.string.isRequired
+	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.node, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node)]),
+	  href: _react2.default.PropTypes.string.isRequired
 	};
+
+	exports.default = NavigatorLink;
 
 /***/ },
 /* 81 */
@@ -7686,20 +7197,18 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _Glyphicon = __webpack_require__(51);
 
 	var _Glyphicon2 = _interopRequireDefault(_Glyphicon);
 
-	var _ListGroup = __webpack_require__(70);
+	var _ListGroup = __webpack_require__(67);
 
 	var _ListGroup2 = _interopRequireDefault(_ListGroup);
 
-	var _ListGroupItem = __webpack_require__(71);
+	var _ListGroupItem = __webpack_require__(68);
 
 	var _ListGroupItem2 = _interopRequireDefault(_ListGroupItem);
 
@@ -7711,106 +7220,83 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Jumbotron = function Jumbotron(props) {
+	  var description = props.description;
+	  var phone = props.phone;
+	  var email = props.email;
+	  var title = props.title;
+	  var imageUrl = props.imageUrl;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  var infoItems = [{
+	    id: 1,
+	    title: phone,
+	    badge: 'earphone',
+	    isBadgeIcon: true
+	  }, {
+	    id: 2,
+	    title: email,
+	    badge: 'envelope',
+	    isBadgeIcon: true
+	  }];
+	  var groupItems = infoItems.map(function (item) {
+	    return _react2.default.createElement(_ListGroupItem2.default, {
+	      key: item.id,
+	      title: item.title,
+	      badge: item.badge,
+	      isBadgeIcon: item.isBadgeIcon
+	    });
+	  });
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: Victor Trejo.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Description: This file contains the Jumbotron component of the page.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'jumbotron' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'thumbnail col-md-2 col-xs-4' },
+	        _react2.default.createElement('img', { src: imageUrl, alt: 'my profile' })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-6 col-xs-8' },
+	        _react2.default.createElement(
+	          'h1',
+	          { className: 'cursive-style' },
+	          _react2.default.createElement(_Glyphicon2.default, { iconType: 'glass' }),
+	          title
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            description
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _ListGroup2.default,
+	          null,
+	          groupItems
+	        )
+	      )
+	    )
+	  );
+	}; /**
+	    * Author: Victor Trejo.
+	    *
+	    * Description: This file contains the Jumbotron component of the page.
+	    */
 
-
-	var Jumbotron = function (_React$Component) {
-	    _inherits(Jumbotron, _React$Component);
-
-	    function Jumbotron() {
-	        _classCallCheck(this, Jumbotron);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Jumbotron).apply(this, arguments));
-	    }
-
-	    _createClass(Jumbotron, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var description = _props.description;
-	            var phone = _props.phone;
-	            var email = _props.email;
-	            var title = _props.title;
-	            var imageUrl = _props.imageUrl;
-
-	            var infoItems = [{
-	                id: 1,
-	                title: phone,
-	                badge: 'earphone',
-	                isBadgeIcon: true
-	            }, {
-	                id: 2,
-	                title: email,
-	                badge: 'envelope',
-	                isBadgeIcon: true
-	            }];
-	            var groupItems = infoItems.map(function (item) {
-
-	                return _react2.default.createElement(_ListGroupItem2.default, {
-	                    key: item.id,
-	                    title: item.title,
-	                    badge: item.badge,
-	                    isBadgeIcon: item.isBadgeIcon
-	                });
-	            });
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'jumbotron' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'container' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'thumbnail col-md-2 col-xs-4' },
-	                        _react2.default.createElement('img', { src: imageUrl })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-md-6 col-xs-8' },
-	                        _react2.default.createElement(
-	                            'h1',
-	                            { className: 'cursive-style' },
-	                            _react2.default.createElement(_Glyphicon2.default, { iconType: 'glass' }),
-	                            title
-	                        ),
-	                        _react2.default.createElement(
-	                            'h2',
-	                            null,
-	                            _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                description
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            _ListGroup2.default,
-	                            null,
-	                            groupItems
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Jumbotron;
-	}(_react2.default.Component);
 
 	Jumbotron.propTypes = {
-	    description: _react2.default.PropTypes.string.isRequired,
-	    title: _react2.default.PropTypes.string.isRequired,
-	    email: _react2.default.PropTypes.string.isRequired,
-	    phone: _react2.default.PropTypes.string.isRequired,
-	    imageUrl: _react2.default.PropTypes.string.isRequired
+	  description: _react2.default.PropTypes.string.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired,
+	  email: _react2.default.PropTypes.string.isRequired,
+	  phone: _react2.default.PropTypes.string.isRequired,
+	  imageUrl: _react2.default.PropTypes.string.isRequired
 	};
 
 	/**
@@ -7820,16 +7306,15 @@
 	 * @return {object}       the updated properties object.
 	 */
 	function mapStateToProps(state) {
+	  var jumbotron = state.jumbotron;
 
-	    var jumbotron = state.jumbotron;
-
-	    return {
-	        email: jumbotron.email,
-	        phone: jumbotron.phone,
-	        title: jumbotron.title,
-	        description: jumbotron.description,
-	        imageUrl: jumbotron.imageUrl
-	    };
+	  return {
+	    email: jumbotron.email,
+	    phone: jumbotron.phone,
+	    title: jumbotron.title,
+	    description: jumbotron.description,
+	    imageUrl: jumbotron.imageUrl
+	  };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Jumbotron);
@@ -7841,7 +7326,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _URLS = __webpack_require__(83);
@@ -7858,38 +7343,47 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * Makes a get request to a given url and notifies a given
+	 * type of action event.
+	 * @param  {string} url               target url
+	 * @param  {string} successActionType action type to be notified on success
+	 * @param  {string} errorActionType   action type to be notified on error
+	 * @return {function}                 a function that can be dispatch by
+	 *                                    the store's dispatch function.
+	 */
 	var loadAndNotify = function loadAndNotify(url, successActionType) {
-	    var errorActionType = arguments.length <= 2 || arguments[2] === undefined ? _ActionTypes2.default.ERROR_LOADING_DATA : arguments[2];
+	  var errorActionType = arguments.length <= 2 || arguments[2] === undefined ? _ActionTypes2.default.ERROR_LOADING_DATA : arguments[2];
 
+	  return function (dispatch) {
+	    _axios2.default.get(url).then(function (response) {
+	      dispatch({
+	        type: successActionType,
+	        payload: response.data
+	      });
+	    }).catch(function (response) {
+	      dispatch({
+	        type: errorActionType,
+	        payload: response
+	      });
+	    });
+	  };
+	};
 
-	    return function (dispatch) {
-
-	        _axios2.default.get(url).then(function (response) {
-
-	            dispatch({
-	                type: successActionType,
-	                payload: response.data
-	            });
-	        }).catch(function (response) {
-
-	            dispatch({
-	                type: errorActionType,
-	                payload: response
-	            });
-	        });
-	    };
-	}; /**
-	    * Author: Victor Trejo.
-	    * Description: This file contains all the Actions that
-	    *              be performed.
-	    */
-
-
+	/**
+	 * Loads all the necessary data from the API for each section
+	 * in the web page.
+	 * @param  {function} dispatch store's dispatch function.
+	 */
+	/**
+	 * Author: Victor Trejo.
+	 * Description: This file contains all the Actions that
+	 *              be performed.
+	 */
 	var loadData = function loadData(dispatch) {
-
-	    for (var key in _URLS2.default) {
-	        dispatch(loadAndNotify(_URLS2.default[key], _ActionTypes2.default[key]));
-	    }
+	  Object.keys(_URLS2.default).forEach(function (key, index) {
+	    dispatch(loadAndNotify(_URLS2.default[key], _ActionTypes2.default[key]));
+	  });
 	};
 
 	exports.default = loadData;
@@ -7901,22 +7395,22 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	/**
 	 * Author: Victor Trejo.
 	 * Description: This file contains all the API urls.
 	 */
 	exports.default = {
-	    LOAD_EDUCATION_HISTORY_DATA: '/api/education-history/',
-	    LOAD_EXPERIENCE_HISTORY_DATA: '/api/experience-history/',
-	    LOAD_ACADEMIC_PROJECTS_DATA: 'api/academic-projects/',
-	    LOAD_PERSONAL_PROJECTS_DATA: '/api/personal-projects/',
-	    LOAD_ABOUT_DATA: '/api/section/about/',
-	    LOAD_JUMBOTRON_DATA: '/api/section/jumbotron/',
-	    LOAD_RESUME_DATA: '/api/file-content/resume/',
-	    LOAD_PROFILE_PICTURE_DATA: '/api/file-content/profile-picture/',
-	    LOAD_SKILLS_DATA: '/api/skills/'
+	  LOAD_EDUCATION_HISTORY_DATA: '/api/education-history/',
+	  LOAD_EXPERIENCE_HISTORY_DATA: '/api/experience-history/',
+	  LOAD_ACADEMIC_PROJECTS_DATA: 'api/academic-projects/',
+	  LOAD_PERSONAL_PROJECTS_DATA: '/api/personal-projects/',
+	  LOAD_ABOUT_DATA: '/api/section/about/',
+	  LOAD_JUMBOTRON_DATA: '/api/section/jumbotron/',
+	  LOAD_RESUME_DATA: '/api/file-content/resume/',
+	  LOAD_PROFILE_PICTURE_DATA: '/api/file-content/profile-picture/',
+	  LOAD_SKILLS_DATA: '/api/skills/'
 	};
 
 /***/ },
@@ -7926,7 +7420,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	/**
 	 * Author: Victor Trejo.
@@ -7934,16 +7428,16 @@
 	 *              be dispatched.
 	 */
 	exports.default = {
-	    LOAD_EDUCATION_HISTORY_DATA: 'LOAD_EDUCATION_HISTORY_DATA',
-	    LOAD_EXPERIENCE_HISTORY_DATA: 'LOAD_EXPERIENCE_HISTORY_DATA',
-	    LOAD_ACADEMIC_PROJECTS_DATA: 'LOAD_ACADEMIC_PROJECTS_DATA',
-	    LOAD_PERSONAL_PROJECTS_DATA: 'LOAD_PERSONAL_PROJECTS_DATA',
-	    LOAD_ABOUT_DATA: 'LOAD_ABOUT_DATA',
-	    LOAD_JUMBOTRON_DATA: 'LOAD_JUMBOTRON_DATA',
-	    LOAD_RESUME_DATA: 'LOAD_RESUME_DATA',
-	    LOAD_PROFILE_PICTURE_DATA: 'LOAD_PROFILE_PICTURE_DATA',
-	    LOAD_SKILLS_DATA: 'LOAD_SKILLS_DATA',
-	    ERROR_LOADING_DATA: 'ERROR_LOADING_DATA'
+	  LOAD_EDUCATION_HISTORY_DATA: 'LOAD_EDUCATION_HISTORY_DATA',
+	  LOAD_EXPERIENCE_HISTORY_DATA: 'LOAD_EXPERIENCE_HISTORY_DATA',
+	  LOAD_ACADEMIC_PROJECTS_DATA: 'LOAD_ACADEMIC_PROJECTS_DATA',
+	  LOAD_PERSONAL_PROJECTS_DATA: 'LOAD_PERSONAL_PROJECTS_DATA',
+	  LOAD_ABOUT_DATA: 'LOAD_ABOUT_DATA',
+	  LOAD_JUMBOTRON_DATA: 'LOAD_JUMBOTRON_DATA',
+	  LOAD_RESUME_DATA: 'LOAD_RESUME_DATA',
+	  LOAD_PROFILE_PICTURE_DATA: 'LOAD_PROFILE_PICTURE_DATA',
+	  LOAD_SKILLS_DATA: 'LOAD_SKILLS_DATA',
+	  ERROR_LOADING_DATA: 'ERROR_LOADING_DATA'
 	};
 
 /***/ },
@@ -26164,8 +25658,10 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
 	                                                                                                                                                                                                                                                                   * Author: Victor Trejo.
@@ -26186,80 +25682,65 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var educationReducer = function educationReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.EDUCATION : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.EDUCATION : arguments[0];
+	  var action = arguments[1];
 
-
-	    if (action.type === _ActionTypes2.default.LOAD_EDUCATION_HISTORY_DATA) {
-
-	        return _extends({}, state, {
-	            history: action.payload
-	        });
-	    }
-
-	    return state;
+	  if (action.type === _ActionTypes2.default.LOAD_EDUCATION_HISTORY_DATA) {
+	    return _extends({}, state, {
+	      history: action.payload
+	    });
+	  }
+	  return state;
 	};
 
 	var experienceReducer = function experienceReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.EXPERIENCE : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.EXPERIENCE : arguments[0];
+	  var action = arguments[1];
 
-
-	    if (action.type === _ActionTypes2.default.LOAD_EXPERIENCE_HISTORY_DATA) {
-
-	        return _extends({}, state, {
-	            history: action.payload
-	        });
-	    }
-
-	    return state;
+	  if (action.type === _ActionTypes2.default.LOAD_EXPERIENCE_HISTORY_DATA) {
+	    return _extends({}, state, {
+	      history: action.payload
+	    });
+	  }
+	  return state;
 	};
 
 	var academicProjectsReducer = function academicProjectsReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.ACADEMIC_PROJECTS : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.ACADEMIC_PROJECTS : arguments[0];
+	  var action = arguments[1];
 
-
-	    if (action.type === _ActionTypes2.default.LOAD_ACADEMIC_PROJECTS_DATA) {
-
-	        return _extends({}, state, {
-	            projects: action.payload
-	        });
-	    }
-
-	    return state;
+	  if (action.type === _ActionTypes2.default.LOAD_ACADEMIC_PROJECTS_DATA) {
+	    return _extends({}, state, {
+	      projects: action.payload
+	    });
+	  }
+	  return state;
 	};
 
 	var personalProjectsReducer = function personalProjectsReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.PERSONAL_PROJECTS : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.PERSONAL_PROJECTS : arguments[0];
+	  var action = arguments[1];
 
-
-	    if (action.type === _ActionTypes2.default.LOAD_PERSONAL_PROJECTS_DATA) {
-
-	        return _extends({}, state, {
-	            projects: action.payload
-	        });
-	    }
-
-	    return state;
+	  if (action.type === _ActionTypes2.default.LOAD_PERSONAL_PROJECTS_DATA) {
+	    return _extends({}, state, {
+	      projects: action.payload
+	    });
+	  }
+	  return state;
 	};
 
 	var ABOUT_DESCRIPTION_KEY = 'about-description';
 
 	var aboutReducer = function aboutReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.ABOUT : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.ABOUT : arguments[0];
+	  var action = arguments[1];
 
-
-	    if (action.type === _ActionTypes2.default.LOAD_ABOUT_DATA) {
-
-	        return _extends({}, state, {
-	            description: action.payload.contents[ABOUT_DESCRIPTION_KEY].description
-	        });
-	    }
-
-	    return state;
+	  if (action.type === _ActionTypes2.default.LOAD_ABOUT_DATA) {
+	    return _extends({}, state, {
+	      description: action.payload.contents[ABOUT_DESCRIPTION_KEY].description
+	    });
+	  }
+	  return state;
 	};
 
 	var JUMBOTRON_DESCRIPTION_KEY = 'jumbotron-description';
@@ -26268,80 +25749,79 @@
 	var JUMBOTRON_EMAIL_KEY = 'jumbotron-email';
 
 	var jumbotronReducer = function jumbotronReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.JUMBOTRON : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.JUMBOTRON : arguments[0];
+	  var action = arguments[1];
 
+	  if (action.type === _ActionTypes2.default.LOAD_JUMBOTRON_DATA) {
+	    return _extends({}, state, {
+	      description: action.payload.contents[JUMBOTRON_DESCRIPTION_KEY].description,
+	      title: action.payload.contents[JUMBOTRON_TITLE_KEY].description,
+	      phone: action.payload.contents[JUMBOTRON_PHONE_KEY].description,
+	      email: action.payload.contents[JUMBOTRON_EMAIL_KEY].description
+	    });
+	  }
 
-	    if (action.type === _ActionTypes2.default.LOAD_JUMBOTRON_DATA) {
+	  if (action.type === _ActionTypes2.default.LOAD_PROFILE_PICTURE_DATA) {
+	    return _extends({}, state, {
+	      imageUrl: action.payload.file
+	    });
+	  }
 
-	        return _extends({}, state, {
-	            description: action.payload.contents[JUMBOTRON_DESCRIPTION_KEY].description,
-	            title: action.payload.contents[JUMBOTRON_TITLE_KEY].description,
-	            phone: action.payload.contents[JUMBOTRON_PHONE_KEY].description,
-	            email: action.payload.contents[JUMBOTRON_EMAIL_KEY].description
-	        });
-	    }
-
-	    if (action.type === _ActionTypes2.default.LOAD_PROFILE_PICTURE_DATA) {
-
-	        return _extends({}, state, {
-	            imageUrl: action.payload.file
-	        });
-	    }
-
-	    return state;
+	  return state;
 	};
 
 	var skillsReducer = function skillsReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.SKILLS : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.SKILLS : arguments[0];
+	  var action = arguments[1];
 
+	  if (action.type === _ActionTypes2.default.LOAD_SKILLS_DATA) {
+	    var _ret = function () {
+	      var result = {};
+	      var skills = action.payload;
 
-	    if (action.type === _ActionTypes2.default.LOAD_SKILLS_DATA) {
-	        var result = {};
-	        var skills = action.payload;
+	      Object.keys(skills).forEach(function (key, index) {
+	        var category = skills[key].categoryName;
 
-	        for (var key in skills) {
-
-	            var category = skills[key].categoryName;
-
-	            if (!result[category]) {
-	                result[category] = [];
-	            }
-
-	            result[category].push(skills[key]);
+	        if (!result[category]) {
+	          result[category] = [];
 	        }
 
-	        return result;
-	    }
+	        result[category].push(skills[key]);
+	      });
 
-	    return state;
+	      return {
+	        v: result
+	      };
+	    }();
+
+	    if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	  }
+
+	  return state;
 	};
 
 	var resumeReducer = function resumeReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.RESUME : arguments[0];
-	    var action = arguments[1];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _Default2.default.RESUME : arguments[0];
+	  var action = arguments[1];
 
+	  if (action.type === _ActionTypes2.default.LOAD_RESUME_DATA) {
+	    return _extends({}, state, {
+	      file: action.payload.file
+	    });
+	  }
 
-	    if (action.type === _ActionTypes2.default.LOAD_RESUME_DATA) {
-
-	        return _extends({}, state, {
-	            file: action.payload.file
-	        });
-	    }
-
-	    return state;
+	  return state;
 	};
 
 	var Reducers = (0, _redux.combineReducers)({
-	    about: aboutReducer,
-	    education: educationReducer,
-	    academicProjects: academicProjectsReducer,
-	    personalProjects: personalProjectsReducer,
-	    skills: skillsReducer,
-	    experience: experienceReducer,
-	    resume: resumeReducer,
-	    jumbotron: jumbotronReducer
+	  about: aboutReducer,
+	  education: educationReducer,
+	  academicProjects: academicProjectsReducer,
+	  personalProjects: personalProjectsReducer,
+	  skills: skillsReducer,
+	  experience: experienceReducer,
+	  resume: resumeReducer,
+	  jumbotron: jumbotronReducer
 	});
 
 	exports.default = Reducers;
@@ -26353,7 +25833,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	/**
 	 * Author: Victor Trejo.
@@ -26361,257 +25841,24 @@
 	 *              value the reducers will be in charge.
 	 */
 	exports.default = {
-	    EDUCATION: { history: [] },
-	    EXPERIENCE: { history: [] },
-	    ACADEMIC_PROJECTS: { projects: [] },
-	    PERSONAL_PROJECTS: { projects: [] },
-	    ABOUT: { description: '' },
-	    JUMBOTRON: {
-	        title: '',
-	        description: '',
-	        phone: '',
-	        email: '',
-	        imageUrl: ''
-	    },
-	    RESUME: { file: '' },
-	    SKILLS: {}
+	  EDUCATION: { history: [] },
+	  EXPERIENCE: { history: [] },
+	  ACADEMIC_PROJECTS: { projects: [] },
+	  PERSONAL_PROJECTS: { projects: [] },
+	  ABOUT: { description: '' },
+	  JUMBOTRON: {
+	    title: '',
+	    description: '',
+	    phone: '',
+	    email: '',
+	    imageUrl: ''
+	  },
+	  RESUME: { file: '' },
+	  SKILLS: {}
 	};
 
 /***/ },
 /* 243 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
-	var repeat = function repeat(str, times) {
-	  return new Array(times + 1).join(str);
-	};
-	var pad = function pad(num, maxLength) {
-	  return repeat("0", maxLength - num.toString().length) + num;
-	};
-	var formatTime = function formatTime(time) {
-	  return "@ " + pad(time.getHours(), 2) + ":" + pad(time.getMinutes(), 2) + ":" + pad(time.getSeconds(), 2) + "." + pad(time.getMilliseconds(), 3);
-	};
-
-	// Use the new performance api to get better precision if available
-	var timer = typeof performance !== "undefined" && typeof performance.now === "function" ? performance : Date;
-
-	/**
-	 * parse the level option of createLogger
-	 *
-	 * @property {string | function | object} level - console[level]
-	 * @property {object} action
-	 * @property {array} payload
-	 * @property {string} type
-	 */
-
-	function getLogLevel(level, action, payload, type) {
-	  switch (typeof level === "undefined" ? "undefined" : _typeof(level)) {
-	    case "object":
-	      return typeof level[type] === "function" ? level[type].apply(level, _toConsumableArray(payload)) : level[type];
-	    case "function":
-	      return level(action);
-	    default:
-	      return level;
-	  }
-	}
-
-	/**
-	 * Creates logger with followed options
-	 *
-	 * @namespace
-	 * @property {object} options - options for logger
-	 * @property {string | function | object} options.level - console[level]
-	 * @property {boolean} options.duration - print duration of each action?
-	 * @property {boolean} options.timestamp - print timestamp with each action?
-	 * @property {object} options.colors - custom colors
-	 * @property {object} options.logger - implementation of the `console` API
-	 * @property {boolean} options.logErrors - should errors in action execution be caught, logged, and re-thrown?
-	 * @property {boolean} options.collapsed - is group collapsed?
-	 * @property {boolean} options.predicate - condition which resolves logger behavior
-	 * @property {function} options.stateTransformer - transform state before print
-	 * @property {function} options.actionTransformer - transform action before print
-	 * @property {function} options.errorTransformer - transform error before print
-	 */
-
-	function createLogger() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	  var _options$level = options.level;
-	  var level = _options$level === undefined ? "log" : _options$level;
-	  var _options$logger = options.logger;
-	  var logger = _options$logger === undefined ? console : _options$logger;
-	  var _options$logErrors = options.logErrors;
-	  var logErrors = _options$logErrors === undefined ? true : _options$logErrors;
-	  var collapsed = options.collapsed;
-	  var predicate = options.predicate;
-	  var _options$duration = options.duration;
-	  var duration = _options$duration === undefined ? false : _options$duration;
-	  var _options$timestamp = options.timestamp;
-	  var timestamp = _options$timestamp === undefined ? true : _options$timestamp;
-	  var transformer = options.transformer;
-	  var _options$stateTransfo = options.stateTransformer;
-	  var // deprecated
-	  stateTransformer = _options$stateTransfo === undefined ? function (state) {
-	    return state;
-	  } : _options$stateTransfo;
-	  var _options$actionTransf = options.actionTransformer;
-	  var actionTransformer = _options$actionTransf === undefined ? function (actn) {
-	    return actn;
-	  } : _options$actionTransf;
-	  var _options$errorTransfo = options.errorTransformer;
-	  var errorTransformer = _options$errorTransfo === undefined ? function (error) {
-	    return error;
-	  } : _options$errorTransfo;
-	  var _options$colors = options.colors;
-	  var colors = _options$colors === undefined ? {
-	    title: function title() {
-	      return "#000000";
-	    },
-	    prevState: function prevState() {
-	      return "#9E9E9E";
-	    },
-	    action: function action() {
-	      return "#03A9F4";
-	    },
-	    nextState: function nextState() {
-	      return "#4CAF50";
-	    },
-	    error: function error() {
-	      return "#F20404";
-	    }
-	  } : _options$colors;
-
-	  // exit if console undefined
-
-	  if (typeof logger === "undefined") {
-	    return function () {
-	      return function (next) {
-	        return function (action) {
-	          return next(action);
-	        };
-	      };
-	    };
-	  }
-
-	  if (transformer) {
-	    console.error("Option 'transformer' is deprecated, use stateTransformer instead");
-	  }
-
-	  var logBuffer = [];
-	  function printBuffer() {
-	    logBuffer.forEach(function (logEntry, key) {
-	      var started = logEntry.started;
-	      var startedTime = logEntry.startedTime;
-	      var action = logEntry.action;
-	      var prevState = logEntry.prevState;
-	      var error = logEntry.error;
-	      var took = logEntry.took;
-	      var nextState = logEntry.nextState;
-
-	      var nextEntry = logBuffer[key + 1];
-	      if (nextEntry) {
-	        nextState = nextEntry.prevState;
-	        took = nextEntry.started - started;
-	      }
-	      // message
-	      var formattedAction = actionTransformer(action);
-	      var isCollapsed = typeof collapsed === "function" ? collapsed(function () {
-	        return nextState;
-	      }, action) : collapsed;
-
-	      var formattedTime = formatTime(startedTime);
-	      var titleCSS = colors.title ? "color: " + colors.title(formattedAction) + ";" : null;
-	      var title = "action " + (timestamp ? formattedTime : "") + " " + formattedAction.type + " " + (duration ? "(in " + took.toFixed(2) + " ms)" : "");
-
-	      // render
-	      try {
-	        if (isCollapsed) {
-	          if (colors.title) logger.groupCollapsed("%c " + title, titleCSS);else logger.groupCollapsed(title);
-	        } else {
-	          if (colors.title) logger.group("%c " + title, titleCSS);else logger.group(title);
-	        }
-	      } catch (e) {
-	        logger.log(title);
-	      }
-
-	      var prevStateLevel = getLogLevel(level, formattedAction, [prevState], "prevState");
-	      var actionLevel = getLogLevel(level, formattedAction, [formattedAction], "action");
-	      var errorLevel = getLogLevel(level, formattedAction, [error, prevState], "error");
-	      var nextStateLevel = getLogLevel(level, formattedAction, [nextState], "nextState");
-
-	      if (prevStateLevel) {
-	        if (colors.prevState) logger[prevStateLevel]("%c prev state", "color: " + colors.prevState(prevState) + "; font-weight: bold", prevState);else logger[prevStateLevel]("prev state", prevState);
-	      }
-
-	      if (actionLevel) {
-	        if (colors.action) logger[actionLevel]("%c action", "color: " + colors.action(formattedAction) + "; font-weight: bold", formattedAction);else logger[actionLevel]("action", formattedAction);
-	      }
-
-	      if (error && errorLevel) {
-	        if (colors.error) logger[errorLevel]("%c error", "color: " + colors.error(error, prevState) + "; font-weight: bold", error);else logger[errorLevel]("error", error);
-	      }
-
-	      if (nextStateLevel) {
-	        if (colors.nextState) logger[nextStateLevel]("%c next state", "color: " + colors.nextState(nextState) + "; font-weight: bold", nextState);else logger[nextStateLevel]("next state", nextState);
-	      }
-
-	      try {
-	        logger.groupEnd();
-	      } catch (e) {
-	        logger.log("—— log end ——");
-	      }
-	    });
-	    logBuffer.length = 0;
-	  }
-
-	  return function (_ref) {
-	    var getState = _ref.getState;
-	    return function (next) {
-	      return function (action) {
-	        // exit early if predicate function returns false
-	        if (typeof predicate === "function" && !predicate(getState, action)) {
-	          return next(action);
-	        }
-
-	        var logEntry = {};
-	        logBuffer.push(logEntry);
-
-	        logEntry.started = timer.now();
-	        logEntry.startedTime = new Date();
-	        logEntry.prevState = stateTransformer(getState());
-	        logEntry.action = action;
-
-	        var returnedValue = undefined;
-	        if (logErrors) {
-	          try {
-	            returnedValue = next(action);
-	          } catch (e) {
-	            logEntry.error = errorTransformer(e);
-	          }
-	        } else {
-	          returnedValue = next(action);
-	        }
-
-	        logEntry.took = timer.now() - logEntry.started;
-	        logEntry.nextState = stateTransformer(getState());
-
-	        printBuffer();
-
-	        if (logEntry.error) throw logEntry.error;
-	        return returnedValue;
-	      };
-	    };
-	  };
-	}
-
-	module.exports = createLogger;
-
-/***/ },
-/* 244 */
 /***/ function(module, exports) {
 
 	'use strict';

@@ -9,8 +9,8 @@ import React from 'react';
 import Section from './general/Section';
 import { connect } from 'react-redux';
 
-const Education = (education) => {
-  const items = education.history.map( (entry) => (
+const Education = (props) => {
+  const items = props.education.history.map( (entry) => (
     <ListGroupItem
           key={entry.id}
         title={`${entry.career} - ${entry.institution}`}

@@ -6,15 +6,15 @@
 import Panel from './Panel';
 import React from 'react';
 
-const PanelGroup = (id, children) => {
-  (
+const PanelGroup = (props) => {
+  return (
     <div
                  className="panel-group"
-                        id={id}
+                        id={props.id}
                       role="tablist"
       aria-multiselectable="true"
     >
-      {children}
+      {props.children}
     </div>
   );
 };

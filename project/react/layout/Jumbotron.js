@@ -9,13 +9,8 @@ import ListGroupItem from './content_sections/general/ListGroupItem';
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Jumbotron = (
-  description,
-  phone,
-  email,
-  title,
-  imageUrl
-) => {
+const Jumbotron = (props) => {
+  const { description, phone, email, title, imageUrl } = props;
   const infoItems = [
     {
       id: 1,

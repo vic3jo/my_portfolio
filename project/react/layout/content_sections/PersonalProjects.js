@@ -9,17 +9,19 @@ import React from 'react';
 import Section from './general/Section';
 import { connect } from 'react-redux';
 
-const PersonalProjects = (projects) => {
-  const projectsItems = projects.map((project) => (
-    <Project
-                key={project.id}
-              title={project.title}
-        description={project.description}
-          languages={project.languages}
-          libraries={project.libraries}
-      repositoryUrl={project.repositoryUrl}
-    />
-  ));
+const PersonalProjects = (props) => {
+  const projectsItems = props.projects.map((project) => {
+    return (
+      <Project
+                  key={project.id}
+                title={project.title}
+          description={project.description}
+            languages={project.languages}
+            libraries={project.libraries}
+        repositoryUrl={project.repositoryUrl}
+      />
+    );
+  });
 
   return (
     <Section

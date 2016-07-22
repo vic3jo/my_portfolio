@@ -9,14 +9,9 @@ import Utilties from '../../../core/Utilities';
 const DESCRIPTION_MAX_LENGTH = 105;
 const COURSE_MAX_LENGTH = 25;
 
-const Project = (
-  course,
-  description,
-  languages,
-  libraries,
-  repositoryUrl,
-  title
-) => {
+const Project = (props) => {
+  const {languages, libraries, repositoryUrl, title} = props;
+  const {course, description} = props;
   const courseLabelClass = course ? '' : 'hide';
   const descriptionText = Utilties.shortenIfLengthLarger(
       description,
@@ -71,6 +66,9 @@ Project.propTypes = {
   repositoryUrl: React.PropTypes.string.isRequired,
 };
 
-Project.defaultProps = { course: '' };
+Project.defaultProps = { 
+  course: '',
+  description: ''
+};
 
 export default Project;

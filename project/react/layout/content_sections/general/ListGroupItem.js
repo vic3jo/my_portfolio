@@ -6,12 +6,12 @@
 import Glyphicon from './Glyphicon';
 import React from 'react';
 
-const ListGroupItem = (title, isBadgeIcon, badge) => {
-  let badgeElement = badge;
-
-  if (isBadgeIcon)
+const ListGroupItem = (props) => {
+  let badgeElement = props.badge;
+  
+  if (props.isBadgeIcon)
   {
-    badgeElement = <Glyphicon iconType={badge} />;
+    badgeElement = <Glyphicon iconType={props.badge} />;
   }
 
   return (
@@ -19,7 +19,7 @@ const ListGroupItem = (title, isBadgeIcon, badge) => {
       <span className="badge">
           {badgeElement}
       </span>
-      {title}
+      {props.title}
     </li>
   );
 };

@@ -6,9 +6,9 @@
 import Project from './Project';
 import React from 'react';
 
-const ProjectList = (children) => {
-  (
-    <div> {children} </div>
+const ProjectList = (props) => {
+  return (
+    <div> {props.children} </div>
   );
 };
 

@@ -12,7 +12,7 @@ import React from 'react';
 import Skills from './content_sections/Skills';
 
 const Content = () => {
-  (
+  return (
     <section id="page-body" className="container">
       <About />
       <Experience />

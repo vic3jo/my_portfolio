@@ -5,12 +5,11 @@
  */
 import React from 'react';
 
-const Glyphicon = (iconType, children) => {
-  const className = `glyphicon glyphicon-${iconType}`;
-
+const Glyphicon = (props) => {
+  const className = `glyphicon glyphicon-${props.iconType}`;
   return (
     <span className={className}>
-      {children}
+      {props.children}
     </span>
   );
 };
@@ -25,4 +24,7 @@ Glyphicon.propTypes = {
   ]),
 };
 
+Glyphicon.defaultProps = {
+  children: []
+}
 export default Glyphicon;

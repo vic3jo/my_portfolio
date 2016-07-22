@@ -41,14 +41,17 @@ const LINKS_CONFIG = [
   },
 ];
 
-const links = LINKS_CONFIG.map((entry) => (
-  <NavigatorLink key={entry.sectionId} href={`#${entry.sectionId}`}>
-    <Glyphicon iconType={entry.icon} /> {entry.label}
-  </NavigatorLink>
-));
+const links = LINKS_CONFIG.map((entry) => {
+  console.log(entry.icon)
+  return (
+    <NavigatorLink key={entry.sectionId} href={`#${entry.sectionId}`}>
+      <Glyphicon iconType={entry.icon} /> {entry.label}
+    </NavigatorLink>
+  );
+});
 
 const Header = () => {
-  (
+  return (
     <header className="container">
       <div className="navbar navbar-default navbar-fixed-top">
         <div className="navbar-header col-offset-md-1">

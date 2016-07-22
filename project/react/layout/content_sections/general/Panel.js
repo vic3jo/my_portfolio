@@ -5,7 +5,8 @@
  */
 import React from 'react';
 
-const Panel = (id, expanded, badgeText, parentId) => {
+const Panel = (props) => {
+  const {id, expanded, badgeText, parentId} = props;
   const headingId = `heading-${id}`;
   const collapseId = `collapse-${id}`;
   let collapseClass = 'panel-collapse collapse';
@@ -40,7 +41,7 @@ const Panel = (id, expanded, badgeText, parentId) => {
               aria-expanded={expanded}
               aria-controls={collapseId}
           >
-            {this.props.title}
+            {props.title}
           </a>
         </h4>
       </div>
@@ -51,7 +52,7 @@ const Panel = (id, expanded, badgeText, parentId) => {
         aria-labelledby={headingId}
       >
         <div className="panel-body">
-          {this.props.children}
+          {props.children}
         </div>
       </div>
     </div>

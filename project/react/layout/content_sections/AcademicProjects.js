@@ -9,18 +9,20 @@ import React from 'react';
 import Section from './general/Section';
 import { connect } from 'react-redux';
 
-const AcademicProjects = (projects) => {
-  const projects = projects.map((project) => (
-    <Project
-                  key={project.id}
-                title={project.title}
-               course={project.course}
-          description={project.description}
-            languages={project.languages}
-            libraries={project.libraries}
-        repositoryUrl={project.repositoryUrl}
-    />
-  ));
+const AcademicProjects = (props) => {
+  const projectsItems = props.projects.map((project) => {
+    return (
+      <Project
+                    key={project.id}
+                  title={project.title}
+                 course={project.course}
+            description={project.description}
+              languages={project.languages}
+              libraries={project.libraries}
+          repositoryUrl={project.repositoryUrl}
+      />
+    );
+  });
 
   return (
     <Section
@@ -29,7 +31,7 @@ const AcademicProjects = (projects) => {
            title="Academic Projects"
     >
       <ProjectList>
-        {projects}
+        {projectsItems}
       </ProjectList>
     </Section>
   );
