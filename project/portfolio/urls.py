@@ -16,7 +16,7 @@ urlpatterns = patterns(
 	'',
     url(r'^$', views.index, name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/token/', obtain_auth_token, name='api-token'),
+    # url(r'^api/token/', obtain_auth_token, name='api-token'),
     url(r'^api/', include(router.urls)),
 )
 

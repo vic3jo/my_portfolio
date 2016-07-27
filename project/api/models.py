@@ -226,7 +226,7 @@ class FileContent(models.Model):
         blank=True,
         default=''
     )
-    file = models.FileField(upload_to=settings.MEDIA_URL)
+    file = models.FileField()
 
     def __str__(self):
         return "{}: {}".format(
