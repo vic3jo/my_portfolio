@@ -80,7 +80,8 @@ const JUMBOTRON_DESCRIPTION_KEY = 'jumbotron-description';
 const JUMBOTRON_TITLE_KEY = 'jumbotron-title';
 const JUMBOTRON_PHONE_KEY = 'jumbotron-phone';
 const JUMBOTRON_EMAIL_KEY = 'jumbotron-email';
-
+const JUMBOTRON_LINKED_IN_KEY = 'jumbotron-linked-in';
+const JUMBOTRON_GITHUB_KEY = 'jumbotron-github';
 
 const jumbotronReducer = (
     state = Default.JUMBOTRON,
@@ -94,6 +95,8 @@ const jumbotronReducer = (
       title: action.payload.contents[JUMBOTRON_TITLE_KEY].description,
       phone: action.payload.contents[JUMBOTRON_PHONE_KEY].description,
       email: action.payload.contents[JUMBOTRON_EMAIL_KEY].description,
+      linkedIn: action.payload.contents[JUMBOTRON_LINKED_IN_KEY].description,
+      github: action.payload.contents[JUMBOTRON_GITHUB_KEY].description,
     };
   }
 

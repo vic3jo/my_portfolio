@@ -9,8 +9,16 @@ import ListGroupItem from './content_sections/general/ListGroupItem';
 import React from 'react';
 import { connect } from 'react-redux';
 
+const Link = (url, label) => {
+  return (
+    <a href={url} >
+      {label}
+    </a>
+  );
+};
+
 const Jumbotron = (props) => {
-  const { description, phone, email, title, imageUrl } = props;
+  const { description, phone, email, linkedIn, github, title, imageUrl } = props;
   const infoItems = [
     {
       id: 1,
@@ -22,6 +30,18 @@ const Jumbotron = (props) => {
       id: 2,
       title: email,
       badge: 'envelope',
+      isBadgeIcon: true,
+    },
+    {
+      id: 3,
+      title: Link(linkedIn, 'Linked-in'),
+      badge: 'info-sign',
+      isBadgeIcon: true,
+    },
+    {
+      id: 4,
+      title: Link(github, 'Github'),
+      badge: 'inbox',
       isBadgeIcon: true,
     },
   ];
@@ -63,6 +83,8 @@ Jumbotron.propTypes = {
   email: React.PropTypes.string.isRequired,
   phone: React.PropTypes.string.isRequired,
   imageUrl: React.PropTypes.string.isRequired,
+  linkedIn: React.PropTypes.string.isRequired,
+  github: React.PropTypes.string.isRequired,
 };
 
 /**
@@ -81,6 +103,8 @@ function mapStateToProps(state)
     title: jumbotron.title,
     description: jumbotron.description,
     imageUrl: jumbotron.imageUrl,
+    linkedIn: jumbotron.linkedIn,
+    github: jumbotron.github,
   };
 }
 

@@ -15,6 +15,8 @@ export default {
     phone: '',
     email: '',
     imageUrl: '',
+    linkedIn: '',
+    github: '',
   },
   RESUME: { file: '' },
   SKILLS: {},
