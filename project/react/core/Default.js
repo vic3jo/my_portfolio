@@ -18,4 +18,5 @@ export default {
   },
   RESUME: { file: '' },
   SKILLS: {},
+  MENU_STATE: false,  
 };

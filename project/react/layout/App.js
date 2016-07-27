@@ -9,7 +9,7 @@ import Header from './Header';
 import Jumbotron from './Jumbotron';
 import React from 'react';
 import { connect } from 'react-redux';
-import loadData from '../core/Actions';
+import { loadData } from '../core/Actions';
 
 class App extends React.Component {
 

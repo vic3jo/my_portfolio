@@ -120,13 +120,6 @@ small, h2
 	margin-top: 50px;
 }
 
-/*.thumbnail .well { 
-	height: 85px; 
-	overflow: hidden; 
-	text-overflow: ellipsis;
-	text-overflow-multiline:ellipsis;
-} */
-
 .thumbnail h4 { 
 	height: 20px; 
 	overflow: hidden; 
@@ -212,7 +205,11 @@ li:hover .skill-description{
 
 /*Remove that CSS*/
 .col-md-3 {
-    margin-left:5%;
-    }
+   margin-left:5%;
+}
 
 
+/*.navbar-collapse {
+    -webkit-transition: all 0.5s ease; 
+    transition: all 0.5s ease;
+}*/

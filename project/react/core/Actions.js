@@ -45,7 +45,7 @@ const loadAndNotify = (
  * in the web page.
  * @param  {function} dispatch store's dispatch function.
  */
-const loadData = (dispatch) => {
+export const loadData = (dispatch) => {
   Object.keys(URLS).forEach((key, index) => {
     dispatch(
       loadAndNotify(
@@ -56,4 +56,15 @@ const loadData = (dispatch) => {
   });
 };
 
-export default loadData;
+/**
+ * Change the collapse menu's state
+ * @param  {open} menu state.
+ */
+export const changeMenuState = (open) => {
+  return ((dispatch) => {
+    dispatch({
+      type: ActionTypes.CHANGE_MENU_STATE,
+      payload: open,
+    });
+  });
+};

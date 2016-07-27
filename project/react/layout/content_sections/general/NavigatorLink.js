@@ -5,15 +5,26 @@
  */
 import React from 'react';
 
-const NavigatorLink = (props) => {
-  return (
-    <li className="nav">
-      <a href={props.href}>
-        {props.children}
-      </a>
-    </li>
-  );
-};
+class NavigatorLink extends React.Component
+{
+  handleClick()
+  {
+    this.props.onClick();
+  }
+
+  render()
+  {
+    const clickEvent = this.handleClick.bind(this);
+    return (
+      <li className="nav" onClick={clickEvent}>
+        <a href={this.props.href}>
+          {this.props.children}
+        </a>
+      </li>
+    ); 
+  }
+}
+
 
 NavigatorLink.propTypes = {
   children: React.PropTypes.oneOfType([
@@ -23,6 +34,7 @@ NavigatorLink.propTypes = {
     ),
   ]),
   href: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func.isRequired,
 };
 
 export default NavigatorLink;

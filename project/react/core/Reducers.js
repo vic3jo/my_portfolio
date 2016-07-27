@@ -151,6 +151,20 @@ const resumeReducer = (
 };
 
 
+const menuReducer = (
+    state = Default.MENU_STATE,
+    action
+) => {
+  
+  if ( action.type === ActionTypes.CHANGE_MENU_STATE )
+  {
+    return action.payload;
+  }
+
+  return state;
+};
+
+
 const Reducers = combineReducers({
   about: aboutReducer,
   education: educationReducer,
@@ -160,6 +174,7 @@ const Reducers = combineReducers({
   experience: experienceReducer,
   resume: resumeReducer,
   jumbotron: jumbotronReducer,
+  isMenuOpened: menuReducer,
 });
 
 export default Reducers;
