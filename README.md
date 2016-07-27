@@ -29,7 +29,7 @@ web page.
 ### Who do I talk to? ###
 	
 	Victor Trejo.
-	Email: vic3jo AT gmail DOT com
+	Email: vtrejo AT trejosoft DOT com
 
 ### Screenshot of the app ###
 ![Sample Screenshot](screenshot.png "Sample Screenshot")
